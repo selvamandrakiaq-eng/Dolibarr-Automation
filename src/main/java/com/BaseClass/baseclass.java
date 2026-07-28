@@ -4,6 +4,7 @@ import java.time.Duration;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
+import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
@@ -19,6 +20,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class baseclass {
 
+	
 	public static WebDriver driver;
 	public static WebDriverWait wait;
 
@@ -156,12 +158,8 @@ public class baseclass {
 	        return wait.until(ExpectedConditions.visibilityOf(element));
 	    }
 
-	  //Waitimplicit
+
 		
-		public static void waitimplicit() {
-			
-			//driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
-		}
         //switchtoNewwindow
 		public String parentWindow;
 	   public void switchToNewWindow() {

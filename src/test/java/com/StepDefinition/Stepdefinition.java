@@ -114,13 +114,7 @@ public class Stepdefinition extends baseclass{
       @Then("user click the sales and order in the dasboard page")
       public void user_click_the_sales_and_order_in_the_dasboard_page()throws Exception {
          click(d1.sales);
-         String actualUrl = driver.getCurrentUrl();
-         if(actualUrl.contains(actualUrl)) {
-        	 System.out.println("Navigate successfully in sales order page");
-         }else {
-        	 System.out.println("Navigation failed");
-        	 Assert.fail("User is not navigated to sales order page");
-         }
+         Assert.assertTrue("User is not click the sales and order",CurrentURL().contains("presentation-orders.php"));
          driver.navigate().back(); 
       }
       @Then("user click the contracts in the features dashboard page")
@@ -135,13 +129,7 @@ public class Stepdefinition extends baseclass{
       @Then("user click the Helpdesk in the crm and sales dashboard page")
       public void user_click_the_helpdesk_in_the_crm_and_sales_dashboard_page()throws Exception {
            click(d1.helpdesk);
-           String actualUrl = driver.getCurrentUrl();
-           if(actualUrl.contains(actualUrl)) {
-          	 System.out.println("Navigate successfully in Helpdesk page");
-           }else {
-          	 System.out.println("Navigation failed");
-          	 Assert.fail("User is not navigated to Helpdesk page");
-           }
+           Assert.assertTrue("User is not click the helpdesk",CurrentURL().contains("presentation-tickets.php"));
            driver.navigate().back();
       }
       @Then("user click the Knowledge in the crm and sales dashboard page")
@@ -163,13 +151,7 @@ public class Stepdefinition extends baseclass{
       @When("user click the Expense reports in the HR Management")
       public void user_click_the_expense_reports_in_the_hr_management()throws Exception {
        click(d1.Expensereports); 
-       String actualUrl = driver.getCurrentUrl();
-       if(actualUrl.contains(actualUrl)) {
-      	 System.out.println("Navigate successfully in HR Management page");
-       }else {
-      	 System.out.println("Navigation failed");
-      	 Assert.fail("User is not navigated to HR Management page");
-       }
+       Assert.assertTrue("User is not click the expense report",CurrentURL().contains("presentation-expense-reports.php"));
        driver.navigate().back();
       }
       @When("user click the leave request in the HR Management")
@@ -202,13 +184,7 @@ public class Stepdefinition extends baseclass{
       @Given("user click the cms and website in Features")
       public void user_click_the_cms_and_website_in_features()throws Exception {
          click(d1.CMS);
-         String actualUrl = driver.getCurrentUrl();
-         if(actualUrl.contains(actualUrl)) {
-        	 System.out.println("Navigate successfully in CMS page");
-         }else {
-        	 System.out.println("Navigation failed");
-        	 Assert.fail("User is not navigated to CMS page");
-         }
+         Assert.assertTrue("User is not click the CMS in HR Management",CurrentURL().contains("presentation-cms-website.php"));
          driver.navigate().back();
       }
 
@@ -238,13 +214,7 @@ public class Stepdefinition extends baseclass{
       @When("user click the purchase approvising in feature")
       public void user_click_the_purchase_approvising_in_feature()throws Exception {
         click(d1.Purchaseapprovising); 
-        String actualUrl = driver.getCurrentUrl();
-        if(actualUrl.contains(actualUrl)) {
-       	 System.out.println("Navigate successfully in purchase approvising page");
-        }else {
-       	 System.out.println("Navigation failed");
-       	 Assert.fail("User is not navigated to purchase approvising page");
-        }
+        Assert.assertTrue("User is not click the purchase page in product stock",CurrentURL().contains("presentation-purchase-approvisionning.php"));
        driver.navigate().back();
       }
 
@@ -283,13 +253,7 @@ public class Stepdefinition extends baseclass{
       @Then("user click the Double entry accounting in finance")
       public void user_click_the_double_entry_accounting_in_finance()throws Exception {
          click(d1.Doubleentrycounting);
-         String actualUrl = driver.getCurrentUrl();
-         if(actualUrl.contains(actualUrl)) {
-        	 System.out.println("Navigate successfully in Double entry Accounting page");
-         }else {
-        	 System.out.println("Navigation failed");
-        	 Assert.fail("User is not navigated to double entry page");
-         }
+         Assert.assertTrue("User is not click the double entry page",CurrentURL().contains("presentation-double-entry-accounting.php"));
          driver.navigate().back();
       }
 
@@ -326,13 +290,7 @@ public class Stepdefinition extends baseclass{
       @Then("user click the agenda in the productivity")
       public void user_click_the_agenda_in_the_productivity()throws Exception {
           click(d1.Agenda);
-          String actualUrl = driver.getCurrentUrl();
-          if(actualUrl.contains(actualUrl)) {
-         	 System.out.println("Navigate successfully in agenda page");
-          }else {
-         	 System.out.println("Navigation failed");
-         	 Assert.fail("User is not navigated to agenda page");
-          }
+          Assert.assertTrue("User is not click the Agenta page in productivity",CurrentURL().contains("presentation-agenda.php")); 
           driver.navigate().back();
       }
 
@@ -362,13 +320,7 @@ public class Stepdefinition extends baseclass{
       @Then("user click the Module Builder for developers")
       public void user_click_the_module_builder_for_developers()throws Exception {
           click(d1.Modulebuilder);
-          String actualUrl = driver.getCurrentUrl();
-          if(actualUrl.contains(actualUrl)) {
-         	 System.out.println("Navigate successfully in Module Builder page");
-          }else {
-         	 System.out.println("Navigation failed");
-         	 Assert.fail("User is not navigated to Module page");
-          }
+          Assert.assertTrue("User is not click the module buider page",CurrentURL().contains("presentation-development-ide.php"));  
           driver.navigate().back();
       }
 
@@ -387,14 +339,12 @@ public class Stepdefinition extends baseclass{
       @When("user click the solution2 option")
       public void user_click_the_solution2_option() throws Exception {
     	  scrolldown(d1.solution2);
-    	  waitimplicit();
          click(d1.solution2);
       }
       @When("user click the Freelance selling service only")
       public void user_click_the_freelance_selling_service_only() throws Exception{
     	  switchToNewWindow();
     	  scrolldown(d1.freelaunce);
-    	  waitimplicit();
           click(d1.freelaunce);
       }
       
@@ -427,7 +377,6 @@ public class Stepdefinition extends baseclass{
        @Given("user click the third party in the Header")
        public void user_click_the_third_party_in_the_header() throws Exception{
            click(d1.Thirdparty);
-    	   waitimplicit();
            String actualURL = driver.getCurrentUrl();
       	   String expectedURL = "https://demo.dolibarr.org/societe/index.php?mainmenu=companies&leftmenu=";
       	   Assert.assertEquals(actualURL, expectedURL);
@@ -437,13 +386,10 @@ public class Stepdefinition extends baseclass{
        @When("user click the new prospect creation")
        public void user_click_the_new_prospect_creation()throws Exception {
            click(d1.Newprosperty);
-           String actualUrl = driver.getCurrentUrl();
-           if(actualUrl.contains(actualUrl)) {
-          	 System.out.println("Navigate successfully in new third party page");
-           }else {
-          	 System.out.println("Navigation failed");
-          	 Assert.fail("User is not navigated to new third party page");
-           }
+           String actualURL = driver.getCurrentUrl();
+      	   String expectedURL = "https://demo.dolibarr.org/societe/card.php?leftmenu=prospects&action=create&type=p&mainmenu=companies";
+      	   Assert.assertEquals(actualURL, expectedURL);
+
           
        }
 
@@ -485,7 +431,8 @@ public class Stepdefinition extends baseclass{
 
        @When("user select the state from the dropdwon list {string}")
        public void user_select_the_state_from_the_dropdwon_list(String string)throws Exception {
-          d1.searchstate.sendKeys(Keys.ENTER);
+        sendkeys(d1.searchstate, string);
+        pressEnter(d1.searchstate);
        }
 
 	   @When("user enter the phone number in the field {string}")
@@ -557,13 +504,7 @@ public class Stepdefinition extends baseclass{
        @Given("user click the Prospects list")
        public void user_click_the_prospects_list()throws Exception {
           click(d1.Prospects);
-          String actualUrl = driver.getCurrentUrl();
-          if(actualUrl.contains(actualUrl)) {
-         	 System.out.println("Navigate successfully to prospects page");
-          }else {
-         	 System.out.println("Navigation failed");
-         	 Assert.fail("User is not navigated to prospect page");
-          }
+          Assert.assertTrue("User is not click the prospects page",CurrentURL().contains("societe/list.php?type=p&leftmenu=prospects&mainmenu=companies"));
          
        }
 
@@ -602,119 +543,112 @@ public class Stepdefinition extends baseclass{
        @When("user click the new customer creation")
        public void user_click_the_new_customer_creation()throws Exception {
            click(d1.customercreation);
-           String actualUrl = driver.getCurrentUrl();
-           if(actualUrl.contains(actualUrl)) {
-          	 System.out.println("Navigate successfully in new third party page");
-           }else {
-          	 System.out.println("Navigation failed");
-          	 Assert.fail("User is not navigated to new third party page");
-           }
+           Assert.assertTrue("Newly created customer is shown", isdisplayed(d1.Newprosperty));
        }
        
        @When("user enter the New customer name in the input field {string}")
        public void user_enter_the_new_customer_name_in_the_input_field(String string)throws Exception {
            sendkeys(d1.Thirdpartyname, string);
-           waitimplicit();
+          
        }
 
        @When("user enter the alias name in the input field {string}")
        public void user_enter_the_alias_name_in_the_input_field(String string)throws Exception {
            sendkeys(d1.commercialname, string);
-           waitimplicit();
+         
        }
 
        @When("user enter the address in the field {string}")
        public void user_enter_the_address_in_the_field(String string)throws Exception {
            sendkeys(d1.Address, string);
-           waitimplicit();
+           
        }
 
        @When("user enter the Zip code {string}")
        public void user_enter_the_zip_code(String string)throws Exception {
     	   sendkeys(d1.Zipcode, string);
-    	   waitimplicit();
+    	   
                   }
 
        @When("user enter the new city in the field {string}")
        public void user_enter_the_new_city_in_the_field(String string)throws Exception {
            sendkeys(d1.City, string);
-           waitimplicit();
+           
        }
 
        @When("user click the state in the field")
        public void user_click_the_state_in_the_field()throws Exception {
             click(d1.clickstate);
-            waitimplicit();
+            
        }
 
        @When("user enter the State in the Dropdown list {string}")
        public void user_enter_the_state_in_the_dropdown_list(String string)throws Exception {
-           d1.searchstate.sendKeys(Keys.ENTER);
-           waitimplicit();
+           sendkeys(d1.searchstate, string);
+           pressEnter(d1.searchstate);
+          
        }
 
        @When("user enter the mobilenumber in the input field {string}")
        public void user_enter_the_mobilenumber_in_the_input_field(String string)throws Exception {
             sendkeys(d1.Mobile, string);
-            waitimplicit();
+            
        }
 
        @When("user enter the Fax in the field {string}")
        public void user_enter_the_fax_in_the_field(String string) throws Exception{
            sendkeys(d1.fax, string);
-           waitimplicit();
+           
        }
 
        @When("user enter web in the field {string}")
        public void user_enter_web_in_the_field(String string)throws Exception {
           sendkeys(d1.Web, string);
-          waitimplicit();
-       }
+                 }
 
        @When("user enter Email in the inputfield {string}")
        public void user_enter_email_in_the_inputfield(String string)throws Exception {
            sendkeys(d1.Emailid, string);
-           waitimplicit();
+           
        }
 
        @When("user enter the prof id1 {string}")
        public void user_enter_the_prof_id1(String string)throws Exception {
           sendkeys(d1.profId1, string);
-          waitimplicit();
+          
        }
 
        @When("user enter the prof id2 {string}")
        public void user_enter_the_prof_id2(String string)throws Exception {
            sendkeys(d1.profId2, string);
-           waitimplicit();
+          
        }
 
        @When("user enter the prof id3 {string}")
        public void user_enter_the_prof_id3(String string) throws Exception {
           sendkeys(d1.profId3, string);
-          waitimplicit();
+          
        }
 
        @When("user enter the prof id4 {string}")
        public void user_enter_the_prof_id4(String string) throws Exception {
            sendkeys(d1.profId4, string );
-           waitimplicit();
+           
        }
        @When("user enter the prof id5 {string}")
        public void user_enter_the_prof_id5(String string) throws Exception{
           sendkeys(d1.profId5, string);
-          waitimplicit();
+          
        }
        @When("user enter the vatid {string}")
        public void user_enter_the_vatid(String string) throws Exception {
          sendkeys(d1.Vatid, string);
-         waitimplicit();
+        
        }
 
        @Then("user click the create customer if entered credentials are valid {string}")
        public void user_click_the_create_customer_if_entered_credentials_are_valid(String status)throws Exception {
            click(d1.Create);
-           waitimplicit();
            if (status.equalsIgnoreCase("valid")) 
                Assert.assertTrue("user created new customer successfully", isdisplayed(d1.customercreation));
            else {
@@ -725,13 +659,9 @@ public class Stepdefinition extends baseclass{
        @Given("user click the new contact in the third party page")
        public void user_click_the_new_contact_in_the_third_party_page()throws Exception {
            click(d1.contactcreation);
-           String actualUrl = driver.getCurrentUrl();
-           if(actualUrl.contains(actualUrl)) {
-          	 System.out.println("Newly created prospect is displayed");
-           }else {
-          	 System.out.println("Navigation failed");
-          	 Assert.fail("User is not navigated to newly craeted prospect page");
-           }
+           String actualURL = driver.getCurrentUrl();
+      	   String expectedURL = "https://demo.dolibarr.org/contact/card.php?leftmenu=contacts&action=create";
+      	   Assert.assertEquals(actualURL, expectedURL);
         
        }
 
@@ -793,7 +723,6 @@ public class Stepdefinition extends baseclass{
        @Then("user click the add button if entered credentials are valid {string}")
        public void user_click_the_add_button_if_entered_credentials_are_valid(String status)throws Exception {
            click(d1.ADD);
-           waitimplicit();
            if (status.equalsIgnoreCase("valid")) 
                Assert.assertTrue("user created new contact successfully", isdisplayed(d1.customercreation));
            else {
@@ -805,13 +734,9 @@ public class Stepdefinition extends baseclass{
        @Given("user click the new vendor cration in the Third party list")
        public void user_click_the_new_vendor_cration_in_the_third_party_list()throws Exception {
           click(d1.newvendor);
-          String actualUrl = driver.getCurrentUrl();
-          if(actualUrl.contains(actualUrl)) {
-         	 System.out.println("Newly created vendor is displayed");
-          }else {
-         	 System.out.println("Navigation failed");
-         	 Assert.fail("User is not navigated to newly craeted vendor page");
-          }
+          String actualURL = driver.getCurrentUrl();
+     	   String expectedURL = "https://demo.dolibarr.org/societe/card.php?leftmenu=suppliers&action=create&type=f";
+     	   Assert.assertEquals(actualURL, expectedURL);
        
        }
        @When("user enter the partyname in the input field {string}")
@@ -900,13 +825,9 @@ public class Stepdefinition extends baseclass{
        @Given("user click the list view in the contact")
        public void user_click_the_list_view_in_the_contact()throws Exception {
           click(d1.List); 
-          String actualUrl = driver.getCurrentUrl();
-          if(actualUrl.contains(actualUrl)) {
-         	 System.out.println("Newly created List is displayed");
-          }else {
-         	 System.out.println("Navigation failed");
-         	 Assert.fail("User is not navigated to newly craeted List page");
-          }
+          String actualURL = driver.getCurrentUrl();
+    	   String expectedURL = "https://demo.dolibarr.org/contact/list.php?leftmenu=contacts";
+    	   Assert.assertEquals(actualURL, expectedURL);
        }
 
        @When("user search the created name {string}")
@@ -1000,13 +921,7 @@ public class Stepdefinition extends baseclass{
        @When("user click the delete icon in the input field")
        public void user_click_the_delete_icon_in_the_input_field() throws Exception{
           click(d1.Delete);
-          String actualUrl = driver.getCurrentUrl();
-          if(actualUrl.contains(actualUrl)) {
-         	 System.out.println("user click the delete icon successfully");
-          }else {
-         	 System.out.println("Navigation failed");
-         	 Assert.fail("User is not navigated to delete icon page");
-          }
+            
        }
 
        @Then("user click No in the confirmation message")
@@ -1018,13 +933,9 @@ public class Stepdefinition extends baseclass{
        @Given("user click the service creation in the Headers")
        public void user_click_the_service_creation_in_the_headers() throws Exception{
            click(d1.services);
-             String actualUrl = driver.getCurrentUrl();
-           if(actualUrl.contains(actualUrl)) {
-          	 System.out.println("user is naviaged to service page");
-           }else {
-          	 System.out.println("Navigation failed");
-          	 Assert.fail("User is not navigated to service  page");
-           }  
+           String actualURL = driver.getCurrentUrl();
+    	   String expectedURL = "https://demo.dolibarr.org/product/index.php?mainmenu=products&leftmenu=";
+    	   Assert.assertEquals(actualURL, expectedURL);  
        }
 
        @When("user click the New service in the service page")
@@ -1067,15 +978,6 @@ public class Stepdefinition extends baseclass{
            sendkeys(d1.Notes, string);
        }
 
-//       @When("user click the tags dropdwon in the service page {string}")
-//       public void user_click_the_tags_dropdwon_in_the_service_page(String string)throws Exception {
-//           click(d1.Tags);
-//           sendkeys(d1.Tags, string);
-//           sendkeys(Keys.ENTER);
-//       }
-
-
-
        @When("user enter the selling price in the service page {string}")
        public void user_enter_the_selling_price_in_the_service_page(String string)throws Exception {
            sendkeys(d1.sellingprice, string);
@@ -1089,14 +991,12 @@ public class Stepdefinition extends baseclass{
        @When("user click the accounting sale dropdown in the service page {string}")
        public void user_click_the_accounting_sale_dropdown_in_the_service_page(String string)throws Exception {
           click(d1.Accountingsale);
-          waitimplicit();
           sendkeys(d1.searchaccountingsale, string);
           pressEnter(d1.searchaccountingsale);
        }
        @When("user click the accounting sale export dropdown in the service page {string}")
        public void user_click_the_accounting_sale_export_dropdown_in_the_service_page(String string)throws Exception {
           click(d1.salesimport);
-          waitimplicit();
           sendkeys(d1.searchaccountingsale, string);
           pressEnter(d1.searchaccountingsale);
        }
@@ -1104,14 +1004,12 @@ public class Stepdefinition extends baseclass{
        @When("user click the accounting purchase dropdown in the service page {string}")
        public void user_click_the_accounting_purchase_dropdown_in_the_service_page(String string)throws Exception {
            click(d1.purchased);
-           waitimplicit();
            sendkeys(d1.searchaccountingsale, string);
            pressEnter(d1.searchaccountingsale);
        }
        @When("user click the accounting purchase import in the service page {string}")
        public void user_click_the_accounting_purchase_import_in_the_service_page(String string)throws Exception {
           click(d1.purchaseimport);
-          waitimplicit();
           sendkeys(d1.searchaccountingsale, string);
           pressEnter(d1.searchaccountingsale);
        }
@@ -1119,14 +1017,275 @@ public class Stepdefinition extends baseclass{
        @Then("user click the create service if entered credentials are valid {string}")
        public void user_click_the_create_service_if_entered_credentials_are_valid(String status) {
            click(d1.createservice);
-           waitimplicit();
            if (status.equalsIgnoreCase("valid")) 
-               Assert.assertTrue("user created the details successfully", isdisplayed(d1.Newservice));
+              Assert.assertTrue("user created the details successfully", isdisplayed(d1.Newservice));
            else {
         		System.out.println(gettext(d1.creationvalidation));
                }
          
        }
+      
+       @Given("user click the list in the service")
+       public void user_click_the_list_in_the_service()throws Exception {
+           click(d1.Listservice);
+         Assert.assertTrue("user created list is displayed successfully", isdisplayed(d1.Newservice));  
+       }
+       @When("user search the prof reference name in the input field {string}")
+       public void user_search_the_prof_reference_name_in_the_input_field(String string)throws Exception {
+          sendkeys(d1.productrefsearch, string);
+       }
+
+
+        @When("user click the relevant product ref displayed in the list")
+       public void user_click_the_relevant_product_ref_displayed_in_the_list()throws Exception {
+           click(d1.clicksearch);
+           Assert.assertTrue("Relevant list is displayed successfully", isdisplayed(d1.Newservice));  
+           
+       }
+        
+        @When("user click the name in the displayed list")
+        public void user_click_the_name_in_the_displayed_list()throws Exception {
+           click(d1.namesearch);
+        }
+
+       @When("user click the clone in the displayed list")
+       public void user_click_the_clone_in_the_displayed_list()throws Exception {
+          click(d1.clone);
+       }
+       @When("user click the No button in the displayed list")
+       public void user_click_the_no_button_in_the_displayed_list()throws Exception {
+           click(d1.No);
+       }
+       @When("user click the delete button in the displayed list")
+       public void user_click_the_delete_button_in_the_displayed_list()throws Exception {
+           click(d1.delete);
+       }
+       @Then("user click the No delete button in the displayed list")
+       public void user_click_the_no_delete_button_in_the_displayed_list()throws Exception {
+          click(d1.NObutton);
+          Assert.assertTrue("user click the delete no button successfully", isdisplayed(d1.Newservice));
+       }
+
+       @Given("user click the variant attributes in the services")
+       public void user_click_the_variant_attributes_in_the_services()throws Exception {
+           click(d1.variantattributes);
+           Assert.assertTrue("user click the delete no button successfully", isdisplayed(d1.millesime));
+       }
+
+
+       @When("user click the first millesime in the list")
+       public void user_click_the_first_millesime_in_the_list() throws Exception{
+          click(d1.millesime);
+          String actualURL = driver.getCurrentUrl();
+     	   String expectedURL = "https://demo.dolibarr.org/variants/card.php?id=5&save_lastsearch_values=1";
+     	   Assert.assertEquals(actualURL, expectedURL);
+       }
+
+       @When("user click the Modify in the variant attribute")
+       public void user_click_the_modify_in_the_variant_attribute() throws Exception{
+           click(d1.Modifyinattribute);
+           Assert.assertTrue("user click the Modify button successfully", isdisplayed(d1.Newservice));
+
+       }
+
+       @When("user click the save button in the variant attribute")
+       public void user_click_the_save_button_in_the_variant_attribute() throws Exception{
+           click(d1.saveinattribute);
+           Assert.assertTrue("user click the save button successfully", isdisplayed(d1.Newservice)); 
+           
+       }
+
+       @When("user enter the ref number in the input field {string}")
+       public void user_enter_the_ref_number_in_the_input_field(String string)throws Exception {
+           sendkeys(d1.lineref, string);
+       }
+
+       @When("user enter the value in the input field {string}")
+       public void user_enter_the_value_in_the_input_field(String string)throws Exception {
+           sendkeys(d1.value, string);
+       }
+
+       @Then("user click the Add if entered credentials are valid {string}")
+       public void user_click_the_add_if_entered_credentials_are_valid(String status) {
+           click(d1.Addline);
+           if (status.equalsIgnoreCase("valid")) 
+               Assert.assertTrue("user created the attribute successfully", isdisplayed(d1.Newservice));
+            else {
+         		System.out.println(gettext(d1.creationvalidation));
+                }
+          
+           
+           
+       }
+
+       
+       @Given("user click the statistics in the services")
+       public void user_click_the_statistics_in_the_services() throws Exception{
+          click(d1.statistics);
+          Assert.assertTrue("user click the statics button successfully", isdisplayed(d1.Newservice));
+       
+       }
+       @When("user enter the product id in the input field {string}")
+       public void user_enter_the_product_id_in_the_input_field(String string)throws Exception {
+           sendkeys(d1.productorservice, string);
+       }
+       @When("user enter the tags in the input field {string}")
+       public void user_enter_the_tags_in_the_input_field(String string)throws Exception {
+          click(d1.tagsservice);
+          sendkeys(d1.searchtags, string);
+          pressEnter(d1.searchtags);
+       }
+       @When("user enter the third party name in the input field {string}")
+       public void user_enter_the_third_party_in_the_input_field(String string)throws Exception {
+           click(d1.thirdpartyname);
+           sendkeys(d1.searchtags, string);
+           pressEnter(d1.searchtags);
+       }
+       @Then("user click the refresh button")
+       public void user_click_the_refresh_button() throws Exception{
+          click(d1.refresh);
+       }
+      
+       
+       @When("user click the services by popularity in the header")
+       public void user_click_the_services_by_popularity_in_the_header() throws Exception{
+           click(d1.servicepopularity);
+           Assert.assertTrue("user click the services button successfully", isdisplayed(d1.Newservice));
+        
+           
+       }
+       @When("user click the dropdwon in the List of services {string}")
+       public void user_click_the_dropdwon_in_the_list_of_services(String string)throws Exception {
+           click(d1.listofservice);
+           sendkeys(d1.searchlistofservice, string);
+           pressEnter(d1.searchlistofservice);
+       }
+       @Then("user click the refresh in the list of services")
+       public void user_click_the_refresh_in_the_list_of_services() throws Exception{
+          click(d1.Refreshlistofservice);
+       }
+         
+
+       @Given("user click the new reception in the services")
+       public void user_click_the_new_reception_in_the_services() throws Exception {
+           click(d1.newreception);
+           Assert.assertTrue("user click the new reception button successfully", isdisplayed(d1.variantattributes));
+           
+       }
+
+       @When("user click the List in the reception")
+       public void user_click_the_list_in_the_reception()throws Exception {
+          click(d1.Listreception);
+          Assert.assertTrue("user click the list button successfully", isdisplayed(d1.Newservice));
+          
+       }
+
+       @When("user search the name in the third party input field {string}")
+       public void user_search_the_name_in_the_third_party_input_field(String string)throws Exception {
+          sendkeys(d1.searchcompany, string);
+         
+       }
+
+       @When("user click the search in the list")
+       public void user_click_the_search_in_the_list() throws Exception{
+           click(d1.clicksearch);
+           System.out.println(gettext(d1.textgettext));
+       }
+
+       @Then("user click the cancel button in list")
+       public void user_click_the_cancel_button_in_list()throws Exception {
+          click(d1.cancelbuuton);
+       Assert.assertTrue("user click the cancel button successfully", isdisplayed(d1.variantattributes));   
+       }
+
+       @Given("user click the draft in the reception")
+       public void user_click_the_draft_in_the_reception()throws Exception {
+           click(d1.Draft);
+           String actualURL = driver.getCurrentUrl();
+     	   String expectedURL ="https://demo.dolibarr.org/reception/list.php?leftmenu=receptions&search_status=0";
+     	   Assert.assertEquals(actualURL, expectedURL);
+        }
+
+       @When("user search the name in the search field {string}")
+       public void user_search_the_name_in_the_search_field(String string)throws Exception {
+          sendkeys(d1.searchcompany, string);
+                 }
+
+       @When("user click the searchbox in the reception")
+       public void user_click_the_searchbox_in_the_reception() throws Exception {
+           click(d1.clicksearch);
+           Assert.assertTrue("user click the draft button successfully", isdisplayed(d1.newreception));
+       }
+
+       @Then("user click the cancel button in draft")
+       public void user_click_the_cancel_button_in_draft()throws Exception {
+          click(d1.cancelbuuton);
+          Assert.assertTrue("user click the cancel button successfully", isdisplayed(d1.statistics));  
+       }
+
+       @Given("user click the validated in the reception")
+       public void user_click_the_validated_in_the_reception() throws Exception{
+           click(d1.Validated);
+           String actualURL = driver.getCurrentUrl();
+     	   String expectedURL = "https://demo.dolibarr.org/reception/list.php?leftmenu=receptions&search_status=1";
+     	   Assert.assertEquals(actualURL, expectedURL);
+
+       }
+
+       @When("user enter the name in the search box {string}")
+       public void user_enter_the_name_in_the_search_box(String string)throws Exception {
+          sendkeys(d1.searchcompany, string);
+          
+       }
+       
+       @When("user click the searchbox in the validation")
+       public void user_click_the_searchbox_in_the_validation() {
+           click(d1.clicksearch);
+           Assert.assertTrue("user click the validated button successfully", isdisplayed(d1.newreception)); 
+       }
+
+
+       @Then("user click the cancel button in validated")
+       public void user_click_the_cancel_button_in_validated()throws Exception {
+          click(d1.cancelbuuton);
+          Assert.assertTrue("user click the cancel button successfully", isdisplayed(d1.Draft));
+       }
+  
+       @Given("user click the processed in reception")
+       public void user_click_the_processed_in_reception()throws Exception {
+          click(d1.processed);
+          Assert.assertTrue("user click the processed button successfully", isdisplayed(d1.newreception));
+       }
+
+       @When("user search the name in the search bar {string}")
+       public void user_search_the_name_in_the_search_bar(String string) throws Exception{
+           sendkeys(d1.searchcompany, string);
+         
+       }
+
+       @When("user click the searchbox in the processed")
+       public void user_click_the_searchbox_in_the_processed() throws Exception{
+          click(d1.clicksearch);
+          Assert.assertTrue("user click the search box button successfully", isdisplayed(d1.Validated));  
+       }
+
+       @Then("user click the cancel button in processed")
+       public void user_click_the_cancel_button_in_processed()throws Exception {
+         click(d1.cancelbuuton);
+         String actualURL = driver.getCurrentUrl();
+   	   String expectedURL = "https://demo.dolibarr.org/reception/list.php";
+   	   Assert.assertEquals(actualURL, expectedURL);
+
+       }
+       
+      
+
+
+
+
+
+
+
 
 
 

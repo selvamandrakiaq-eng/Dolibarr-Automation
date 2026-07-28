@@ -3,19 +3,6 @@ Feature:Dolibar Website automation
 Scenario:verify login
 Given user launch browser
 Given user click the Test online in Homepage
-When user click the create my instance
-When user enter the email id "<email>"
-When user enter the companyname "<companyname>"
-When user enter the phonenumber "<phonenumber>"
-When user enter the password "<password>"
-When user enter the repeatpassword "<repeatpassword>"
-Then user click the checkbox in signup page
-Then user click the signup button 
-
-Example:
-
-|email                  |companyname|phonenumber|password  |repeatpassword|
-|selva123.kiaq@gmail.com|kid        |7418529630 |Selva123@A|Selva123@A    |
 
 Scenario:Features in CRM & Sales
 
@@ -28,7 +15,7 @@ Then user click the contracts in the features dashboard page
 Then user click the Helpdesk in the crm and sales dashboard page
 Then user click the Knowledge in the crm and sales dashboard page
 
-Scenario Outline:HR Management
+Scenario:HR Management
 
 Given user click the employees in the HR management
 When user click the Expense reports in the HR Management
@@ -37,12 +24,12 @@ When user click the timesheets in the HR Management
 When user click the recuirement in the HR Management
 Then  user click the membership in the HR management
 
-Scenario Outline:CMS,Website,POS
+Scenario:CMS,Website,POS
 
 Given user click the cms and website in Features
 Then user click the point of sale in the Features
 
-Scenario Outline:Product & Stock
+Scenario:Product & Stock
 
 Given user click the product service page in the Features
 When user click the stock page in the feature
@@ -50,38 +37,38 @@ When user click the purchase approvising in feature
 When user click the shipments in the Feature
 Then user click the Manufacturing in the Feature
 
-Scenario Outline:Finance & Billing
+Scenario:Finance & Billing
 
 Given user click the Bills and payment in Finance
 When user click the Bank reconciliation in Finance
 Then user click the Double entry accounting in finance
 
-Scenario Outline:Marketing
+Scenario:Marketing
 
 Given user click the Emailing in the Marketing
 Then user click the surveys in the Marketing
 
-Scenario Outline:Productivity
+Scenario:Productivity
 
 Given user click the project and tasks in the productivity
 When user click the Interventions in the productivity
 Then user click the agenda in the productivity
 
-Scenario Outline:Integration,Development
+Scenario:Integration,Development
 
 Given user click the API Integration page in feature
 When user click the connectivity with external tools in feature
 When user click the export import in feature
 Then user click the Module Builder for developers
 
-@Selva
+
 Scenario:Validate Login
 
 Given user click the Home icon
 When user click the Test online in dashboard page
 When user click the solution2 option
 When user click the Freelance selling service only
-@Selva
+
 Scenario Outline:Login validation using valid and invalid
 
 When user enter the username "<username>"
@@ -93,11 +80,11 @@ Examples:
 |demo     |DEMODEMO   |Invalid|
 |dem      |demooooo   |Invalid|
 |demo     |demo       |valid  |
-@Selva
+
 Scenario:Third party creation
 
 Given user click the third party in the Header
-#When user click the new prospect creation
+When user click the new prospect creation
 
 Scenario Outline:New prospect creation 
 
@@ -128,7 +115,7 @@ Examples:
 |                |            |           |        |         |        |               |              |       |                    |               |            |           |       |          |        |         |Invalid|
 |selvamandra     |commercial  |chennai    |6000001 |chennai  |TN     |044527892      |94561230789   |456123 |http://dolibarr.org |selva@gmail.com|78945612    |4152630   |4567891 | 415263   |45612333|77777777 |Valid|
 
-Scenario:Newly created prospect validation
+Scenario Outline:Newly created prospect validation
 
 Given user click the Prospects list
 When user search the newly created prospect name "<prospectname>"
@@ -169,7 +156,7 @@ Examples:
 |customer   |Alias   | address    |  zipcode  |  newcity  |State  |Mobilenumber  | Fax  | Web             |Email        |PROFID1     | PROFID2       |PROFID3  |PROFID4   |  PROFID5 | VATID  | satatus |
 |           |         |           |           |           |       |              |       |                |             |            |               |         |          |          |        |Invalid  |
 |           |         |1234567    |5204178    |tirunelveli| TN    |7418529630    |32105  |www.dolibar.org |sev@gmail.com|098765      |852041741      |963741   |3215      |0987654   |654321  |Invalid  |
-|Mandra     |Trademark|Tirunelveli|6524001    |tirunelveli| TN    |8527419630    |74120  |www.dolibar.org |sev@gmail.com|098765      |852041741      |963741   |3215      |0987654   |654321  | valid   |    
+|Muthu      |Trademark|Tirunelveli|6524001    |tirunelveli| TN    |8527419630    |74120  |www.dolibar.org |sev@gmail.com|098765      |852041741      |963741   |3215      |0987654   |654321  | valid   |    
 
 
 Scenario:New contact creation
@@ -270,12 +257,11 @@ When user click the Reactivate icon in the contact
 When user click the delete icon in the input field
 Then user click No in the confirmation message 
 
-@Selva
 Scenario:Service creation 
 
 Given user click the service creation in the Headers
 When user click the New service in the service page
-@Selva
+
 Scenario Outline:Newly service creation
 
 When user enter the prod reference in the new service "<productref>"
@@ -284,7 +270,6 @@ When user enter the description in the new service page "<description>"
 When user enter the public URL in the new service page "<public url>"
 When user enter the duration in the new service page "<duration>"
 When user enter the notes in the service page "<notes>"
-#When user click the tags dropdwon in the service page "<tags>"
 When user enter the selling price in the service page "<sellingprice>"
 When user enter the Minimum selling price in the service page "<Minselling>"
 When user click the accounting sale dropdown in the service page "<accountingsale>"
@@ -294,9 +279,135 @@ When user click the accounting purchase import in the service page "<purchaseimp
 Then user click the create service if entered credentials are valid "<status>"
 
 Examples:
-|productref  |label  |description   | public url  |duration   |  notes     |tags | sellingprice  | Minselling  |accountingsale  | saleexport  |salepurchase | purchaseimport |status  |
-|            |       |              |             |           |            |     |               |             |                |             |             |                |Invalid |
-|741852039   |Mandra |Smartwatch    |dolibar.org  |3          |smart watch | 1000 |20000         |50000        |  109           |   109       | 109         |  109           |valid   |
+|productref  |label  |description   | public url  |duration   |  notes     | sellingprice  | Minselling  |accountingsale  | saleexport  |salepurchase | purchaseimport |status  |
+|            |       |              |             |           |            |               |             |                |             |             |                |Invalid |
+|0418852888   |Mandra |Smartwatch    |dolibar.org  |3          |smart watch  |20000         |50000        |  109           |   109       | 109         |  109           |valid   |
+
+
+Scenario Outline: List Verification
+
+Given user click the list in the service
+When user search the prof reference name in the input field "<searchprofid>"
+When user click the relevant product ref displayed in the list
+When user click the name in the displayed list
+When user click the clone in the displayed list
+When user click the No button in the displayed list
+When user click the delete button in the displayed list
+Then user click the No delete button in the displayed list
+
+Examples:
+|searchprofid |
+| 741852039   |
+
+Scenario:Variant Attributes
+
+Given user click the variant attributes in the services
+When user click the first millesime in the list
+When user click the Modify in the variant attribute 
+When user click the save button in the variant attribute
+
+Scenario Outline:Verify the variant add
+
+When user enter the ref number in the input field "<refnum>"
+When user enter the value in the input field "<value>"
+Then user click the Add if entered credentials are valid "<status>"
+
+Examples:
+
+| refnum  |value  |status |
+|         |       |Invalid|
+|1000     |number |valid  |
+
+Scenario:Statistics in services
+
+Given user click the statistics in the services
+
+Scenario Outline:statistics chart
+
+When user enter the product id in the input field "<productid>"
+When user enter the tags in the input field "<tagsstatistics>"
+When user enter the third party name in the input field "<thirddparty>"
+Then user click the refresh button 
+
+Examples:
+
+| productid  |tagsstatistics  |thirddparty  |
+|741852039   |01-MASTIC       |abc          |
+
+Scenario Outline:Services by popularity
+
+When user click the services by popularity in the header 
+When user click the dropdwon in the List of services "<listofservice>"
+Then user click the refresh in the list of services
+
+Examples:
+
+|listofservice        |
+|Commercial proposals |
+
+Scenario:New Reception creation
+
+Given user click the new reception in the services
+When user click the List in the reception
+
+Scenario Outline:List in reception
+
+When user search the name in the third party input field "<thirdpartysearch>"
+When user click the search in the list
+Then user click the cancel button in list
+Examples:
+|thirdpartysearch |
+| Mandra          |
+|selva            |
+
+Scenario:Draft in reception
+
+Given user click the draft in the reception 
+
+Scenario Outline:draft created
+When user search the name in the search field "<search>"
+When user click the searchbox in the reception
+Then user click the cancel button in draft
+
+Examples:
+
+|search  |
+|mandra  |
+|selva   |
+
+Scenario:Validated in reception
+Given user click the validated in the reception
+
+Scenario Outline:validate the reception
+
+When user enter the name in the search box "<nameid>"
+When user click the searchbox in the validation
+Then user click the cancel button in validated
+
+Examples:
+|nameid|
+|selva|
+|Mandra|
+
+Scenario:Processed in reception
+Given user click the processed in reception
+
+Scenario Outline:processed Creation
+When user search the name in the search bar "<searchname>"
+When user click the searchbox in the processed
+Then user click the cancel button in processed
+
+Examples:
+
+|searchname|
+|selva     |
+|mandra    |
+
+
+
+
+
+
 
 
 

@@ -1,6 +1,5 @@
 package com.PomClass;
 
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -435,7 +434,116 @@ public WebElement purchaseimport;
 @FindBy(xpath ="//*[@name='add']")
 public WebElement createservice;
 
+@FindBy(xpath = "(//*[text()='List'])[1]")
+public WebElement Listservice;
 
+@FindBy(xpath = "//*[@name='search_ref']")
+public WebElement productrefsearch;
+
+@FindBy(xpath = "//*[@class='fas fa-concierge-bell paddingright']")
+public WebElement namesearch;
+
+@FindBy(xpath = "(//*[text()='No'])[2]")
+public WebElement No;
+
+@FindBy(xpath = "//*[@id='action-clone']")
+public WebElement clone;
+
+@FindBy(xpath = "//*[text()='Delete']")
+public WebElement delete;
+
+@FindBy(xpath = "(//*[@class='ui-button-icon ui-icon ui-icon-closethick'])[2]")
+public WebElement NObutton;
+
+@FindBy(xpath = "//*[text()='Variant attributes']")
+public WebElement variantattributes;
+
+@FindBy(xpath = "(//*[@class='fas fa-cube paddingright classfortooltip'])[1]")
+public WebElement millesime;
+
+@FindBy(xpath = "//*[text()='Modify']")
+public WebElement Modifyinattribute;
+
+@FindBy(xpath ="//*[@name='save']")
+public WebElement saveinattribute;
+
+@FindBy(xpath = "//*[@id='line_ref']")
+public WebElement lineref;
+
+@FindBy(xpath = "//*[@id='line_value']")
+public WebElement value;
+
+@FindBy(xpath = "//*[@id='addline']")
+public WebElement Addline;
+
+@FindBy(xpath ="(//*[text()='Statistics'])[1]")
+public WebElement statistics;
+
+@FindBy(xpath = "//*[@id='search_id']")
+public WebElement productorservice;
+
+@FindBy(xpath = "(//*[@class='select2-selection__arrow'])[3]")
+public WebElement tagsservice;
+
+@FindBy(xpath = "//*[@type='search']")
+public WebElement searchtags;
+
+@FindBy(xpath = "(//*[@class='select2-selection__arrow'])[5]")
+public WebElement thirdpartyname;
+
+@FindBy(xpath = "//*[@class='button small']")
+public WebElement refresh;
+
+@FindBy(xpath = "//*[text()='Services by popularity']")
+public WebElement servicepopularity;
+
+@FindBy(xpath = "(//*[@class='select2-selection__arrow'])[2]")
+public WebElement listofservice;
+
+@FindBy(xpath = "//*[@name='refresh']")
+public WebElement refreshservice;
+
+@FindBy(xpath ="//*[@type='search']")
+public WebElement searchlistofservice;
+
+@FindBy(xpath ="//*[@name='refresh']")
+public WebElement Refreshlistofservice;
+
+@FindBy(xpath = "//*[text()='New reception']")
+public WebElement newreception;
+
+@FindBy(xpath = "(//*[text()='List'])[2]")
+public WebElement Listreception;
+
+@FindBy(xpath = "//*[@name='search_company']")
+public WebElement searchcompany;
+
+@FindBy(xpath = "//*[@class='fas fa-times']")
+public WebElement cancelbuuton;
+
+@FindBy(xpath = "(//*[text()='Draft'])[1]")
+public WebElement Draft;
+
+@FindBy(xpath = "(//*[text()='Validated'])[1]")
+public WebElement Validated;
+
+@FindBy(xpath = "(//*[text()='Processed'])[1]")
+public WebElement processed;
+
+@FindBy(xpath = "//*[text()='No record found']")
+public WebElement textgettext;
+
+@FindBy(xpath ="(//*[text()='Statistics'])[2]")
+public WebElement statisticsReception;
+
+@FindBy(xpath ="(//*[@class='select2-selection__arrow'])[2]")
+public WebElement partydropdwon;
+
+@FindBy(xpath ="(//*[@class='select2-selection__arrow'])[3]")
+public WebElement createdby;
+
+@FindBy(xpath ="(//*[@class='select2-selection__arrow'])[3]")
+public WebElement year;
 
 
 }
