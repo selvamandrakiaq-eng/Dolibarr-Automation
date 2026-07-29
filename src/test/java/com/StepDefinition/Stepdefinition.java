@@ -959,7 +959,7 @@ public class Stepdefinition extends baseclass{
        public void user_enter_the_description_in_the_new_service_page(String string)throws Exception {
           switchToFrame(d1.Descriptionclick);
           click(d1.Description);
-          enterText(d1.Description, string);
+         sendkeys(d1.Description, string);
           switchToDefaultContent();
        }
 

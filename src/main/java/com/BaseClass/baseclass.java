@@ -58,11 +58,7 @@ public class baseclass {
 	
 	}
 	
-	//sendkey
-	public void sendkeys(Keys enterKeys) {
-	sendkeys(enterKeys);
-	}
-  
+
 	//windowhandles
 		//parentwindow
 		public  String getParentWindow() {
@@ -120,40 +116,10 @@ public class baseclass {
 		return wait.until(ExpectedConditions.visibilityOf(element)).getText();
 		}
 	
-		 // Wait until element is present in DOM
-	    public WebElement waitForPresence(By locator) {
-	        return wait.until(ExpectedConditions.presenceOfElementLocated(locator));
-	    }
+		 
 
 	    // Wait until element is visible
-	    public WebElement waitForVisibility(By locator) {
-	        return wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
-	    }
-
-	    // Wait until element is clickable
-	    public WebElement waitForClickable(By locator) {
-	        return wait.until(ExpectedConditions.elementToBeClickable(locator));
-	    }
-
-	    // Wait until alert is present
-	    public Alert waitForAlert() {
-	        return wait.until(ExpectedConditions.alertIsPresent());
-	    }
-
-	    // Wait until URL contains text
-	    public boolean waitForUrlContains(String value) {
-	        return wait.until(ExpectedConditions.urlContains(value));
-	    }
-
-	    // Wait until title contains text
-	    public boolean waitForTitleContains(String value) {
-	        return wait.until(ExpectedConditions.titleContains(value));
-	    }
-	    public WebElement waitForClickable(WebElement element) {
-	        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
-	        return wait.until(ExpectedConditions.elementToBeClickable(element));
-	    }
-	    public WebElement waitForVisibility(WebElement element) {
+	       public WebElement waitForVisibility(WebElement element) {
 	        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
 	        return wait.until(ExpectedConditions.visibilityOf(element));
 	    }
@@ -202,10 +168,6 @@ public class baseclass {
 		    driver.switchTo().defaultContent();
 
 		}
-		public void enterText(WebElement element,String value) {
-			element.clear();
-			element.sendKeys(value);
-			}
 		
 
 //enterkeys
