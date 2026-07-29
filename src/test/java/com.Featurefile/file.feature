@@ -61,14 +61,14 @@ When user click the connectivity with external tools in feature
 When user click the export import in feature
 Then user click the Module Builder for developers
 
-
+@Selva
 Scenario:Validate Login
 
 Given user click the Home icon
 When user click the Test online in dashboard page
 When user click the solution2 option
 When user click the Freelance selling service only
-
+@Selva
 Scenario Outline:Login validation using valid and invalid
 
 When user enter the username "<username>"
@@ -80,11 +80,11 @@ Examples:
 |demo     |DEMODEMO   |Invalid|
 |dem      |demooooo   |Invalid|
 |demo     |demo       |valid  |
-
+@Selva
 Scenario:Third party creation
 
 Given user click the third party in the Header
-When user click the new prospect creation
+#When user click the new prospect creation
 
 Scenario Outline:New prospect creation 
 
@@ -256,7 +256,7 @@ Given user click the disable icon in the Modified contact
 When user click the Reactivate icon in the contact
 When user click the delete icon in the input field
 Then user click No in the confirmation message 
-
+@Selva
 Scenario:Service creation 
 
 Given user click the service creation in the Headers
@@ -403,9 +403,108 @@ Examples:
 |selva     |
 |mandra    |
 
+Scenario:Statistics in reception
 
+Given user click the statistics in the reception
+When user enter the thirdparty in the reception "<thirdpartyreception>"
+When  user enter the createdby in the reception "<createdby>"
+When user enter the year in the reception "<year>"
+Then user click the refresh button in the reception
 
+Examples:
+|thirdpartyreception | createdby  | year  |
+|abc                 |david doe   |2026   |
 
+@Selva
+Scenario:Projects in the header
+
+Given user click the projects in the header 
+When user click the new lead in the project 
+
+Scenario Outline:New project creation
+
+When user enter the label in the project "<label>"
+When user enter the thirdparty name in the project "<thirdproject>"
+When user enter the lead status in the project "<leadstatus>"
+When user enter the lead amount in the project "<leadamount>"
+When user enter the budget amount in the project "<budgetamount>"
+When user enter the date in the input field "<date>"
+When user enter the description in the input field "<description>"
+When user enter categories in the input field "<categories>"
+When user enter the priority in the input field "<priority>"
+Then user click the create draft if entered credentials are valid "<status>"
+
+Examples:
+| label  |thirdproject  | leadstatus  | leadamount  | budgetamount  | date     | description | categories | priority | status |
+|        |              |             |             |               |          |             |            |          |Invalid |
+|selva   |abc           |won          |50000        |100000         |20/29/2026|smartwatch   |English     |2         |valid   |
+
+Scenario:Modify the project created
+
+Given user click the modfy button 
+
+Scenario Outline:Modify changes
+
+When user enter the label modify in the project "<labelname>"
+When user click the dropdown in the thirdparty in the project "<party>"
+When user click the leadstatus dropdown "<leadstatus>"
+When user enter the amount in the lead "<lead>"
+When user enter the budamt in the project "<budgetamt>"
+When user enter the datenumber in the input field "<datenumber>"
+When user enter the description project in the field "<descriptionproject>"
+When user click the categories dropdwon in the input field "<categories>"
+When user click the priority dropdwon in the field "<priorityproject>"
+Then user click the save button in the project if enetered credentials are valid "<status>"
+
+Examples:
+|labelname  |party  |leadstatus  | lead  | budgetamt  | datenumber  |descriptionproject  | categories  | priorityproject | status  |
+|           |       |            |       |            |             |                    |             |                  |Invalid  |
+|Mandra     | AAB   |Loss        |500    |70000       | 18/06/2026  | smart work         | CLF         | 4                |Valid     |
+
+Scenario:Send Email
+
+Given user click the send email in the project
+
+Scenario Outline:verifing sending mail in project
+When User selects email template "<email id template>"
+And User clicks Apply button
+And User validates To email "<To>"
+And User enters Subject "<Subject>"
+And User enters Message "<Message>"
+Then User clicks Send button
+Then user click back to list in th email page
+
+Examples:
+|email id template |  To               |Subject            |Message|
+|20250509-Private  |selva@gmail.com    |Need project       |Hai    |
+
+@Selva
+Scenario Outline:List verification
+
+Given user click the List in the leads
+When user enter the name in the search "<name project>"
+When user click the search button in project
+Then user click the first name of the lead list
+
+Examples:
+|name project |
+|selva        |
+@Selva
+Scenario:Statistics
+
+Given user click the statistics in the Leads
+@Selva
+Scenario Outline:
+
+When user click the dropdown in the thirdparty in project "<dropdwon>"
+When user click the lead status dropdown in the project "<Leadstatus>"
+When user click the year in the porject "<year>"
+Then user click the refresh button in the leads 
+
+Examples:
+|dropdwon  |  Leadstatus  |  year  |
+|          |              |         |
+|abc       | proposal     |2026     |
 
 
 

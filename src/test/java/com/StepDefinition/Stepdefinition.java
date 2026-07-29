@@ -863,36 +863,52 @@ public class Stepdefinition extends baseclass{
        @Given("user modify the lastname in the input field {string}")
        public void user_modify_the_lastname_in_the_input_field(String string) throws Exception{
           sendkeys(d1.lastname, string);
+          String actualText = d1.lastname.getAttribute("value");
+          Assert.assertEquals(string, actualText);
        }
 
        @When("user modify the firstname in the input field {string}")
        public void user_modify_the_firstname_in_the_input_field(String string)throws Exception {
           sendkeys(d1.Firstname, string);
+          String actualText = d1.Firstname.getAttribute("value");
+          Assert.assertEquals(string, actualText);
+
        }
 
        @When("user modify the address in the input field {string}")
        public void user_modify_the_address_in_the_input_field(String string)throws Exception {
            sendkeys(d1.address, string);
+           String actualText = d1.address.getAttribute("value");
+           Assert.assertEquals(string, actualText);
        }
 
        @When("user modify the zipcode in the input field {string}")
        public void user_modify_the_zipcode_in_the_input_field(String string)throws Exception {
-            sendkeys(d1.zipcode, string);    
+            sendkeys(d1.zipcode, string);   
+            String actualValue = d1.zipcode.getAttribute("value");
+            Assert.assertEquals(string, actualValue);
        }
 
        @When("user modify the busphone in the input field {string}")
        public void user_modify_the_busphone_in_the_input_field(String string) throws Exception{
           sendkeys(d1.Busphone, string);
+          String actualValue = d1.Busphone.getAttribute("value");
+          Assert.assertEquals(string, actualValue);
+          
        }
 
        @When("user modify the persphone in the input field {string}")
        public void user_modify_the_persphone_in_the_input_field(String string)throws Exception {
            sendkeys(d1.Persphone, string);
+           String actualValue = d1.Persphone.getAttribute("value");
+           Assert.assertEquals(string, actualValue);
        }
 
        @When("user modify the faxnumber in the input field {string}")
        public void user_modify_the_faxnumber_in_the_input_field(String string)throws Exception {
            sendkeys(d1.Fax, string);
+           String actualValue = d1.Fax.getAttribute("value");
+           Assert.assertEquals(string, actualValue);
        }
 
        @Then("user click the save button if entered credentials are valid {string}")
@@ -948,11 +964,15 @@ public class Stepdefinition extends baseclass{
        public void user_enter_the_prod_reference_in_the_new_service(String string) throws Exception {
               waitForVisibility(d1.Productref);
                 sendkeys(d1.Productref, string);
+                String actualValue = d1.Productref.getAttribute("value");
+                Assert.assertEquals(string, actualValue);
        }
 
        @When("user enter the label in the new service {string}")
        public void user_enter_the_label_in_the_new_service(String string) throws Exception {
          sendkeys(d1.Label, string);
+         String actualText = d1.Label.getAttribute("value");
+         Assert.assertEquals(string, actualText);
        }
 
        @When("user enter the description in the new service page {string}")
@@ -971,21 +991,29 @@ public class Stepdefinition extends baseclass{
        @When("user enter the duration in the new service page {string}")
        public void user_enter_the_duration_in_the_new_service_page(String string)throws Exception {
           sendkeys(d1.Duration, string);
+          String actualValue = d1.Duration.getAttribute("value");
+          Assert.assertEquals(string, actualValue);
        }
 
        @When("user enter the notes in the service page {string}")
        public void user_enter_the_notes_in_the_service_page(String string)throws Exception {
            sendkeys(d1.Notes, string);
+           String actualText = d1.Notes.getAttribute("value");
+           Assert.assertEquals(string, actualText);
        }
 
        @When("user enter the selling price in the service page {string}")
        public void user_enter_the_selling_price_in_the_service_page(String string)throws Exception {
            sendkeys(d1.sellingprice, string);
+           String actualValue = d1.sellingprice.getAttribute("value");
+           Assert.assertEquals(string, actualValue);
        }
 
        @When("user enter the Minimum selling price in the service page {string}")
        public void user_enter_the_minimum_selling_price_in_the_service_page(String string)throws Exception {
           sendkeys(d1.Minsellingprice, string);
+          String actualValue = d1.Minsellingprice.getAttribute("value");
+          Assert.assertEquals(string, actualValue);
        }
 
        @When("user click the accounting sale dropdown in the service page {string}")
@@ -1033,6 +1061,8 @@ public class Stepdefinition extends baseclass{
        @When("user search the prof reference name in the input field {string}")
        public void user_search_the_prof_reference_name_in_the_input_field(String string)throws Exception {
           sendkeys(d1.productrefsearch, string);
+          String actualText = d1.productrefsearch.getAttribute("value");
+          Assert.assertEquals(string, actualText);
        }
 
 
@@ -1046,6 +1076,7 @@ public class Stepdefinition extends baseclass{
         @When("user click the name in the displayed list")
         public void user_click_the_name_in_the_displayed_list()throws Exception {
            click(d1.namesearch);
+           Assert.assertTrue("name is displayed successfully", isdisplayed(d1.Listservice));  
         }
 
        @When("user click the clone in the displayed list")
@@ -1098,11 +1129,15 @@ public class Stepdefinition extends baseclass{
        @When("user enter the ref number in the input field {string}")
        public void user_enter_the_ref_number_in_the_input_field(String string)throws Exception {
            sendkeys(d1.lineref, string);
+           String actualValue = d1.lineref.getAttribute("value");
+           Assert.assertEquals(string, actualValue);
        }
 
        @When("user enter the value in the input field {string}")
        public void user_enter_the_value_in_the_input_field(String string)throws Exception {
            sendkeys(d1.value, string);
+           String actualValue = d1.value.getAttribute("value");
+           Assert.assertEquals(string, actualValue);
        }
 
        @Then("user click the Add if entered credentials are valid {string}")
@@ -1128,6 +1163,8 @@ public class Stepdefinition extends baseclass{
        @When("user enter the product id in the input field {string}")
        public void user_enter_the_product_id_in_the_input_field(String string)throws Exception {
            sendkeys(d1.productorservice, string);
+           String actualValue = d1.productorservice.getAttribute("value");
+           Assert.assertEquals(string, actualValue);
        }
        @When("user enter the tags in the input field {string}")
        public void user_enter_the_tags_in_the_input_field(String string)throws Exception {
@@ -1144,6 +1181,7 @@ public class Stepdefinition extends baseclass{
        @Then("user click the refresh button")
        public void user_click_the_refresh_button() throws Exception{
           click(d1.refresh);
+          Assert.assertTrue("user click the refresh button successfully", isdisplayed(d1.variantattributes));
        }
       
        
@@ -1163,6 +1201,7 @@ public class Stepdefinition extends baseclass{
        @Then("user click the refresh in the list of services")
        public void user_click_the_refresh_in_the_list_of_services() throws Exception{
           click(d1.Refreshlistofservice);
+          Assert.assertTrue("user click the refresh button successfully", isdisplayed(d1.variantattributes));
        }
          
 
@@ -1183,6 +1222,8 @@ public class Stepdefinition extends baseclass{
        @When("user search the name in the third party input field {string}")
        public void user_search_the_name_in_the_third_party_input_field(String string)throws Exception {
           sendkeys(d1.searchcompany, string);
+          String actualText = d1.searchcompany.getAttribute("value");
+          Assert.assertEquals(string, actualText);
          
        }
 
@@ -1209,6 +1250,8 @@ public class Stepdefinition extends baseclass{
        @When("user search the name in the search field {string}")
        public void user_search_the_name_in_the_search_field(String string)throws Exception {
           sendkeys(d1.searchcompany, string);
+          String actualText = d1.searchcompany.getAttribute("value");
+          Assert.assertEquals(string, actualText);
                  }
 
        @When("user click the searchbox in the reception")
@@ -1235,6 +1278,8 @@ public class Stepdefinition extends baseclass{
        @When("user enter the name in the search box {string}")
        public void user_enter_the_name_in_the_search_box(String string)throws Exception {
           sendkeys(d1.searchcompany, string);
+          String actualText = d1.searchcompany.getAttribute("value");
+          Assert.assertEquals(string, actualText);
           
        }
        
@@ -1260,7 +1305,8 @@ public class Stepdefinition extends baseclass{
        @When("user search the name in the search bar {string}")
        public void user_search_the_name_in_the_search_bar(String string) throws Exception{
            sendkeys(d1.searchcompany, string);
-         
+           String actualText = d1.searchcompany.getAttribute("value");
+           Assert.assertEquals(string, actualText);
        }
 
        @When("user click the searchbox in the processed")
@@ -1278,7 +1324,347 @@ public class Stepdefinition extends baseclass{
 
        }
        
-      
+       @Given("user click the statistics in the reception")
+       public void user_click_the_statistics_in_the_reception()throws Exception {
+          click(d1.statisticsReception);
+          Assert.assertTrue("user click the statistics button successfully", isdisplayed(d1.submitbutton)); 
+          Assert.assertTrue("User is not click the statistics page",CurrentURL().contains("reception/stats/index.php?leftmenu=receptions"));
+       }
+
+       @When("user enter the thirdparty in the reception {string}")
+       public void user_enter_the_thirdparty_in_the_reception(String string)throws Exception {
+          click(d1.partydropdwon);
+          sendkeys(d1.thrdsearch, string);
+          pressEnter(d1.thrdsearch);
+       }
+
+       @When("user enter the createdby in the reception {string}")
+       public void user_enter_the_createdby_in_the_reception(String string) throws Exception{
+           click(d1.createdby);
+           sendkeys(d1.thrdsearch, string);
+           pressEnter(d1.thrdsearch);
+       }
+
+       @When("user enter the year in the reception {string}")
+       public void user_enter_the_year_in_the_reception(String string)throws Exception {
+           click(d1.year);
+           sendkeys(d1.thrdsearch, string);
+           pressEnter(d1.thrdsearch);
+       }
+
+
+       @Then("user click the refresh button in the reception")
+       public void user_click_the_refresh_button_in_the_reception()throws Exception {
+           click(d1.submitbutton);
+           Assert.assertTrue("user click the refresh button successfully", isdisplayed(d1.Draft)); 
+           Assert.assertTrue("User is not click the refresh page",CurrentURL().contains("reception/stats/index.php?leftmenu=receptions"));
+          
+       }
+
+       @Given("user click the projects in the header")
+       public void user_click_the_projects_in_the_header()throws Exception {
+           click(d1.projects);
+           Assert.assertTrue("user click the project button successfully", isdisplayed(d1.newlead)); 
+           Assert.assertTrue("User is not click the project page",CurrentURL().contains("projet/index.php?mainmenu=project&leftmenu="));
+       }
+
+       @When("user click the new lead in the project")
+       public void user_click_the_new_lead_in_the_project()throws Exception {
+           click(d1.newlead);
+           String actualURL = driver.getCurrentUrl();
+       	   String expectedURL = "https://demo.dolibarr.org/projet/card.php?leftmenu=projects&action=create&search_project_user=&mainmenu=project";
+       	   Assert.assertEquals(actualURL, expectedURL);
+
+           
+       }
+
+       @When("user enter the label in the project {string}")
+       public void user_enter_the_label_in_the_project(String string)throws Exception {
+           sendkeys(d1.labelproject, string);
+           String actualText = d1.labelproject.getAttribute("value");
+           Assert.assertEquals(string, actualText);
+       }
+
+       @When("user enter the thirdparty name in the project {string}")
+       public void user_enter_the_thirdparty_name_in_the_project(String string) throws Exception{
+           click(d1.thirdpartyproject);
+           sendkeys(d1.searchthird, string);
+           pressEnter(d1.searchthird);
+       }
+
+       @When("user enter the lead status in the project {string}")
+       public void user_enter_the_lead_status_in_the_project(String string) throws Exception{
+           click(d1.leadstatus);
+           sendkeys(d1.searchthird, string);
+           pressEnter(d1.searchthird);
+       }
+
+       @When("user enter the lead amount in the project {string}")
+       public void user_enter_the_lead_amount_in_the_project(String string) throws Exception{
+           sendkeys(d1.leadamount, string);
+           String actualValue = d1.leadamount.getAttribute("value");
+           Assert.assertEquals(string, actualValue);
+       }
+
+       @When("user enter the budget amount in the project {string}")
+       public void user_enter_the_budget_amount_in_the_project(String string) throws Exception{
+          sendkeys(d1.budgetamt, string);
+          String actualValue = d1.budgetamt.getAttribute("value");
+          Assert.assertEquals(string, actualValue);
+
+       }
+
+       @When("user enter the date in the input field {string}")
+       public void user_enter_the_date_in_the_input_field(String string) throws Exception {
+           sendkeys(d1.Date, string);
+           String actaulDate = d1.Date.getAttribute("value");
+           Assert.assertEquals(string, actaulDate);
+
+       }
+
+       @When("user enter the description in the input field {string}")
+       public void user_enter_the_description_in_the_input_field(String string)throws Exception {
+    	   switchToFrame(d1.Descriptionclick);
+           click(d1.Description);
+          sendkeys(d1.Description, string);
+           switchToDefaultContent();     
+           }
+
+       @When("user enter categories in the input field {string}")
+       public void user_enter_categories_in_the_input_field(String string) throws Exception{
+          click(d1.Tags);
+          sendkeys(d1.taggssearch, string);
+          pressEnter(d1.searchtags);
+       }
+
+       @When("user enter the priority in the input field {string}")
+       public void user_enter_the_priority_in_the_input_field(String string)throws Exception {
+    	   click(d1.priority);
+           sendkeys(d1.prioritysearch, string);
+           pressEnter(d1.prioritysearch);
+       }
+
+       @Then("user click the create draft if entered credentials are valid {string}")
+       public void user_click_the_create_draft_if_entered_credentials_are_valid(String status)throws Exception {
+           click(d1.savedraft);
+           if (status.equalsIgnoreCase("valid")) 
+               Assert.assertTrue("user created the draft successfully", isdisplayed(d1.newlead));
+            else {
+         		System.out.println(gettext(d1.creationvalidation));
+                }
+       }
+           @Given("user click the modfy button")
+           public void user_click_the_modfy_button()throws Exception {
+               click(d1.Modify);
+               Assert.assertTrue("user click modify successfully", isdisplayed(d1.newlead));
+               
+           }
+           @When("user enter the label modify in the project {string}")
+           public void user_enter_the_label_modify_in_the_project(String string)throws Exception {
+        	   sendkeys(d1.labelprojert, string);
+        	   waitForVisibility(d1.labelprojert);
+        	   String actualText = d1.labelprojert.getAttribute("value");
+               Assert.assertEquals(string, actualText);
+        	   
+           }
+           @When("user click the dropdown in the thirdparty in the project {string}")
+           public void user_click_the_dropdown_in_the_thirdparty_in_the_project(String string) throws Exception {
+        	   click(d1.thirdpartyproject);
+               sendkeys(d1.searchthird, string);
+               pressEnter(d1.searchthird);
+           }
+           @When("user click the leadstatus dropdown {string}")
+           public void user_click_the_leadstatus_dropdown(String string)throws Exception {
+        	   click(d1.leadstatus);
+               sendkeys(d1.searchthird, string);
+               pressEnter(d1.searchthird);
+           }
+           @When("user enter the amount in the lead {string}")
+           public void user_enter_the_amount_in_the_lead(String string)throws Exception {
+        	   sendkeys(d1.leadamount, string);
+               String actualValue = d1.leadamount.getAttribute("value");
+               Assert.assertEquals(string, actualValue);
+           }
+           @When("user enter the budamt in the project {string}")
+           public void user_enter_the_budamt_in_the_project(String string)throws Exception {
+        	   sendkeys(d1.budgetamt, string);
+               String actualValue = d1.budgetamt.getAttribute("value");
+               Assert.assertEquals(string, actualValue);
+           }
+           @When("user enter the datenumber in the input field {string}")
+           public void user_enter_the_datenumber_in_the_input_field(String string)throws Exception {
+        	   sendkeys(d1.Date, string);
+               String actaulDate = d1.Date.getAttribute("value");
+               Assert.assertEquals(string, actaulDate);
+
+           }
+           @When("user enter the description project in the field {string}")
+           public void user_enter_the_description_project_in_the_field(String string)throws Exception {
+        	   switchToFrame(d1.Descriptionclick);
+               click(d1.Description);
+              sendkeys(d1.Description, string);
+               switchToDefaultContent();
+           }
+           @When("user click the categories dropdwon in the input field {string}")
+           public void user_click_the_categories_dropdwon_in_the_input_field(String string)throws Exception {
+        	   click(d1.Tags);
+               sendkeys(d1.taggssearch, string);
+               pressEnter(d1.searchtags);
+
+           }
+           @When("user click the priority dropdwon in the field {string}")
+           public void user_click_the_priority_dropdwon_in_the_field(String string)throws Exception {
+        	   click(d1.priority);
+               sendkeys(d1.prioritysearch, string);
+               pressEnter(d1.prioritysearch);
+           }
+           @Then("user click the save button in the project if enetered credentials are valid {string}")
+           public void user_click_the_save_button_in_the_project_if_enetered_credentials_are_valid(String status) throws Exception{
+               click(d1.Save);
+               if (status.equalsIgnoreCase("valid")) 
+                   Assert.assertTrue("user modified the project successfully", isdisplayed(d1.newlead));
+                else {
+             		System.out.println(gettext(d1.creationvalidation));
+                    }
+
+           }
+           
+           @Given("user click the send email in the project")
+           public void user_click_the_send_email_in_the_project() throws Exception{
+               click(d1.sendemailclick);
+               Assert.assertTrue("user click the send email successfully", isdisplayed(d1.applyButton));
+           }
+
+           @When("User selects email template {string}")
+           public void user_selects_email_template(String string)throws Exception {
+           click(d1.emailTemplate);
+           sendkeys(d1.emailTemplatetsend, string);
+           pressEnter(d1.emailTemplatetsend);
+           }
+
+           @When("User clicks Apply button")
+           public void user_clicks_apply_button()throws Exception {
+           click(d1.applyButton);
+              
+           }
+           @When("User selects From email {string}")
+           public void user_selects_from_email(String string) throws Exception{
+            click(d1.from);
+           sendkeys(d1.fromsend,string);
+            pressEnter(d1.fromsend);
+           }
+
+           @When("User validates To email {string}")
+           public void user_validates_to_email(String string)throws Exception {
+           sendkeys(d1.toEmail, string);
+           String actaulText = d1.toEmail.getAttribute("value");
+           Assert.assertEquals(string, actaulText);
+           }
+
+           @When("User enters Subject {string}")
+           public void user_enters_subject(String string) throws Exception{
+           sendkeys(d1.subject, string);
+           String actaulText = d1.subject.getAttribute("value");
+           Assert.assertEquals(string, actaulText);  
+           }
+
+           @When("User enters Message {string}")
+           public void user_enters_message(String string) throws Exception{
+        	   switchToFrame(d1.Descriptionclick);
+               click(d1.Description);
+              sendkeys(d1.Description, string);
+               switchToDefaultContent();
+
+           }
+
+           @When("User clicks Send button")
+           public void user_clicks_send_button() {
+           waitForVisibility(d1.sendButton);
+               click(d1.sendButton);
+           }
+
+           @Then("User validates Email")
+           public void user_validates_email() {
+           waitForVisibility(d1.emailvalidatiomessage);
+             Assert.assertTrue(isdisplayed(d1.emailvalidatiomessage));
+            System.out.println("validation message:" +gettext(d1.emailvalidatiomessage));
+              
+           }
+           @Then("user click back to list in th email page")
+           public void user_click_back_to_list_in_th_email_page() throws Exception{
+             waitForVisibility(d1.backtolist);
+             moveToElement(d1.backtolist);
+           }
+
+           @Given("user click the List in the leads")
+           public void user_click_the_list_in_the_leads()throws Exception {
+               click(d1.Listservice);
+               String actualURL = driver.getCurrentUrl();
+           	   String expectedURL = "https://demo.dolibarr.org/projet/list.php?leftmenu=projects";
+           	   Assert.assertEquals(actualURL, expectedURL);
+
+           }
+           @When("user enter the name in the search {string}")
+           public void user_enter_the_name_in_the_search(String string) throws Exception {
+               sendkeys(d1.namesearch, string);
+               String actaulText = d1.namesearch.getAttribute("value");
+               Assert.assertEquals(string, actaulText);
+               
+           }
+           @When("user click the search button in project")
+           public void user_click_the_search_button_in_project() throws Exception{
+              click(d1.clicksearch);
+             Assert.assertTrue("user click the search button successfully", isdisplayed(d1.Listservice));
+           }
+           @Then("user click the first name of the lead list")
+           public void user_click_the_first_name_of_the_lead_list() throws Exception {
+               click(d1.relevantleadclick);
+               Assert.assertTrue("user click the first name successfully", isdisplayed(d1.Listservice)); 
+           }
+
+           @Given("user click the statistics in the Leads")
+           public void user_click_the_statistics_in_the_leads() throws Exception{
+               click(d1.statistics);
+               Assert.assertTrue("user click the statistics successfully", isdisplayed(d1.newlead));  
+           }
+
+
+           @When("user click the dropdown in the thirdparty in project {string}")
+           public void user_click_the_dropdown_in_the_thirdparty_in_project(String string)throws Exception {
+               click(d1.listofservice);
+               sendkeys(d1.searchlistofservice, string);
+               pressEnter(d1.searchlistofservice);
+           }
+           @When("user click the lead status dropdown in the project {string}")
+           public void user_click_the_lead_status_dropdown_in_the_project(String string)throws Exception {
+               click(d1.tagsservice);
+               sendkeys(d1.searchlistofservice, string);
+               pressEnter(d1.searchlistofservice);
+           }
+           @When("user click the year in the porject {string}")
+           public void user_click_the_year_in_the_porject(String string)throws Exception {
+               click(d1.year);
+               sendkeys(d1.searchlistofservice, string);
+               pressEnter(d1.searchlistofservice);
+           }
+           @Then("user click the refresh button in the leads")
+           public void user_click_the_refresh_button_in_the_leads()throws Exception {
+               click(d1.refresh);
+               String actualURL = driver.getCurrentUrl();
+           	   String expectedURL = "https://demo.dolibarr.org/projet/stats/index.php?leftmenu=projects";
+           	   Assert.assertEquals(actualURL, expectedURL);
+
+           }
+
+          
+
+
+
+           
+       }
+
+
+
 
 
 
@@ -1298,7 +1684,7 @@ public class Stepdefinition extends baseclass{
 
        
        
-      }
+      
 
 
 

@@ -27,14 +27,16 @@ public class baseclass {
 	public static   WebDriver launchBrowser() {
 		
 		ChromeOptions options=new ChromeOptions();
-		Map<String,Object> prefs=new HashMap<>();
-		prefs.put("Credentials_enable_service", false);
-		prefs.put("profile.password_manager_enabled",false);
-		options.setExperimentalOption("prefs",prefs);
+		Map<String,Object> pref=new HashMap<>();
+		pref.put("Credentials_enable_service", false);
+		pref.put("profile.password_manager_enabled",false);
+		pref.put("profile.password_manager_leak_detection",false);
+		options.setExperimentalOption("prefs",pref);
 		
-		options.setExperimentalOption("prefs", prefs);
+		options.setExperimentalOption("prefs", pref);
 		options.addArguments("--disable-notifications");
 		options.addArguments("--disable-save-password-bubble");
+		options.addArguments("--disable-features=passwordLeakDetection");
 		
 		driver = new ChromeDriver();
 		driver.manage().window().maximize();
@@ -174,4 +176,14 @@ public class baseclass {
      public static void pressEnter(WebElement element) {
     	 element.sendKeys(Keys.ENTER);
      }
-}
+
+//movetoelement
+      
+     public void moveToElement(WebElement element) {
+    	 Actions actions = new Actions(driver);
+    	 actions.moveToElement(element).perform();
+     }
+     }
+
+
+

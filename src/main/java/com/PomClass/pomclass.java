@@ -542,8 +542,120 @@ public WebElement partydropdwon;
 @FindBy(xpath ="(//*[@class='select2-selection__arrow'])[3]")
 public WebElement createdby;
 
-@FindBy(xpath ="(//*[@class='select2-selection__arrow'])[3]")
+@FindBy(xpath ="(//*[@class='select2-selection__arrow'])[4]")
 public WebElement year;
 
+@FindBy(xpath = "//*[@type='submit']")
+public WebElement submitbutton;
+
+@FindBy(xpath = "//*[text()='Projects']")
+public WebElement projects;
+
+@FindBy(xpath = "//*[text()='New lead or project']")
+public WebElement newlead;
+
+@FindBy(xpath = "//*[@class='width500 maxwidth150onsmartphone']")
+public WebElement labelproject;
+
+@FindBy(xpath = "(//*[@class='select2-selection__arrow'])[2]")
+public WebElement thirdpartyproject;
+
+@FindBy(xpath = "(//*[@type='search'])[2]")
+public WebElement searchthird;
+
+@FindBy(xpath = "(//*[@class='select2-selection__arrow'])[3]")
+public WebElement leadstatus;
+
+@FindBy(xpath = "//*[@name='opp_amount']")
+public WebElement leadamount;
+
+@FindBy(xpath = "//*[@name='budget_amount']")
+public WebElement budgetamt;
+
+@FindBy(xpath = "//*[@name='projectend']")
+public WebElement Date;
+
+@FindBy(xpath = "(//*[@class='select2-selection__arrow'])[4]")
+public WebElement visibility;
+ 
+@FindBy(xpath = "(//*[@class='select2-selection__arrow'])[5]")
+public WebElement contactassign;
+
+@FindBy(xpath = "(//*[@type='search'])[1]")
+public WebElement taggssearch;
+
+@FindBy(xpath = "(//*[@class='select2-selection__arrow'])[6]")
+public WebElement priority;
+
+@FindBy(xpath = "(//*[@type='search'])[2]")
+public WebElement prioritysearch;
+
+@FindBy(xpath = "//*[@name='save']")
+public WebElement savedraft;
+
+@FindBy(xpath = "//*[@type='search']")
+public WebElement thrdsearch;
+
+@FindBy(xpath = "//*[@class='quatrevingtpercent']")
+public WebElement labelprojert;
+
+@FindBy(xpath="//span[text()='Send email']")
+public WebElement sendemailclick;
+
+//
+@FindBy(xpath="//span[@id='select2-modelmailselected-container']")
+public WebElement emailTemplate;
+
+@FindBy(xpath="//span[@class='select2-search select2-search--dropdown']//input[@role='searchbox']")
+public WebElement emailTemplatetsend;
+
+
+@FindBy(xpath="//input[@id='modelselected']")
+public WebElement applyButton;
+
+@FindBy(xpath="//span[@id='select2-fromtype-container']")
+public WebElement from;
+
+@FindBy(xpath="//span[@class='select2-search select2-search--dropdown']//input[@role='searchbox']")
+public WebElement fromsend;
+
+@FindBy(xpath="//input[@id='sendto']")
+public WebElement toEmail;
+
+@FindBy(xpath="//input[@id='subject']")
+public WebElement subject;
+
+@FindBy(xpath="//input[@id='addedfile']")
+public WebElement uploadFile;
+
+@FindBy(xpath="//input[@id='addfile']")
+public WebElement attachFile;
+
+@FindBy(xpath="//iframe[contains(@class,'cke_wysiwyg_frame')]")
+public WebElement frame;
+
+@FindBy(xpath="//body")
+public WebElement message;
+
+@FindBy(xpath="//input[@id='sendmail']")
+public WebElement sendButton;
+
+@FindBy(xpath="//*[contains(text(),'Mail successfully sent')]")
+public WebElement successMessage;
+
+@FindBy(xpath="/div[text()='Failed to send mail (sender=test@test.com, receiver=dinesh Pvt Ltd <preetha@gmail.com>)']")
+public WebElement emailvalidatiomessage;
+
+@FindBy(xpath="//a[text()='Back to list']")
+public WebElement backtolistproject; 
+
+@FindBy(xpath = "(//*[@class='classforajaxtooltip'])[1]")
+public WebElement relevantleadclick;
+
+@FindBy(xpath = "//*[@name='search_label']")
+public WebElement namesearchproject;
+
+@FindBy(xpath = "//*[@name='submit']")
+public WebElement Refresh;
 
 }
