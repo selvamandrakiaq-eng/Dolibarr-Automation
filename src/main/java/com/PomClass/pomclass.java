@@ -602,50 +602,6 @@ public WebElement labelprojert;
 @FindBy(xpath="//span[text()='Send email']")
 public WebElement sendemailclick;
 
-//
-@FindBy(xpath="//span[@id='select2-modelmailselected-container']")
-public WebElement emailTemplate;
-
-@FindBy(xpath="//span[@class='select2-search select2-search--dropdown']//input[@role='searchbox']")
-public WebElement emailTemplatetsend;
-
-
-@FindBy(xpath="//input[@id='modelselected']")
-public WebElement applyButton;
-
-@FindBy(xpath="//span[@id='select2-fromtype-container']")
-public WebElement from;
-
-@FindBy(xpath="//span[@class='select2-search select2-search--dropdown']//input[@role='searchbox']")
-public WebElement fromsend;
-
-@FindBy(xpath="//input[@id='sendto']")
-public WebElement toEmail;
-
-@FindBy(xpath="//input[@id='subject']")
-public WebElement subject;
-
-@FindBy(xpath="//input[@id='addedfile']")
-public WebElement uploadFile;
-
-@FindBy(xpath="//input[@id='addfile']")
-public WebElement attachFile;
-
-@FindBy(xpath="//iframe[contains(@class,'cke_wysiwyg_frame')]")
-public WebElement frame;
-
-@FindBy(xpath="//body")
-public WebElement message;
-
-@FindBy(xpath="//input[@id='sendmail']")
-public WebElement sendButton;
-
-@FindBy(xpath="//*[contains(text(),'Mail successfully sent')]")
-public WebElement successMessage;
-
-@FindBy(xpath="/div[text()='Failed to send mail (sender=test@test.com, receiver=dinesh Pvt Ltd <preetha@gmail.com>)']")
-public WebElement emailvalidatiomessage;
-
 @FindBy(xpath="//a[text()='Back to list']")
 public WebElement backtolistproject; 
 
@@ -658,4 +614,34 @@ public WebElement namesearchproject;
 @FindBy(xpath = "//*[@name='submit']")
 public WebElement Refresh;
 
+@FindBy(xpath = "//*[text()='New task']")
+public WebElement newtask;
+
+@FindBy(xpath = "//*[@name='label']")
+public WebElement labelnewtask;
+
+@FindBy(xpath = "//*[@id='date_end']")
+public WebElement enddate;
+
+@FindBy(xpath = "//*[@name='budget_amount']")
+public WebElement budgetamtt;
+
+@FindBy(xpath = "//*[@name='add']")
+public WebElement addnewtask;
+
+@FindBy(xpath = "//*[@class='select2-search__field']")
+public WebElement Searchemail;
+
+@FindBy(xpath = "//*[@id='modelselected']")
+public WebElement Applybutton;
+
+
+@FindBy(xpath = "//*[@id='sendto']")
+public WebElement toemail;
+
+@FindBy(xpath = "//*[@id='sendtocc']")
+public WebElement copyto;
+
+@FindBy(xpath = "//*[@id='sendmail']")
+public WebElement senemailb;
 }

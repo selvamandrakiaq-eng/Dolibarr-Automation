@@ -464,21 +464,22 @@ Examples:
 Scenario:Send Email
 
 Given user click the send email in the project
-
+@Selva
 Scenario Outline:verifing sending mail in project
-When User selects email template "<email id template>"
-And User clicks Apply button
-And User validates To email "<To>"
-And User enters Subject "<Subject>"
-And User enters Message "<Message>"
-Then User clicks Send button
+
+Given user select the template emailid "<email id template>"
+When  clicks the apply button in the send email page
+When user enters the validate to email in the send email page "<To>"
+When user enters the subject in the send email "<Subject>"
+When user enters the message in the send email "<Message>"
+Then user clicks the send email button
 Then user click back to list in th email page
 
 Examples:
 |email id template |  To               |Subject            |Message|
 |20250509-Private  |selva@gmail.com    |Need project       |Hai    |
 
-@Selva
+
 Scenario Outline:List verification
 
 Given user click the List in the leads
@@ -489,12 +490,12 @@ Then user click the first name of the lead list
 Examples:
 |name project |
 |selva        |
-@Selva
+
 Scenario:Statistics
 
 Given user click the statistics in the Leads
-@Selva
-Scenario Outline:
+
+Scenario Outline:statistics verification
 
 When user click the dropdown in the thirdparty in project "<dropdwon>"
 When user click the lead status dropdown in the project "<Leadstatus>"
@@ -505,6 +506,24 @@ Examples:
 |dropdwon  |  Leadstatus  |  year  |
 |          |              |         |
 |abc       | proposal     |2026     |
+@Selva
+Scenario: New task in project
+Given user click the new task in the project
+@Selva
+Scenario:task creation
+When user enter the label in the new task creation input field "<labelnewtask>"
+When user enter the dropdwon in the child of project "<childofproject>"
+When user click the dropdown in the assigned to "<assignedto>"
+When user enter the end date in the new task creation "<enddate>"
+When user enter the description in the new task "<descripnewtask>"
+When user enter the Budget amount in the new task "<budgetamt>"
+Then user click the Add button in the new task if entered credentials are valid "<status>"
+
+Examples:
+
+| labelnewtask | childofproject  | assignedto  | enddate  |  descripnewtask  | budgetamt  | status |
+|              |                 |             |          |                  |            |Invalid |
+|Selva mandra  |11051991         |apiuser      |07/31/2026|New task added    |70000000    |valid   |
 
 
 

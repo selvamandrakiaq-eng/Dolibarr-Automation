@@ -1532,64 +1532,48 @@ public class Stepdefinition extends baseclass{
            @Given("user click the send email in the project")
            public void user_click_the_send_email_in_the_project() throws Exception{
                click(d1.sendemailclick);
-               Assert.assertTrue("user click the send email successfully", isdisplayed(d1.applyButton));
+             
            }
 
-           @When("User selects email template {string}")
-           public void user_selects_email_template(String string)throws Exception {
-           click(d1.emailTemplate);
-           sendkeys(d1.emailTemplatetsend, string);
-           pressEnter(d1.emailTemplatetsend);
+           @Given("user select the template emailid {string}")
+           public void user_select_the_template_emailid(String string)throws Exception {
+               click(d1.partydropdwon);
+               sendkeys(d1.Searchemail, string);
+               pressEnter(d1.Searchemail);
            }
-
-           @When("User clicks Apply button")
-           public void user_clicks_apply_button()throws Exception {
-           click(d1.applyButton);
+           @When("clicks the apply button in the send email page")
+           public void clicks_the_apply_button_in_the_send_email_page()throws Exception {
+              click(d1.Applybutton);
               
            }
-           @When("User selects From email {string}")
-           public void user_selects_from_email(String string) throws Exception{
-            click(d1.from);
-           sendkeys(d1.fromsend,string);
-            pressEnter(d1.fromsend);
+           @When("user enters the validate to email in the send email page {string}")
+           public void user_enters_the_validate_to_email_in_the_send_email_page(String string)throws Exception {
+               sendkeys(d1.toemail, string);
+               String actualText = d1.toemail.getAttribute("value");
+               Assert.assertEquals(string, actualText);
            }
-
-           @When("User validates To email {string}")
-           public void user_validates_to_email(String string)throws Exception {
-           sendkeys(d1.toEmail, string);
-           String actaulText = d1.toEmail.getAttribute("value");
-           Assert.assertEquals(string, actaulText);
+           @When("user enters the subject in the send email {string}")
+           public void user_enters_the_subject_in_the_send_email_need_project(String string)throws Exception {
+              sendkeys(d1.copyto, string);
+              String actualText = d1.copyto.getAttribute("value");
+              Assert.assertEquals(string, actualText); 
            }
-
-           @When("User enters Subject {string}")
-           public void user_enters_subject(String string) throws Exception{
-           sendkeys(d1.subject, string);
-           String actaulText = d1.subject.getAttribute("value");
-           Assert.assertEquals(string, actaulText);  
-           }
-
-           @When("User enters Message {string}")
-           public void user_enters_message(String string) throws Exception{
+           
+           @When("user enters the message in the send email {string}")
+           public void user_enters_the_message_in_the_send_email_hai(String string)throws Exception {
         	   switchToFrame(d1.Descriptionclick);
                click(d1.Description);
               sendkeys(d1.Description, string);
                switchToDefaultContent();
 
            }
-
-           @When("User clicks Send button")
-           public void user_clicks_send_button() {
-           waitForVisibility(d1.sendButton);
-               click(d1.sendButton);
+           @Then("user clicks the send email button")
+           public void user_clicks_the_send_email_button()throws Exception {
+               click(d1.senemailb);
+               System.out.println(gettext(d1.creationvalidation));
            }
 
-           @Then("User validates Email")
-           public void user_validates_email() {
-           waitForVisibility(d1.emailvalidatiomessage);
-             Assert.assertTrue(isdisplayed(d1.emailvalidatiomessage));
-            System.out.println("validation message:" +gettext(d1.emailvalidatiomessage));
-              
-           }
+
            @Then("user click back to list in th email page")
            public void user_click_back_to_list_in_th_email_page() throws Exception{
              waitForVisibility(d1.backtolist);
@@ -1606,8 +1590,8 @@ public class Stepdefinition extends baseclass{
            }
            @When("user enter the name in the search {string}")
            public void user_enter_the_name_in_the_search(String string) throws Exception {
-               sendkeys(d1.namesearch, string);
-               String actaulText = d1.namesearch.getAttribute("value");
+               sendkeys(d1.namesearchproject, string);
+               String actaulText = d1.namesearchproject.getAttribute("value");
                Assert.assertEquals(string, actaulText);
                
            }
@@ -1656,7 +1640,73 @@ public class Stepdefinition extends baseclass{
 
            }
 
-          
+           @Given("user click the new task in the project")
+           public void user_click_the_new_task_in_the_project()throws Exception {
+              click(d1.newtask);
+              String actualURL = driver.getCurrentUrl();
+          	   String expectedURL = "https://demo.dolibarr.org/projet/tasks.php?leftmenu=tasks&action=create";
+          	   Assert.assertEquals(actualURL, expectedURL);
+
+           }
+
+           @When("user enter the label in the new task creation input field {string}")
+           public void user_enter_the_label_in_the_new_task_creation_input_field(String string)throws Exception {
+              sendkeys(d1.labelnewtask, string);
+              String actaulText = d1.labelnewtask.getAttribute("value");
+              Assert.assertEquals(string, actaulText);
+           }
+
+           @When("user enter the dropdwon in the child of project {string}")
+           public void user_enter_the_dropdwon_in_the_child_of_project(String string)throws Exception {
+               click(d1.listofservice);
+               sendkeys(d1.searchlistofservice, string);
+               pressEnter(d1.searchlistofservice);
+           }
+
+           @When("user click the dropdown in the assigned to {string}")
+           public void user_click_the_dropdown_in_the_assigned_to(String string)throws Exception {
+               click(d1.createdby);
+               sendkeys(d1.searchlistofservice, string);
+               pressEnter(d1.searchlistofservice);
+           }
+
+           @When("user enter the end date in the new task creation {string}")
+           public void user_enter_the_end_date_in_the_new_task_creation(String string)throws Exception {
+               sendkeys(d1.enddate, string);
+               String actaulDate = d1.enddate.getAttribute("value");
+               Assert.assertEquals(string, actaulDate);
+
+           }
+
+           @When("user enter the description in the new task {string}")
+           public void user_enter_the_description_in_the_new_task(String string) throws Exception {
+        	   switchToFrame(d1.Descriptionclick);
+               click(d1.Description);
+              sendkeys(d1.Description, string);
+               switchToDefaultContent();
+
+           }
+
+           @When("user enter the Budget amount in the new task {string}")
+           public void user_enter_the_budget_amount_in_the_new_task(String string) throws Exception{
+               sendkeys(d1.budgetamtt, string);
+               String actaulValue = d1.budgetamtt.getAttribute("value");
+               Assert.assertEquals(string, actaulValue);
+           }
+
+           @Then("user click the Add button in the new task if entered credentials are valid {string}")
+           public void user_click_the_add_button_in_the_new_task_if_entered_credentials_are_valid(String status)throws Exception {
+               click(d1.addnewtask);
+               if (status.equalsIgnoreCase("valid")) 
+                   Assert.assertTrue("user add the project successfully", isdisplayed(d1.newlead));
+                else {
+             		System.out.println(gettext(d1.creationvalidation));
+                    }
+
+           }
+
+
+
 
 
 
