@@ -1,5 +1,8 @@
 package com.BaseClass;
 
+import java.awt.AWTException;
+import java.awt.Robot;
+import java.awt.event.KeyEvent;
 import java.time.Duration;
 import java.util.HashMap;
 import java.util.Map;
@@ -112,7 +115,12 @@ public class baseclass {
 			return verification.isDisplayed();
 
 	}
-	
+	   // is Enabled
+		public boolean isEnabled(WebElement element) {
+			wait.until(ExpectedConditions.visibilityOf(element));
+			 return element.isEnabled();
+		}
+		
 		//gettext
 		public  String gettext(WebElement element) {
 		return wait.until(ExpectedConditions.visibilityOf(element)).getText();
@@ -125,7 +133,13 @@ public class baseclass {
 	        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
 	        return wait.until(ExpectedConditions.visibilityOf(element));
 	    }
-
+	       
+	    // Wait until element is clickable
+	       public WebElement waitForElementToBeClickable(WebElement element) {
+	        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+	        return wait.until(ExpectedConditions.elementToBeClickable(element));
+	    
+	       }
 
 		
         //switchtoNewwindow
@@ -183,7 +197,37 @@ public class baseclass {
     	 Actions actions = new Actions(driver);
     	 actions.moveToElement(element).perform();
      }
+     
+   //Uploadfile
+
+ 	public void uploadFile(WebElement upload, String filepath) {
+ 		wait.until(ExpectedConditions.visibilityOf(upload));
+ 		upload.sendKeys(filepath);
+ 		
+ 	}
+
+     
+   //Close dialog box
+ 	
+ 	public void closedialog() throws AWTException {
+ 		try {
+ 		 Robot robot = new Robot();
+ 		    robot.delay(3000);
+ 		    robot.keyPress(KeyEvent.VK_ESCAPE);
+ 		    robot.keyRelease(KeyEvent.VK_ESCAPE);
+ 	}catch(Exception e) {
+ 		e.printStackTrace();;
+ 	}
+ 	}
+ 	
+ // Element Verify
+ 	public boolean verifyElement(WebElement element) {
+ 		 return element.isDisplayed()&& element.isEnabled();
+ 	 }
+ 	
+
      }
+
 
 
 

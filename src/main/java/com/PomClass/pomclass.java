@@ -632,7 +632,7 @@ public WebElement addnewtask;
 @FindBy(xpath = "//*[@class='select2-search__field']")
 public WebElement Searchemail;
 
-@FindBy(xpath = "//*[@id='modelselected']")
+@FindBy(xpath = "(//*[@type='submit'])[2]")
 public WebElement Applybutton;
 
 
@@ -644,4 +644,393 @@ public WebElement copyto;
 
 @FindBy(xpath = "//*[@id='sendmail']")
 public WebElement senemailb;
+
+@FindBy(xpath = "(//*[text()='List'])[2]")
+public WebElement tasklist;
+
+@FindBy(xpath = "//*[@name='search_task_label']")
+public WebElement tasknamesearch;
+
+
+@FindBy(xpath = "(//*[@class='classforajaxtooltip nowraponall'])[1]")
+public WebElement relevanttaskclick;
+
+@FindBy(xpath = "(//*[text()='Statistics'])[2]")
+public WebElement statisticstaskactivities;
+
+@FindBy(xpath = "(//*[@class='select2-selection__arrow'])[2]")
+public WebElement statisticsdropdwon;
+
+@FindBy(xpath = "//*[@type='search']")
+public WebElement searchstatistics;
+
+@FindBy(xpath = "//*[@type='submit']")
+public WebElement refreshtaskactivities;
+
+@FindBy(xpath = "(//*[@title='Modify'])[1]")
+public WebElement Modifytimetracking;
+
+@FindBy(xpath = "//*[@name='save']")
+public WebElement savetimetacking;
+
+@FindBy(xpath = "(//*[@class='classforajaxtooltip refurl valignmiddle'])[1]")
+public WebElement clicktimetracking;
+
+@FindBy(xpath = "//*[text()='Commerce']")
+public WebElement commerce;
+
+@FindBy(xpath = "//*[text()='New proposal']")
+public WebElement newproposal;
+
+@FindBy(xpath = "//*[@name='ref_client']")
+public WebElement refcustomerproposal;
+
+@FindBy(xpath = "(//*[@class='select2-selection__arrow'])[2]")
+public WebElement customerproposal;
+
+@FindBy(xpath = "(//*[@class='select2-search__field'])[2]")
+public WebElement customerproposal1;
+
+@FindBy(xpath = "(//*[@class='select2-selection__arrow'])[3]")
+public WebElement paymentterms;
+
+@FindBy(xpath = "(//*[@class='select2-selection__arrow'])[4]")
+public WebElement paymentmethod;
+
+@FindBy(xpath = "(//*[@class='select2-selection__arrow'])[5]")
+public WebElement sourcecommercial;
+
+@FindBy(xpath = "(//*[@class='select2-selection__arrow'])[6]")
+public WebElement availabilitydelay;
+
+@FindBy(xpath = "//*[@id='date_livraison']")
+public WebElement Deliverydate;
+
+@FindBy(xpath = "(//*[@class='select2-selection__arrow'])[7]")
+public WebElement project;
+
+@FindBy(xpath = "(//*[@class='select2-selection__rendered'])[8]")
+public WebElement tagscommercial;
+
+@FindBy(xpath = "//*[@id='note_public']")
+public WebElement notepublic;
+
+@FindBy(xpath = "//*[@id='note_private']")
+public WebElement noteprivate;
+
+@FindBy(xpath = "//*[@name='save']")
+public WebElement savecommercial;
+
+@FindBy(xpath = "(//*[@class='valignmiddle'])[1]")
+public WebElement successmessage;
+
+@FindBy(xpath = "(//*[@class='select2-selection__rendered'])[8]")
+public WebElement tagsserach;
+
+@FindBy(xpath = "(//*[text()='New order'])[1]")
+public WebElement Neworder;
+
+@FindBy(xpath = "//*[@id='options_custom1']")
+public WebElement customfield;
+
+@FindBy(xpath = "//*[@id='liv_']")
+public WebElement planneddelivery;
+
+@FindBy(xpath = "(//*[@class='fas fa-download valignmiddle'])[1]")
+public WebElement clickdownloadbutton;
+
+@FindBy(xpath = "(//*[@class='pictopreview nowrap'])[1]")
+public WebElement downloadpdf;
+
+@FindBy(xpath = "(//*[@class='documentpreview'])[1]")
+public WebElement documentpreview;
+
+@FindBy(xpath = "(//*[@class='ui-button-icon ui-icon ui-icon-closethick'])[2]")
+public WebElement closewindow;
+
+@FindBy(xpath = "(//*[text()='List'])[1]")
+public WebElement Listcommercial;
+
+@FindBy(xpath = "//*[@name='search_refcustomer']")
+public WebElement refcustomer;
+
+@FindBy(xpath = "(//*[@class='classforajaxtooltip'])[1]")
+public WebElement relevantnameclick;
+
+@FindBy(xpath = "//*[text()='Drafts']")
+public WebElement drafts;
+
+@FindBy(xpath = "(//*[@class='tab inline-block valignmiddle'])[1]")
+public WebElement Commercialproposal;
+
+@FindBy(xpath = "(//*[@class='tab inline-block valignmiddle'])[2]")
+public WebElement Contactaddress;
+
+@FindBy(xpath = "(//*[@class='tab inline-block valignmiddle'])[3]")
+public WebElement Notesdraft;
+
+@FindBy(xpath = "(//*[@class='tab inline-block valignmiddle'])[4]")
+public WebElement LinkedFiles;
+
+@FindBy(xpath = "(//*[@class='tab inline-block valignmiddle'])[5]")
+public WebElement Eventsagenta;
+
+@FindBy(xpath = "(//*[@type='submit'])[1]")
+public WebElement addcontactdraft;
+
+@FindBy(xpath = "(//*[@class='fa fa-plus-circle valignmiddle btnTitle-icon'])[1]")
+public WebElement plusbutton;
+
+@FindBy(xpath = "(//*[@class='fa fa-plus-circle valignmiddle btnTitle-icon'])[1]")
+public WebElement plusbuttonsales;
+
+
+@FindBy(xpath="//input[@name='userfile[]']")
+public WebElement choosefile;
+
+@FindBy(xpath="//input[@name='userfile[]']")
+public WebElement choosefilesales;
+
+
+@FindBy(xpath="//input[@name='sendit']")
+public WebElement upload;
+
+@FindBy(xpath="//input[@name='sendit']")
+public WebElement uploadsales;
+
+@FindBy(xpath = "(//*[@title='Delete'])[1]")
+public WebElement delete1;
+
+@FindBy(xpath = "(//*[@title='Delete'])[1]")
+public WebElement delete1sales;
+
+
+@FindBy(xpath = "//*[text()='Yes']")
+public WebElement yes;
+
+@FindBy(xpath = "(//*[@class='select2-selection__arrow'])[2]")
+public WebElement thirdpartydrop;
+
+@FindBy(xpath = "(//*[@class='select2-search__field'])[2]")
+public WebElement thirdpartysearch;
+
+@FindBy(xpath = "(//*[@class='select2-selection__rendered'])[2]")
+public WebElement thirdpartybox;
+
+@FindBy(xpath = "(//*[@class='select2-selection__arrow'])[3]")
+public WebElement thirdpartytype;
+
+@FindBy(xpath = "(//*[@class='select2-selection__rendered'])[3]")
+public WebElement thirdpartytypebox;
+
+
+@FindBy(xpath = "(//*[@class='select2-selection__arrow'])[4]")
+public WebElement customercategorydrop;
+
+@FindBy(xpath = "(//*[@class='select2-selection__rendered'])[4]")
+public WebElement customercategorydropbox;
+
+
+
+@FindBy(xpath = "(//*[@class='select2-selection__arrow'])[5]")
+public WebElement createdbydrop;
+
+@FindBy(xpath = "(//*[@class='select2-selection__rendered'])[6]")
+public WebElement createdbydropbox;
+
+
+
+@FindBy(xpath = "(//*[@class='select2-selection__arrow'])[6]")
+public WebElement statusdrop;
+
+@FindBy(xpath = "(//*[@class='select2-selection__rendered'])[7]")
+public WebElement statusdropbox;
+
+@FindBy(xpath = "(//*[@class='select2-selection__arrow'])[7]")
+public WebElement yeardrop;
+
+@FindBy(xpath = "(//*[@class='select2-selection__rendered'])[8]")
+public WebElement yeardropbox;
+
+@FindBy(xpath = "//*[@name='submit']")
+public WebElement refreshstatistics;
+
+@FindBy(xpath = "(//*[text()='New order'])[2]")
+public WebElement neworderpurchase;
+
+@FindBy(xpath = "(//*[@class='select2-selection__arrow'])[2]")
+public WebElement vendorthirdparty;
+
+@FindBy(xpath = "(//*[@type='search'])[2]")
+public WebElement searchpurchase;
+
+@FindBy(xpath = "(//*[@type='text'])[2]")
+public WebElement refvendor;
+
+@FindBy(xpath = "(//*[@class='select2-selection__arrow'])[2]")
+public WebElement paymenttermsdrop;
+
+@FindBy(xpath = "(//*[@class='select2-selection__arrow'])[3]")
+public WebElement paymentmethoddrop;
+
+@FindBy(xpath = "(//*[@type='text'])[3]")
+public WebElement planneddate;
+
+@FindBy(xpath = "(//*[@class='select2-selection__arrow'])[4]")
+public WebElement projectdropdwon;
+
+@FindBy(xpath = "(//*[@class='select2-selection__arrow'])[5]")
+public WebElement currencydropdwon;
+
+@FindBy(xpath = "(//*[@class='select2-selection__arrow'])[2]")
+public WebElement thirdpartydropsales;
+
+@FindBy(xpath = "(//*[@class='select2-selection__arrow'])[2]")
+public WebElement vendorthirddrop;
+
+@FindBy(xpath = "(//*[@class='select2-selection__arrow'])[2]")
+public WebElement purchasethirdpartydrop;
+
+@FindBy(xpath = "(//*[@class='select2-selection__arrow'])[2]")
+public WebElement vendorthirdpartydrop;
+
+
+
+@FindBy(xpath = "(//*[@class='select2-search__field'])[2]")
+public WebElement thirdpartysearchsales;
+
+@FindBy(xpath = "(//*[@class='select2-search__field'])[2]")
+public WebElement vendorsthirdpartysearch;
+
+
+@FindBy(xpath = "(//*[@class='select2-search__field'])[3]")
+public WebElement purchasethirdpartysearch;
+
+@FindBy(xpath = "(//*[@class='select2-search__field'])[3]")
+public WebElement vendorthirdpartysearch;
+
+
+@FindBy(xpath = "(//*[@class='select2-selection__arrow'])[3]")
+public WebElement salesorderthirdtype;
+
+@FindBy(xpath = "(//*[@class='select2-selection__arrow'])[3]")
+public WebElement vendorthirdtype;
+
+
+@FindBy(xpath = "(//*[@class='select2-selection__arrow'])[3]")
+public WebElement purchasethirdtype;
+
+
+@FindBy(xpath = "(//*[@class='select2-selection__arrow'])[4]")
+public WebElement salescustomerdrop;
+
+@FindBy(xpath = "(//*[@class='select2-selection__arrow'])[4]")
+public WebElement purchasecustomerdrop;
+
+
+@FindBy(xpath = "(//*[@class='select2-selection__arrow'])[5]")
+public WebElement salescreatedby;
+
+@FindBy(xpath = "(//*[@class='select2-selection__arrow'])[5]")
+public WebElement purchasecreatedby;
+
+
+@FindBy(xpath = "(//*[@class='select2-selection__arrow'])[6]")
+public WebElement salesstatusdrop;
+
+@FindBy(xpath = "(//*[@class='select2-selection__arrow'])[7]")
+public WebElement salesyeardrop;
+
+@FindBy(xpath ="(//*[text()='Statistics'])[2]")
+public WebElement salesstatistics;
+
+@FindBy(xpath = "(//*[text()='List'])[2]")
+public WebElement listsales;
+
+@FindBy(xpath = "//*[@name='search_ref_customer']")
+public WebElement refcustomersales;
+
+@FindBy(xpath = "(//*[@class='classforajaxtooltip'])[1]")
+public WebElement relevantsalesnameclick;
+
+@FindBy(xpath = "(//*[@class='tab inline-block valignmiddle'])[1]")
+public WebElement salesorderlist1;
+
+@FindBy(xpath = "(//*[@class='tab inline-block valignmiddle'])[2]")
+public WebElement salesContactaddress;
+
+@FindBy(xpath = "(//*[@class='tab inline-block valignmiddle'])[3]")
+public WebElement salesNotes;
+
+@FindBy(xpath = "(//*[@class='tab inline-block valignmiddle'])[4]")
+public WebElement SalesLinkedFiles;
+
+@FindBy(xpath = "(//*[@class='tab inline-block valignmiddle'])[5]")
+public WebElement SalesEventsagenta;
+
+@FindBy(xpath = "(//*[@type='submit'])[1]")
+public WebElement addcontactsales;
+
+@FindBy(xpath = "(//*[@class='tab inline-block valignmiddle'])[3]")
+public WebElement Notessales;
+
+@FindBy(xpath ="(//*[text()='Statistics'])[4]")
+public WebElement purchasestatistics;
+
+@FindBy(xpath = "(//*[@class='select2-selection__arrow'])[6]")
+public WebElement purchaseyear;
+
+
+@FindBy(xpath = "(//li[@class='select2-search select2-search--inline'])[2]")
+public WebElement purchasestatus;
+
+@FindBy(xpath = "(//*[@class='select2-search__field'])[2]")
+public WebElement statuspurchase;
+
+@FindBy(xpath = "//*[text()='New price request']")
+public WebElement newvendorcreation;
+
+
+@FindBy(xpath = "//*[@id='liv_']")
+public WebElement planneddeliveryvendor;
+
+@FindBy(xpath = "(//*[text()='Statistics'])[3]")
+public WebElement statisticsvendor;
+
+@FindBy(xpath = "//*[text()='New contract or subscription']")
+public WebElement Newcontract;
+
+@FindBy(xpath = "//*[@id='ref_customer']")
+public WebElement customercontract;
+
+@FindBy(xpath = "//*[@id='ref_supplier']")
+public WebElement vendorcontract;
+
+@FindBy(xpath = "(//*[@type='text'])[4]")
+public WebElement datecontract;
+
+@FindBy(xpath = "(//*[@title='List'])[3]")
+public WebElement listvendor;
+
+@FindBy(xpath = "//*[@name='search_company']")
+public WebElement searchvendor;
+
+@FindBy(xpath = "//*[@class='classforajaxtooltip refurl valignmiddle']")
+public WebElement nameclickvendor;
+
+@FindBy(xpath = "//*[text()='New intervention']")
+public WebElement newintervention;
+
+@FindBy(xpath = "(//*[@class='select2-selection__arrow'])[2]")
+public WebElement thirdintervention;
+
+@FindBy(xpath = "//*[@name='description']")
+public WebElement description;
+
+@FindBy(xpath = "//*[@id='mainmenua_billing']")
+public WebElement billing;
+
+@FindBy(xpath = "(//*[text()='New invoice'])[2]")
+public WebElement newinvoics;
+
 }

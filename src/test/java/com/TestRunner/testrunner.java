@@ -17,7 +17,7 @@ import io.cucumber.junit.CucumberOptions.SnippetType;
 		plugin = {"pretty","summary","html:target/cucumber-reports/reports.html"},
         tags="@Selva"
         		
-
+ 
 		)    
 
 

@@ -415,7 +415,7 @@ Examples:
 |thirdpartyreception | createdby  | year  |
 |abc                 |david doe   |2026   |
 
-@Selva
+
 Scenario:Projects in the header
 
 Given user click the projects in the header 
@@ -464,7 +464,7 @@ Examples:
 Scenario:Send Email
 
 Given user click the send email in the project
-@Selva
+
 Scenario Outline:verifing sending mail in project
 
 Given user select the template emailid "<email id template>"
@@ -506,11 +506,11 @@ Examples:
 |dropdwon  |  Leadstatus  |  year  |
 |          |              |         |
 |abc       | proposal     |2026     |
-@Selva
+
 Scenario: New task in project
 Given user click the new task in the project
-@Selva
-Scenario:task creation
+
+Scenario Outline:task creation
 When user enter the label in the new task creation input field "<labelnewtask>"
 When user enter the dropdwon in the child of project "<childofproject>"
 When user click the dropdown in the assigned to "<assignedto>"
@@ -526,6 +526,364 @@ Examples:
 |Selva mandra  |11051991         |apiuser      |07/31/2026|New task added    |70000000    |valid   |
 
 
+Scenario: Create task verification in list
+
+Given user click the list in the new task 
+
+Scenario Outline:Created task is displayed
+
+When user search the created task name in the search field "<nametask>"
+When user click the search button in the task list
+And user click the name in the created task list
+Then user verifes the crated task is displayed
+Then user click back to list
 
 
+Examples:
+|nametask  |
+|selva     |
+
+Scenario Outline:statistics in task
+Given user click a statistics in tasks and activities 
+When user click a dropdown yearin statistics "<yearstatistics>"
+Then user click the refresh button in tasks and activities 
+
+Examples:
+|yearstatistics|
+|2026          |
+
+
+Scenario:Time tracking list
+
+Given user click the time tracking list
+When user click the Modify button in the time tracking
+When user click the save button in the list
+And user click the name displayed in the time tracking
+Then user click the back to list in the timetracking
+@Selva
+Scenario:Commerce in Headers
+
+Given user click the commerce in the headers
+When user click the new commercial in the commerce
+
+Scenario Outline: new proposal creation
+
+And user enter the Reference customer in the commerce "<refcustomer>"
+And user enter the customer dropdown in the commerce "<customerdropdwon>"
+And user enter the payment terms dropdwon in the commerce "<paymentterms>"
+And user enter the payment method dropdown in the commerce "<paymentmethod>"
+And user enter the source method dropdown in the commerce "<sourcemethod>"
+And user enter the availability dropdown in the commerce "<availabaility>"
+And user enter the delivery date in the input field "<deliverydate>"
+And user enter the project in the commerce "<project>"
+Then user enter the note in the public commerce "<notepublic>"
+Then user enter the note in the private commerce "<noteprivate>"
+Then user click the create draft in the commerce if entered credentials are valid "<status>"
+
+Examples:
+
+| refcustomer | customerdropdwon  |paymentterms  | paymentmethod  | sourcemethod      | availabaility  | deliverydate  | project | notepublic  | noteprivate | status |
+|             |                   |              |                |                   |                |               |         |             |             | Invalid|
+|Selva        |abc                |30 days       |Bank transfer   |Commercial contact | Immediate      |20/14/2026     |11051991 |public       |private      |Valid   |
+
+
+Scenario: New sales order creation
+
+Given user click the new order in the sales order
+
+Scenario Outline:Order creation
+
+When user enter the ref number in the sales order "<refsales>"
+And user enter the customer dropdwon in the sales "<customersales>"
+When user enter the delivery date in the sales "<deliverydatesales>"
+And user enter the availability dropdwon in the sales order "<salesorderavailability>"
+And user enter the payment terms dropdwon in the sales "<paymenttermsales>"
+And user enter the payment method dropdown in the sales "<paymentmethodsales>"
+And user enter the source dropdown in the sales order "<sourcesales>"
+And user enter the project dropdwon in the sales order "<projectsales>"
+And user enter the custom field1 in the sales order "<customfield1>"
+Then user enter the note public in the sales "<public>"
+Then user enter the note private in the sales "<private>"
+Then user click the create draft in the salesorder if entered credentials are valid "<status>"
+
+Examples:
+
+|  refsales  |customersales  | deliverydatesales | salesorderavailability | paymenttermsales  | paymentmethodsales | sourcesales      | projectsales |customfield1| public  | private | status |
+|            |               |                   |                        |                   |                    |                  |              |            |          |        |Invalid |
+|selva       |abc            |20/14/2026         | Immediate              | 30 days           | Bank transfer      |Commercial contact|11051991      |Mandra      |public    |private |Valid   |
+
+Scenario:statistics in sales order
+
+Given user click the statistics in the sales order
+
+Scenario Outline:statistics verification
+
+And user enter the thirdparty dropdown in sales order "<salesthirdpartydropdwon>"
+And user click the thirdparty type dropdwon in sales order "<thirdpartytype sales>"
+And user click the category customer dropdown in sales order "<categorycustomersales>"
+And user enter the created by dropdown in sales "<createdbysales>"
+And user enter the status in sales "<statussales>"
+Then user enter the year in sales order "<year>"
+Then user click the refresh button in sales order 
+
+Examples:
+
+| salesthirdpartydropdwon  | thirdpartytype sales | categorycustomersales | createdbysales | statussales  |  year  |
+|                          |                      |                       |                |              |2026    |
+| ABC Company              |  Large company       | Another               | Albert Einstein| Validated    |2026    |
+
+Scenario:List customer invoice
+
+Given user click the list in the customer invoices
+When user search the name in the input field "<listcommercial>"
+When user click the search in the list commercial
+When user click the download button in the list
+When user click the download pdf in the list commercial
+When user click the preview pdf in the list commercial
+Then user click the close button in the commercial
+Then user click the relevant name displayed in the commercial 
+Examples:
+| listcommercial  |
+| selva           |
+
+Scenario Outline:Draft in commercial proposals
+
+Given user click the draft in the commercial proposals
+When user search the name in the drafts "<namedraft>"
+When user click search in drafts
+When user click the first name in the draft
+When user verifies all the headers are displayed in drafts
+When user click the contact address in the draft
+And user click the add button in the contact draft
+And user click the notes in the draft
+And user click the linked Files in the draft file name 
+And user select the file in the folder "C:\\selva mandra\\postman_tutorial.pdf"
+Then user click the delete button
+Then user click the yes buuton 
+Then user click Events Agenta in drafts
+
+Examples:
+
+|namedraft |                               
+|selva     |
+
+Scenario:statistics in commercial proposals
+
+Given user click the statistics in the commercial proposals
+
+Scenario Outline:By month
+
+When user enter the third party drop in the field "<dropthird>"
+When user enter the third party type dropdown "<partydropdwon>"
+And user click the category customer dropdwon "<category customer>"
+And user click the created by dropdwon in commercial "<createdbydrop>"
+And user click the status dropdwon in commercial "<statusdrop>"
+Then user enter the year dropdown in commercial "<yeardrpdwoncommercial>"
+Then user click the refresh button in commercial 
+
+Examples:
+
+|dropthird  | partydropdwon  |category customer  | createdbydrop  |  statusdrop                |  yeardrpdwoncommercial |
+|           |                |                   |                |                            |                        |
+|abc        |Governmental    |  AMA              | David Doe      |Darft(needs to be validated)| 2026                   |
+
+Scenario: purchase order creation
+
+Given user click new order in purchase order creation
+
+Scenario Outline:pruchase order creation
+
+When user click a dropdown vendor "<vendor>"
+When user enter a ref vendor in puchase order "<refvendor purchase>"
+When user enter payment terms dropdwon in purchase order "<paymentpurchase>"
+When user click dropdown payment method in purchase order "<purchaseorderpaymentmethod>"
+When user enter planned date of delivery in purchase order "<planneddelivery>"
+When user click the project dropdwon in purchase order "<projectdropdown1>"
+When user click the currency dropdwon in purchase order "<currencydropdown>"
+When user enter the notes public in purchase order "<notespurchase>"
+When user enters the notes private in purchase order "<privatepurchase>"
+Then user click the created draft in purchase order if entered credentials are valid "<status>"
+
+Examples:
+
+|vendor  |refvendor purchase | paymentpurchase  | purchaseorderpaymentmethod | planneddelivery | projectdropdown1 | currencydropdown | notespurchase | privatepurchase | status |
+|        |                   |                  |                            |                 |                  |                  |               |                 |Invalid |
+|ABC Corp|Selva mandra       | 30 days          |Bank transfer               |08/05/2026       |11051991          |Euros             | vendor        |purchase order   |valid   |
+
+
+Scenario:sales order list verification
+
+Given user click the sales order list 
+When user search the name in refrence customer name "<refcustomername>"
+When user click the search in sales order list 
+When user click the name in the list displayed in sales order 
+When user verifies all the headers are displayed in sales order
+And user click the contact address in sales order
+And user click the Add button in sales order
+And user click the notes in sales order 
+And user click the linked Files in the sales order 
+When user select the file in the folder in sales order "C:\selva mandra\(PROV8705).pdf"
+Then user click the delete button in sales order list
+Then user click the yes buuton in sales list
+Then user click Events Agenta in saleslist
+
+Examples:
+
+|refcustomername  |
+|selva            |
+
+Scenario:Statistics in purchase orders 
+
+Given user click the statistics in purchase order
+When user click the dropdown in third party purchase order "<thirdpurchaseparty>"
+When user click the thirdparty type in purchase order "<thirdpartytypedrop>"
+When user click the tag vendor in purchase order "<tagvendorpurchase>"
+When user click the created by dropdown in purchase order "<createdbypurchase>"
+When enter the status in the purchase order "<statuspurchase>"
+Then user enter the year in purchase order "<yearpurchase>"
+Then user click the refresh in purchase order
+
+Examples:
+
+| thirdpurchaseparty | thirdpartytypedrop | tagvendorpurchase  | createdbypurchase | statuspurchase | yearpurchase  |
+|                    |                    |                    |                   |Canceled        |2026           |
+|ABC123              |Medium company      | 2024               |apiuser            |Approved        |2026           |
+
+
+Scenario:New vendor proposals
+
+Given user click the new price request in vendor proposals 
+
+
+Scenario Outline:New price request
+
+When click the vendor dropdown in vendor proposals "<vendorproposal>"
+When user click the payment terms in vendor proposal "<paymentvendor>"
+When user enter the payment method in vendor proposal "<methodvendor>"
+When user enter the delivery date in vendor proposal "<datevendor>"
+When user enter the project in vendor proposal "<projectvendor>"
+When user enter the currency in vendor proposal "<currencyproposal>"
+Then user click the created draft in vendor proposal if entered credentials are valid "<status>"
+
+Examples:
+
+| vendorproposal | paymentvendor | methodvendor | datevendor | projectvendor |currencyproposal |status  |
+|                |               |              |             |              |                 |Invalid |
+|ABC Corp        | 30 days       | Cash         | 08/15/2026  |11051991      | Euros           |Valid   |
+
+
+Scenario:statistics in vendor proposal
+
+Given user click the statistics in the vendor proposal
+
+
+Scenario Outline:statistics verification in vendor proposal
+
+When user enter the thirdparty dropdown in vendor proposal "<vendorthirdpartydropdwon>"
+When user click the thirdparty type dropdwon in vendor proposal "<vendorthirdpartytype>"
+When user click the category customer dropdown in vendor proposal "<vendorcategorycustomer>"
+And user enter the created by dropdown in vendor "<vendorcreatedby>"
+And user enter the status in vendorstatus "<vendorstatus>"
+Then user enter the year in vendor proposal "<vendoryear>"
+Then user click the refresh button in vendor proposal 
+
+Examples:
+
+| vendorthirdpartydropdwon | vendorthirdpartytype | vendorcategorycustomer| vendorcreatedby| vendorstatus  |  vendoryear  |
+|                          |                      |                       |                |               |2026          |
+| ABC Company              |  Large company       | 2024                  | Albert Einstein| Validated     |2026          |
+
+
+Scenario: New contract subscription
+
+Given user click the new contract in Contracts
+
+Scenario Outline:Contract creation
+
+Given user enter the refernce customer in new contract "<refcuscontract>"
+When user enter the refernce vendor in new contract "<refvencontract>"
+When user enter the thirdparty in the new contract "<thirdpartycontract>"
+When user enter the following up in the new contract "<followingupcontract>"
+When user enter the signing in the new contract "<signing>"
+When user enter the date in new contract "<datenewcontract>"
+When user enter project in new contract "<projectcontract>"
+When user enter the note in new contract "<notecontract>"
+When user enter the note public in new contract "<notepubliccontract>"
+Then user click the create new contract if entered credentials are valid "<status>"
+
+Examples:
+
+|refcuscontract  | refvencontract  | thirdpartycontract | followingupcontract  | signing  | datenewcontract  | projectcontract  | notecontract  | notepubliccontract | status |
+|                |                 |                     |                     |          |                  |                  |               |                    | Invalid|
+|Selva           | Mandra          | abc (aabc)          |David Doe           |David Doe  |07/08/2026        | 11051991         |  Public       |  Private           |valid   |
+
+Scenario Outline:Vendor proposals list verification
+
+Given user click the vendor proposals list 
+When user search the name in refrence vendor "<refvendorname>"
+When user click the search in vendor list 
+When user click the name in the list displayed in vendor list 
+When user verifies all the headers are displayed in vendor list
+And user click the contact address in vendor list
+And user click the Add button in vendor list
+And user click the notes in vendor list 
+And user click the linked Files in the vendor list 
+When user select the file in the folder in vendor list "C:\selva mandra\(PROV8705).pdf"
+Then user click the delete button in vendor list
+Then user click the yes buuton in vendor list
+Then user click Events Agenta in vendorlist
+
+Examples:
+
+|refvendorname    |
+|abc              |
+
+
+Scenario:Intervention Creation
+
+Given user click the new intervention in commerce
+When user enter the third party invention dropdwon "abc"
+Then user click the create draft in new inervention
+
+
+Scenario Outline:New Intervention
+
+Given user enter reference customer in new intervention "<refcustomerin>"
+When user enter the description in new intervention "<descriptionin>"
+When user click project in create intervention "<projectin>"
+When user enter note public in intervention "<publicin>"   
+When user enter note private in intervention "<privatein>"
+Then user click create draft if entered credentials are valid "<status>"
+
+Examples:
+
+| refcustomerin  | descriptionin      | projectin | publicin | privatein | status |
+#|                |                    |           |          |           |Invalid |
+|Selva           | create intervention| 11051991  | public   |private    |valid   |
+
+@Selva
+
+Scenario:Billing
+
+Given user click the billing in the headers
+When user click the new invoice in the customer invoice 
+@Selva
+Scenario Outline:New invoice
+
+When user enter customer dropdown in new invoice "<slectthirdparty>"
+When user enter payment terms dropdown in new invoice "<termsinvoice>"
+When user enter payment method dropdown in new invoice "<methodinvoice>"
+When user click the bank account in new invoice "<bankaccount>"
+When user enter the source dropdown in invoice "<sourcedropdown>"
+When user click the project dropdown in invoice "<projectdropdown>"
+When user enter the document template "<document>"
+When user enter the currency in invoice "<currency>"
+Then user enter the notes public in invoice "<public>"
+Then user enter the notes private in invoice "<private>"
+Then user click create draft in invoice if entered credentials are valid "<status>"
+
+Examples:
+
+| slectthirdparty | termsinvoice | methodinvoice | bankaccount |sourcedropdown |projectdropdown | document  |currency  | public | private  | status |
+|                 |              |               |             |               |                |           |          |        |          |Invalid |
 

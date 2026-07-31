@@ -9,11 +9,13 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.BaseClass.baseclass;
 import com.PomClass.pomclass;
 
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -1705,13 +1707,1355 @@ public class Stepdefinition extends baseclass{
 
            }
 
+           @Given("user click the list in the new task")
+           public void user_click_the_list_in_the_new_task()throws Exception {
+              click(d1.tasklist);
+              String actualURL = driver.getCurrentUrl();
+         	   String expectedURL = "https://demo.dolibarr.org/projet/tasks/list.php?leftmenu=tasks";
+         	   Assert.assertEquals(actualURL, expectedURL);
+
+           }
+
+           @When("user search the created task name in the search field {string}")
+           public void user_search_the_created_task_name_in_the_search_field(String string)throws Exception {
+               sendkeys(d1.tasknamesearch, string);
+               String actaulText = d1.tasknamesearch.getAttribute("value");
+               Assert.assertEquals(string, actaulText);
+
+           }
+           @When("user click the search button in the task list")
+           public void user_click_the_search_button_in_the_task_list()throws Exception {
+              click(d1.clicksearch);
+              Assert.assertTrue("user click the search button successfully", isdisplayed(d1.newlead));
+              
+           }
+           @When("user click the name in the created task list")
+           public void user_click_the_name_in_the_created_task_list()throws Exception {
+               click(d1.relevanttaskclick);
+               Assert.assertTrue("user verifies the new lead is displayed successfully", isdisplayed(d1.newlead));
+               Assert.assertTrue("user verifies list is displayed successfully", isdisplayed(d1.tasklist));
+           }
+           @Then("user verifes the crated task is displayed")
+           public void user_verifes_the_crated_task_is_displayed()throws Exception {
+        	   Assert.assertTrue("user verifies the created task is displayed successfully", isdisplayed(d1.newlead)); 
+ 
+           }
+           @Then("user click back to list")
+           public void user_click_back_to_list()throws Exception {
+              click(d1.backtolist);
+              String actualURL = driver.getCurrentUrl();
+        	   String expectedURL = "https://demo.dolibarr.org/projet/list.php?restore_lastsearch_values=1";
+        	   Assert.assertEquals(actualURL, expectedURL);
+
+              
+           }
+
+           @Given("user click a statistics in tasks and activities")
+           public void user_click_a_statistics_in_tasks_and_activities()throws Exception {
+               click(d1.statisticstaskactivities);
+               String actualURL = driver.getCurrentUrl();
+        	   String expectedURL = "https://demo.dolibarr.org/projet/tasks/stats/index.php?leftmenu=projects";
+        	   Assert.assertEquals(actualURL, expectedURL);               
+           }
+           @When("user click a dropdown yearin statistics {string}")
+           public void user_click_a_dropdown_yearin_statistics(String string) throws Exception{
+               click(d1.statisticsdropdwon);
+               sendkeys(d1.searchstatistics, string);
+               pressEnter(d1.searchstatistics);
+               Assert.assertTrue("user verifies the new task is displayed successfully", isdisplayed(d1.newtask));
+               Assert.assertTrue("user verifies refresh is displayed successfully", isdisplayed(d1.refreshtaskactivities));
+
+               }
+           
+           @Then("user click the refresh button in tasks and activities")
+           public void user_click_the_refresh_button_in_tasks_and_activities()throws Exception {
+              click(d1.refreshtaskactivities);
+              Assert.assertTrue("User is not click the refresh button",CurrentURL().contains("projet/tasks/stats/index.php?leftmenu=projects"));
+              
+           }
+            
+           @Given("user click the time tracking list")
+           public void user_click_the_time_tracking_list()throws Exception {
+               click(d1.clicktimetracking);
+               String actualURL = driver.getCurrentUrl();
+         	   String expectedURL = "https://demo.dolibarr.org/projet/tasks/time.php?leftmenu=tasks";
+         	   Assert.assertEquals(actualURL, expectedURL);
+           }
+           
+           @When("user click the Modify button in the time tracking")
+           public void user_click_the_modify_button_in_the_time_tracking()throws Exception {
+              click(d1.Modifytimetracking);
+              Assert.assertTrue("user verifies the Modify button displayed successfully", isdisplayed(d1.newtask));
+           }
+           @When("user click the save button in the list")
+           public void user_click_the_save_button_in_the_list()throws Exception {
+              click(d1.savetimetacking);
+              Assert.assertTrue("user clicks the save button successfully", isdisplayed(d1.newtask)); 
+              Assert.assertTrue("user verifies the list successfully", isdisplayed(d1.tasklist));
+           }
+           @When("user click the name displayed in the time tracking")
+           public void user_click_the_name_displayed_in_the_time_tracking() throws Exception{
+               click(d1.clicktimetracking);
+               Assert.assertTrue("user clicks the name displayed successfully", isdisplayed(d1.newtask));
+           }
+           @Then("user click the back to list in the timetracking")
+           public void user_click_the_back_to_list_in_the_timetracking() throws Exception{
+               click(d1.backtolist);
+              Assert.assertTrue("user verifies new lead is displayed successfully", isdisplayed(d1.newlead)); 
+              Assert.assertTrue("user verifies the name displayed successfully", isdisplayed(d1.newtask));
+           }
+
+           @Given("user click the commerce in the headers")
+           public void user_click_the_commerce_in_the_headers()throws Exception {
+               click(d1.commerce);
+               String actualURL = driver.getCurrentUrl();
+         	   String expectedURL = "https://demo.dolibarr.org/comm/index.php?mainmenu=commercial&leftmenu=";
+         	   Assert.assertEquals(actualURL, expectedURL);
+
+               
+           }
+           @When("user click the new commercial in the commerce")
+           public void user_click_the_new_commercial_in_the_commerce()throws Exception {
+              click(d1.newproposal);
+              String actualURL = driver.getCurrentUrl();
+        	   String expectedURL = "https://demo.dolibarr.org/comm/propal/card.php?action=create&leftmenu=propals";
+        	   Assert.assertEquals(actualURL, expectedURL);
+
+           }
+           @When("user enter the Reference customer in the commerce {string}")
+           public void user_enter_the_reference_customer_in_the_commerce(String string)throws Exception {
+              sendkeys(d1.refcustomerproposal, string);
+              String actaulText = d1.refcustomerproposal.getAttribute("value");
+              Assert.assertEquals(string, actaulText);
+              
+           }
+           @When("user enter the customer dropdown in the commerce {string}")
+           public void user_enter_the_customer_dropdown_in_the_commerce(String string) throws Exception{
+        	   click(d1.customerproposal);
+        	   waitForElementToBeClickable(d1.customerproposal);
+               sendkeys(d1.customerproposal1, string);
+               pressEnter(d1.customerproposal1);
+               Assert.assertTrue("user clicks the customer dropdwon successfully", isdisplayed(d1.refcustomerproposal));
+           }
+           
+           @When("user enter the payment terms dropdwon in the commerce {string}")
+           public void user_enter_the_payment_terms_dropdwon_in_the_commerce(String string) throws Exception{
+              click(d1.paymentterms);
+              waitForElementToBeClickable(d1.paymentterms);
+              sendkeys(d1.customerproposal1, string);
+              pressEnter(d1.customerproposal1);
+              Assert.assertTrue("user clicks the payment terms dropdwon successfully", isdisplayed(d1.refcustomerproposal));
+           }
+           
+           @When("user enter the payment method dropdown in the commerce {string}")
+           public void user_enter_the_payment_method_dropdown_in_the_commerce(String string)throws Exception {
+              click(d1.paymentmethod);
+              sendkeys(d1.customerproposal1, string);
+              pressEnter(d1.customerproposal1);
+             Assert.assertTrue("user clicks the payment method dropdwon successfully", isdisplayed(d1.refcustomerproposal));  
+        	   
+           }
+           
+           @When("user enter the source method dropdown in the commerce {string}")
+           public void user_enter_the_source_method_dropdown_in_the_commerce(String string) throws Exception{
+               click(d1.sourcecommercial);
+               sendkeys(d1.customerproposal1, string);
+               pressEnter(d1.customerproposal1);
+               Assert.assertTrue("user clicks the source method dropdwon successfully", isdisplayed(d1.refcustomerproposal));
+           }
+           
+           @When("user enter the availability dropdown in the commerce {string}")
+           public void user_enter_the_availability_dropdown_in_the_commerce(String string)throws Exception {
+               click(d1.availabilitydelay);
+               sendkeys(d1.customerproposal1, string);
+               pressEnter(d1.customerproposal1);
+              Assert.assertTrue("user clicks the availability method dropdwon successfully", isdisplayed(d1.paymentterms));  
+           }
+           
+           @When("user enter the delivery date in the input field {string}")
+           public void user_enter_the_delivery_date_in_the_input_field(String string) throws Exception{
+               sendkeys(d1.Deliverydate, string);
+               String actaulDate = d1.Deliverydate.getAttribute("value");
+               Assert.assertEquals(string, actaulDate);
+
+               
+           }
+           @When("user enter the project in the commerce {string}")
+           public void user_enter_the_project_in_the_commerce(String string)throws Exception {
+              click(d1.project);
+              sendkeys(d1.customerproposal1, string);
+              pressEnter(d1.customerproposal1);
+              Assert.assertTrue("user clicks the project method dropdwon successfully", isdisplayed(d1.paymentterms));
+           }
+           
+           @When("user click the dropdwon in the tags commerce {string}")
+           public void user_click_the_dropdwon_in_the_tags_commerce(String string)throws Exception {
+               click(d1.tagscommercial);
+               sendkeys(d1.tagscommercial, string);
+               pressEnter(d1.tagsserach);
+               Assert.assertTrue("user clicks the tags method dropdwon successfully", isdisplayed(d1.paymentterms));  
+           }
+           
+           @Then("user enter the note in the public commerce {string}")
+           public void user_enter_the_note_in_the_publipaymenttermsc_commerce(String string)throws Exception {
+              sendkeys(d1.notepublic, string);
+              String actaulText = d1.notepublic.getAttribute("value");
+              Assert.assertEquals(string, actaulText);
+           }
+           
+           @Then("user enter the note in the private commerce {string}")
+           public void user_enter_the_note_in_the_private_commerce(String string)throws Exception {
+               sendkeys(d1.noteprivate, string);
+               String actaulText = d1.noteprivate.getAttribute("value");
+               Assert.assertEquals(string, actaulText);
+
+           }
+           
+           @Then("user click the create draft in the commerce if entered credentials are valid {string}")
+           public void user_click_the_create_draft_in_the_commerce_if_entered_credentials_are_valid(String status) throws Exception{
+             
+        	   click(d1.savecommercial);
+        	   if (status.equalsIgnoreCase("valid")) 
+                   Assert.assertTrue("user add the proposal successfully", isdisplayed(d1.successmessage));
+                else {
+             		System.out.println(gettext(d1.creationvalidation));
+                    }
+
+              
+           }
+           
+           @Given("user click the new order in the sales order")
+           public void user_click_the_new_order_in_the_sales_order()throws Exception {
+               click(d1.Neworder);
+               String actualURL = driver.getCurrentUrl();
+         	   String expectedURL = "https://demo.dolibarr.org/commande/card.php?action=create&leftmenu=orders";
+         	   Assert.assertEquals(actualURL, expectedURL);
+
+               
+           }
+           @When("user enter the ref number in the sales order {string}")
+           public void user_enter_the_ref_number_in_the_sales_order(String string) throws Exception {
+        	   sendkeys(d1.refcustomerproposal, string);
+               String actaulText = d1.refcustomerproposal.getAttribute("value");
+               Assert.assertEquals(string, actaulText);
+        	   
+           }
+           
+           @When("user enter the customer dropdwon in the sales {string}")
+           public void user_enter_the_customer_dropdwon_in_the_sales(String string) throws Exception {
+        	   click(d1.customerproposal);
+        	   waitForElementToBeClickable(d1.customerproposal);
+               sendkeys(d1.customerproposal1, string);
+               pressEnter(d1.customerproposal1);
+               Assert.assertTrue("user clicks the customer dropdwon successfully", isdisplayed(d1.refcustomerproposal));
+           }
+           
+           @When("user enter the delivery date in the sales {string}")
+           public void user_enter_the_delivery_date_in_the_sales(String string)throws Exception {
+        	   sendkeys(d1.planneddelivery, string);
+               String actaulDate = d1.planneddelivery.getAttribute("value");
+               Assert.assertEquals(string, actaulDate);
+
+           }
+           
+           @When("user enter the availability dropdwon in the sales order {string}")
+           public void user_enter_the_availability_dropdwon_in_the_sales_order(String string)throws Exception {
+        	   click(d1.paymentterms);
+               sendkeys(d1.customerproposal1, string);
+               pressEnter(d1.customerproposal1);
+              Assert.assertTrue("user clicks the availability method dropdwon successfully", isdisplayed(d1.paymentterms));  
+
+        	   
+           }
+           
+           @When("user enter the payment terms dropdwon in the sales {string}")
+           public void user_enter_the_payment_terms_dropdwon_in_the_sales(String string)throws Exception {
+        	   click(d1.paymentmethod);
+               waitForElementToBeClickable(d1.paymentmethod);
+               sendkeys(d1.customerproposal1, string);
+               pressEnter(d1.customerproposal1);
+               Assert.assertTrue("user clicks the payment terms dropdwon successfully", isdisplayed(d1.refcustomerproposal));
+
+           }
+           
+           @When("user enter the payment method dropdown in the sales {string}")
+           public void user_enter_the_payment_method_dropdown_in_the_sales(String string)throws Exception {
+        	   click(d1.sourcecommercial);
+               sendkeys(d1.customerproposal1, string);
+               pressEnter(d1.customerproposal1);
+              Assert.assertTrue("user clicks the payment method dropdwon successfully", isdisplayed(d1.refcustomerproposal));  
+
+           }
+           
+           @When("user enter the source dropdown in the sales order {string}")
+           public void user_enter_the_source_dropdown_in_the_sales_order(String string) throws Exception{
+        	   click(d1.availabilitydelay);
+               sendkeys(d1.customerproposal1, string);
+               pressEnter(d1.customerproposal1);
+               Assert.assertTrue("user clicks the source method dropdwon successfully", isdisplayed(d1.refcustomerproposal));
+           }
+           
+           @When("user enter the project dropdwon in the sales order {string}")
+           public void user_enter_the_project_dropdwon_in_the_sales_order(String string)throws Exception {
+        	   click(d1.project);
+               sendkeys(d1.customerproposal1, string);
+               pressEnter(d1.customerproposal1);
+               Assert.assertTrue("user clicks the project method dropdwon successfully", isdisplayed(d1.paymentterms));
+           }
+           
+           @When("user enter the custom field1 in the sales order {string}")
+           public void user_enter_the_custom_field1_in_the_sales_order(String string) throws Exception{
+               sendkeys(d1.customfield, string);
+               String actaulText = d1.customfield.getAttribute("value");
+               Assert.assertEquals(string, actaulText);
+
+           }
+           
+           @Then("user enter the note public in the sales {string}")
+           public void user_enter_the_note_public_in_the_sales(String string)throws Exception {
+        	   sendkeys(d1.notepublic, string);
+               String actaulText = d1.notepublic.getAttribute("value");
+               Assert.assertEquals(string, actaulText);
+           }
+           
+           @Then("user enter the note private in the sales {string}")
+           public void user_enter_the_note_private_in_the_sales(String string)throws Exception {
+        	   sendkeys(d1.noteprivate, string);
+               String actaulText = d1.noteprivate.getAttribute("value");
+               Assert.assertEquals(string, actaulText);
+
+           }
+           
+           @Then("user click the create draft in the salesorder if entered credentials are valid {string}")
+           public void user_click_the_create_draft_in_the_salesorder_if_entered_credentials_are_valid(String status) throws Exception {
+        	   click(d1.savecommercial);
+        	   if (status.equalsIgnoreCase("valid")) 
+                   Assert.assertTrue("user add the proposal successfully", isdisplayed(d1.successmessage));
+                else {
+             		System.out.println(gettext(d1.creationvalidation));
+                    }
+
+           }
+     
+           @Given("user click the list in the customer invoices")
+           public void user_click_the_list_in_the_customer_invoices()throws Exception {
+               click(d1.Listcommercial);
+               String actualURL = driver.getCurrentUrl();
+         	   String expectedURL = "https://demo.dolibarr.org/comm/propal/list.php?leftmenu=propals";
+         	   Assert.assertEquals(actualURL, expectedURL);
+
+           }
+           @When("user search the name in the input field {string}")
+           public void user_search_the_name_in_the_input_field(String string) throws Exception{
+              sendkeys(d1.refcustomer, string);
+              String actaulText = d1.refcustomer.getAttribute("value");
+              Assert.assertEquals(string, actaulText);
+
+           }
+           
+           @When("user click the search in the list commercial")
+           public void user_click_the_search_in_the_list_commercial()throws Exception {
+              click(d1.clicksearch);
+              Assert.assertTrue("user clicks the search button successfully", isdisplayed(d1.newproposal));  
+           }
+
+
+            @When("user click the download button in the list")
+           public void user_click_the_download_button_in_the_list() throws Exception{
+               click(d1.clickdownloadbutton);
+             Assert.assertTrue("user clicks the download button successfully", isdisplayed(d1.newproposal));  
+           }
+            
+           @When("user click the download pdf in the list commercial")
+           public void user_click_the_download_pdf_in_the_list_commercial()throws Exception {
+               click(d1.downloadpdf);
+             Assert.assertTrue("user clicks the download pdf successfully", isdisplayed(d1.Listcommercial));  
+           }
+           
+           @When("user click the preview pdf in the list commercial")
+           public void user_click_the_preview_pdf_in_the_list_commercial() throws Exception{
+              click(d1.documentpreview);
+           }
+           
+           @Then("user click the close button in the commercial")
+           public void user_click_the_close_button_in_the_commercial() throws Exception {
+              click(d1.closewindow);
+           }
+            @Then("user click the relevant name displayed in the commercial")
+              public void user_click_the_relevant_name_displayed_in_the_commercial()throws Exception {
+                click(d1.relevantnameclick);
+              Assert.assertTrue("user clicks the relevant name successfully", isdisplayed(d1.newproposal));   
+              }
+           
+            @Given("user click the draft in the commercial proposals")
+            public void user_click_the_draft_in_the_commercial_proposals()throws Exception {
+               click(d1.drafts);
+               String actualURL = driver.getCurrentUrl();
+         	   String expectedURL = "https://demo.dolibarr.org/comm/propal/list.php?leftmenu=propals&search_status=0";
+         	   Assert.assertEquals(actualURL, expectedURL);
+
+            	
+            }
+            
+              @When("user search the name in the drafts {string}")
+            public void user_search_the_name_in_the_drafts(String string)throws Exception {
+               sendkeys(d1.refcustomer, string);
+               String actaulText = d1.refcustomer.getAttribute("value");
+               Assert.assertEquals(string, actaulText); 
+            	
+            }
+            
+            @When("user click search in drafts")
+            public void user_click_search_in_drafts()throws Exception {
+                click(d1.clicksearch);
+              Assert.assertTrue("user clicks the name successfully", isdisplayed(d1.drafts));  
+            	
+            }
+            
+            @When("user click the first name in the draft")
+            public void user_click_the_first_name_in_the_draft()throws Exception {
+               click(d1.relevantleadclick); 
+               Assert.assertTrue("user clicks the first name successfully", isdisplayed(d1.drafts));  
+               Assert.assertTrue("user verifies the first name is click", isdisplayed(d1.newproposal)); 
+            }
+            
+            @When("user verifies all the headers are displayed in drafts")
+            public void user_verifies_all_the_headers_are_displayed_in_drafts()throws Exception {
+            	Assert.assertTrue(verifyElement (d1.Commercialproposal));
+            	Assert.assertTrue(verifyElement (d1.Contactaddress));
+            	Assert.assertTrue(verifyElement (d1.Notesdraft));
+            	Assert.assertTrue(verifyElement (d1.LinkedFiles));
+            	Assert.assertTrue(verifyElement (d1.Eventsagenta));
+            }
+
+
+            @When("user click the contact address in the draft")
+            public void user_click_the_contact_address_in_the_draft()throws Exception {
+                click(d1.Contactaddress);
+                Assert.assertTrue("contact address is not displayed",isdisplayed(d1.drafts));
+       		 Assert.assertTrue("Online button  is not enabled",isEnabled(d1.drafts));
+       		 System.out.println("Contact address is displayed successfully");
+            }
+            
+            @When("user click the add button in the contact draft")
+            public void user_click_the_add_button_in_the_contact_draft()throws Exception {
+                click(d1.addcontactdraft);
+              Assert.assertTrue("contact address is not displayed",isdisplayed(d1.drafts));  
+            }
+            
+            @When("user click the notes in the draft")
+            public void user_click_the_notes_in_the_draft()throws Exception {
+               click(d1.Notesdraft);
+               Assert.assertTrue("User is not click the Notes button",CurrentURL().contains("comm/propal/note.php?id"));
+               
+            }
+            
+            @When("user click the linked Files in the draft file name")
+            public void user_click_the_linked_files_in_the_draft_file_name()throws Exception {
+                click(d1.LinkedFiles);
+              Assert.assertTrue("User is not click the linked files button",CurrentURL().contains("comm/propal/document.php?id"));   
+            
+           }
+            
+            @When("user select the file in the folder {string}")
+            public void user_select_the_file_in_the_folder(String string) throws Exception {
+            	click(d1.plusbutton);
+        		uploadFile(d1.choosefile,string);
+        		closedialog();
+        		click(d1.upload);
+        		Assert.assertTrue("document is not selected",isdisplayed(d1.Notesdraft));
+            }
+            
+            @Then("user click the delete button")
+            public void user_click_the_delete_button() throws Exception{
+              click(d1.delete1);
+              Assert.assertTrue("user is not click the delete button",isdisplayed(d1.drafts));  
+            }
+            
+            @Then("user click the yes buuton")
+            public void user_click_the_yes_buuton()throws Exception {
+               click(d1.yes);
+            }
+
+
+            @Then("user click Events Agenta in drafts")
+            public void user_click_events_agenta_in_drafts()throws Exception {
+              click(d1.Eventsagenta);  
+              Assert.assertTrue("user is not click events agenta",isdisplayed(d1.Contactaddress));  
+            }
+
+            @Given("user click the statistics in the commercial proposals")
+            public void user_click_the_statistics_in_the_commercial_proposals() throws Exception{
+               click(d1.statistics);
+               String actualURL = driver.getCurrentUrl();
+         	   String expectedURL = "https://demo.dolibarr.org/comm/propal/stats/index.php?leftmenu=propals";
+         	   Assert.assertEquals(actualURL, expectedURL);
+               
+            }
+
+            @When("user enter the third party drop in the field {string}")
+            public void user_enter_the_third_party_drop_in_the_field(String string)throws Exception{
+                click(d1.thirdpartydrop);
+                sendkeys(d1.thirdpartysearch, string);
+                pressEnter(d1.thirdpartysearch);
+               
+            }
+            
+            @When("user enter the third party type dropdown {string}")
+            public void user_enter_the_third_party_type_dropdown(String string) throws Exception{
+                click(d1.thirdpartytype);
+                sendkeys(d1.thirdpartysearch, string);
+                pressEnter(d1.thirdpartysearch);
+                           
+            }
+            
+            @When("user click the category customer dropdwon {string}")
+            public void user_click_the_category_customer_dropdwon(String string) throws Exception{
+                click(d1.customercategorydrop);
+                sendkeys(d1.thirdpartysearch, string);
+                pressEnter(d1.thirdpartysearch);
+                
+            
+            }
+           
+            @When("user click the created by dropdwon in commercial {string}")
+            public void user_click_the_created_by_dropdwon_in_commercial(String string)throws Exception {
+                click(d1.createdbydrop);
+                sendkeys(d1.thirdpartysearch, string);
+                pressEnter(d1.thirdpartysearch);
+                
+            }  
+            
+            @When("user click the status dropdwon in commercial {string}")
+            public void user_click_the_status_dropdwon_in_commercial(String string) throws Exception{
+                click(d1.statusdrop);
+                sendkeys(d1.thirdpartysearch, string);
+                pressEnter(d1.thirdpartysearch);
+
+            	}
+            
+            @Then("user enter the year dropdown in commercial {string}")
+            public void user_enter_the_year_dropdown_in_commercial(String string)throws Exception {
+                 click(d1.yeardrop);   
+                 sendkeys(d1.thirdpartysearch, string);
+                 pressEnter(d1.thirdpartysearch);
+                 
+            }
+            
+            @Then("user click the refresh button in commercial")
+            public void user_click_the_refresh_button_in_commercial() throws Exception{
+                click(d1.refreshstatistics);
+            }
+
+            @Given("user click new order in purchase order creation")
+            public void user_click_new_order_in_purchase_order_creation()throws Exception {
+                click(d1.neworderpurchase);
+                String actualURL = driver.getCurrentUrl();
+          	   String expectedURL = "https://demo.dolibarr.org/fourn/commande/card.php?action=create&leftmenu=orders_suppliers";
+          	   Assert.assertEquals(actualURL, expectedURL); 
+            }
+
+            @When("user click a dropdown vendor {string}")
+            public void user_click_a_dropdown_vendor(String string)throws Exception {
+                click(d1.vendorthirdparty);
+                sendkeys(d1.searchpurchase, string);
+                pressEnter(d1.searchpurchase);
+            	
+            }
+            
+            @When("user enter a ref vendor in puchase order {string}")
+            public void user_enter_a_ref_vendor_in_puchase_order(String string)throws Exception {
+               sendkeys(d1.refvendor, string);
+               String actaulText = d1.refvendor.getAttribute("value");
+               Assert.assertEquals(string, actaulText);
+               
+            }
+            
+            
+            @When("user enter payment terms dropdwon in purchase order {string}")
+            public void user_enter_payment_terms_dropdwon_in_purchase_order(String string)throws Exception {
+                click(d1.paymenttermsdrop);
+                sendkeys(d1.searchpurchase, string);
+                pressEnter(d1.searchpurchase);
+            }
+            
+            @When("user click dropdown payment method in purchase order {string}")
+            public void user_click_dropdown_payment_method_in_purchase_order(String string)throws Exception {
+                click(d1.paymentmethoddrop);
+                sendkeys(d1.searchpurchase, string);
+                pressEnter(d1.searchpurchase);
+            }
+            
+            @When("user enter planned date of delivery in purchase order {string}")
+            public void user_enter_planned_date_of_delivery_in_purchase_order(String string) throws Exception{
+                 sendkeys(d1.planneddate, string);
+                 String actaulDate = d1.planneddate.getAttribute("value");
+                 Assert.assertEquals(string, actaulDate);
+            }
+            
+            @When("user click the project dropdwon in purchase order {string}")
+            public void user_click_the_project_dropdwon_in_purchase_order(String string)throws Exception {
+               click(d1.projectdropdwon);
+               sendkeys(d1.searchpurchase, string);
+               pressEnter(d1.searchpurchase);
+               
+            }
+            
+            @When("user click the currency dropdwon in purchase order {string}")
+            public void user_click_the_currency_dropdwon_in_purchase_order(String string) throws Exception{
+                click(d1.currencydropdwon);
+                sendkeys(d1.searchpurchase, string);
+                pressEnter(d1.searchpurchase);
+                
+            }
+            
+            @When("user enter the notes public in purchase order {string}")
+            public void user_enter_the_notes_public_in_purchase_order(String string)throws Exception {
+               sendkeys(d1.notepublic, string);
+               String actaulText = d1.notepublic.getAttribute("value");
+               Assert.assertEquals(string, actaulText);
+            }
+            
+            @When("user enters the notes private in purchase order {string}")
+            public void user_enters_the_notes_private_in_purchase_order(String string) throws Exception{
+               sendkeys(d1.noteprivate, string);
+               String actaulText = d1.noteprivate.getAttribute("value");
+               Assert.assertEquals(string, actaulText); 
+            }
+            
+            @Then("user click the created draft in purchase order if entered credentials are valid {string}")
+            public void user_click_the_created_draft_in_purchase_order_if_entered_credentials_are_valid(String status) throws Exception{
+                click(d1.savecommercial);
+                if (status.equalsIgnoreCase("valid")) 
+                    Assert.assertTrue("user created the purchase order successfully", isdisplayed(d1.neworderpurchase));
+                 else {
+              		System.out.println(gettext(d1.creationvalidation));
+                     }
+
+
+                
+            }
+            
+              @Given("user click the statistics in the sales order")
+              public void user_click_the_statistics_in_the_sales_order() throws Exception{
+                  click(d1.salesstatistics);
+                  String actualURL = driver.getCurrentUrl();
+             	  String expectedURL = "https://demo.dolibarr.org/commande/stats/index.php?leftmenu=orders";
+             	 Assert.assertEquals(actualURL, expectedURL);
+              }
+
+              @And("user enter the thirdparty dropdown in sales order {string}")
+            public void user_enter_the_thirdparty_dropdown_in_sales_order(String string) throws Exception {
+            	click(d1.thirdpartydropsales);
+                sendkeys(d1.thirdpartysearchsales, string);
+                pressEnter(d1.thirdpartysearchsales);
+              Assert.assertTrue("user click the third party dropdown successfully", isdisplayed(d1.salesstatistics)); 
+              
+            }
+            
+            @And("user click the thirdparty type dropdwon in sales order {string}")
+            public void user_click_the_thirdparty_type_dropdwon_in_sales_order(String string)throws Exception {
+            	click(d1.salesorderthirdtype);
+                sendkeys(d1.thirdpartysearchsales, string);
+                pressEnter(d1.thirdpartysearchsales);
+              Assert.assertTrue("user click the third party type dropdown successfully", isdisplayed(d1.thirdpartydropsales));   
+       
+            }
+            
+            @And("user click the category customer dropdown in sales order {string}")
+            public void user_click_the_category_customer_dropdown_in_sales_order(String string) throws Exception{
+            	click(d1.salescustomerdrop);
+                sendkeys(d1.thirdpartysearchsales, string);
+                pressEnter(d1.thirdpartysearchsales);
+               Assert.assertTrue("user click the category dropdown successfully", isdisplayed(d1.salesorderthirdtype));   
+            	
+            }
+            
+            @And("user enter the created by dropdown in sales {string}")
+            public void user_enter_the_created_by_dropdown_in_sales(String string) throws Exception{
+            	 click(d1.salescreatedby);
+                 sendkeys(d1.thirdpartysearchsales, string);
+                 pressEnter(d1.thirdpartysearchsales);
+             Assert.assertTrue("user click the createdby dropdown successfully", isdisplayed(d1.salescustomerdrop)); 
+            	
+            }
+            
+            @And("user enter the status in sales {string}")
+            public void user_enter_the_status_in_sales(String string) throws Exception{
+            	click(d1.salesstatusdrop);
+                sendkeys(d1.thirdpartysearchsales, string);
+                pressEnter(d1.thirdpartysearchsales);
+             Assert.assertTrue("user click the status dropdown successfully", isdisplayed(d1.salescreatedby)); 
+            	
+            }
+            
+            @Then("user enter the year in sales order {string}")
+            public void user_enter_the_year_in_sales_order(String string)throws Exception {
+            	click(d1.salesyeardrop);   
+                sendkeys(d1.thirdpartysearchsales, string);
+                pressEnter(d1.thirdpartysearchsales);
+              Assert.assertTrue("user click the year dropdown successfully", isdisplayed(d1.salesstatusdrop));  
+            }
+            
+            @Then("user click the refresh button in sales order")
+            public void user_click_the_refresh_button_in_sales_order() throws Exception {
+                click(d1.refreshstatistics);
+            }
+
+            @Given("user click the sales order list")
+            public void user_click_the_sales_order_list() throws Exception {
+                  click(d1.listsales);
+                  String actualURL = driver.getCurrentUrl();
+            	   String expectedURL = "https://demo.dolibarr.org/commande/list.php?leftmenu=orders";
+            	   Assert.assertEquals(actualURL, expectedURL);
+  
+
+            }
+            
+            @When("user search the name in refrence customer name {string}")
+            public void user_search_the_name_in_refrence_customer_name(String string) {
+                sendkeys(d1.refcustomersales, string);
+                String actaulText = d1.refcustomersales.getAttribute("value");
+                Assert.assertEquals(string, actaulText); 
+             	
+            }
+            
+            @When("user click the search in sales order list")
+            public void user_click_the_search_in_sales_order_list() throws Exception{
+                click(d1.clicksearch);
+             Assert.assertTrue("user search the name successfully", isdisplayed(d1.listsales));    
+            }
+            
+            @When("user click the name in the list displayed in sales order")
+            public void user_click_the_name_in_the_list_displayed_in_sales_order()throws Exception {
+                click(d1.relevantsalesnameclick);
+                Assert.assertTrue("user clicks the first name successfully", isdisplayed(d1.listsales));  
+                Assert.assertTrue("user verifies the first name is click", isdisplayed(d1.salesstatistics));
+            }
+            
+            @When("user verifies all the headers are displayed in sales order")
+            public void user_verifies_all_the_headers_are_displayed_in_sales_order()throws Exception {
+            	Assert.assertTrue(verifyElement (d1.salesorderlist1));
+            	Assert.assertTrue(verifyElement (d1.salesContactaddress));
+            	Assert.assertTrue(verifyElement (d1.salesNotes));
+            	Assert.assertTrue(verifyElement (d1.SalesLinkedFiles));
+            	Assert.assertTrue(verifyElement (d1.SalesEventsagenta));
+
+            }
+            
+            @When("user click the contact address in sales order")
+            public void user_click_the_contact_address_in_sales_order()throws Exception {
+                click(d1.salesContactaddress);
+                Assert.assertTrue("contact address is not displayed",isdisplayed(d1.listsales));
+          		 Assert.assertTrue("contact address  is not enabled",isEnabled(d1.salesorderlist1));
+          		 System.out.println("Contact address is displayed successfully");
+
+            }
+            
+            @When("user click the Add button in sales order")
+            public void user_click_the_add_button_in_sales_order()throws Exception {
+               click(d1.addcontactsales);
+             Assert.assertTrue("contact address Add button is not displayed",isdisplayed(d1.listsales));   
+            }
+            
+            @When("user click the notes in sales order")
+            public void user_click_the_notes_in_sales_order() throws Exception{
+            	click(d1.Notessales);
+                Assert.assertTrue("User is not click the Notes button",CurrentURL().contains("commande/note.php?id"));
+
+            	
+            }
+            
+            @When("user click the linked Files in the sales order")
+            public void user_click_the_linked_files_in_the_sales_order()throws Exception {
+            	click(d1.SalesLinkedFiles);
+                Assert.assertTrue("User is not click the linked files button",CurrentURL().contains("commande/document.php?id"));
+            }
+            
+            @When("user select the file in the folder in sales order {string}")
+            public void user_select_the_file_in_the_folder_in_sales_order(String string)throws Exception {
+            	click(d1.plusbuttonsales);
+        		uploadFile(d1.choosefilesales,string);
+        		closedialog();
+        		click(d1.uploadsales);
+        		Assert.assertTrue("document is not selected",isdisplayed(d1.Notessales));
+            
+            }
+            
+            @Then("user click the delete button in sales order list")
+            public void user_click_the_delete_button_in_sales_order_list()throws Exception {
+                click(d1.delete1sales);
+             Assert.assertTrue("user is not click the delete button",isdisplayed(d1.salesorderlist1));
+            
+            }
+            
+            @Then("user click the yes buuton in sales list")
+            public void user_click_the_yes_buuton_in_sales_list()throws Exception {
+            	click(d1.yes);
+
+            }
+            
+            @Then("user click Events Agenta in saleslist")
+            public void user_click_events_agenta_in_saleslist()throws Exception {
+            	click(d1.Eventsagenta);  
+                Assert.assertTrue("user is not click events agenta in sales",isdisplayed(d1.salesContactaddress));
+            }
+
+
+            @Given("user click the statistics in purchase order")
+            public void user_click_the_statistics_in_purchase_order()throws Exception {
+                click(d1.purchasestatistics);
+                String actualURL = driver.getCurrentUrl();
+           	  String expectedURL = "https://demo.dolibarr.org/commande/stats/index.php?leftmenu=orders_suppliers&mode=supplier";
+           	 Assert.assertEquals(actualURL, expectedURL);
+            }
+            
+            @When("user click the dropdown in third party purchase order {string}")
+            public void user_click_the_dropdown_in_third_party_purchase_order(String string) throws Exception{
+            	click(d1.purchasethirdpartydrop);
+                sendkeys(d1.purchasethirdpartysearch, string);
+                pressEnter(d1.purchasethirdpartysearch);
+              Assert.assertTrue("user click the third party dropdown successfully", isdisplayed(d1.purchasestatistics));
+            }
+            
+            @When("user click the thirdparty type in purchase order {string}")
+            public void user_click_the_thirdparty_type_in_purchase_order(String string) throws Exception{
+            	click(d1.purchasethirdtype);
+                sendkeys(d1.purchasethirdpartysearch, string);
+                pressEnter(d1.purchasethirdpartysearch);
+              Assert.assertTrue("user click the third party type dropdown successfully", isdisplayed(d1.purchasethirdpartydrop)); 
+            
+            }
+            
+            @When("user click the tag vendor in purchase order {string}")
+            public void user_click_the_tag_vendor_in_purchase_order(String string)throws Exception {
+            	click(d1.purchasecustomerdrop);
+                sendkeys(d1.purchasethirdpartysearch, string);
+                pressEnter(d1.purchasethirdpartysearch);
+               Assert.assertTrue("user click the category dropdown successfully", isdisplayed(d1.purchasethirdtype));   
+            	
+
+            }
+            
+            @When("user click the created by dropdown in purchase order {string}")
+            public void user_click_the_created_by_dropdown_in_purchase_order(String string)throws Exception {
+            	click(d1.purchasecreatedby);
+                sendkeys(d1.purchasethirdpartysearch, string);
+                pressEnter(d1.purchasethirdpartysearch);
+            Assert.assertTrue("user click the createdby dropdown successfully", isdisplayed(d1.purchasecustomerdrop)); 
+
+            	
+            }
+            
+            
+            @When("enter the status in the purchase order {string}")
+            public void enter_the_status_in_the_purchase_order(String string) throws Exception{
+                    click(d1.purchasestatus);
+                    sendkeys(d1.statuspurchase, string);
+                    pressEnter(d1.statuspurchase);
+                Assert.assertTrue("user click the status dropdown successfully", isdisplayed(d1.purchasecreatedby)); 
+      
+            
+            }
+            
+            @Then("user enter the year in purchase order {string}")
+            public void user_enter_the_year_in_purchase_order(String string) throws Exception {
+                click(d1.purchaseyear);
+                sendkeys(d1.purchasethirdpartysearch, string);
+                pressEnter(d1.purchasethirdpartysearch);
+              Assert.assertTrue("user click the year dropdown successfully", isdisplayed(d1.purchasecreatedby)); 
+            }
+            
+            @Then("user click the refresh in purchase order")
+            public void user_click_the_refresh_in_purchase_order() throws Exception {
+            	click(d1.refreshstatistics);
+            	
+            }
+
+            @Given("user click the new price request in vendor proposals")
+            public void user_click_the_new_price_request_in_vendor_proposals() throws Exception{
+                click(d1.newvendorcreation);
+                String actualURL = driver.getCurrentUrl();
+         	   String expectedURL = "https://demo.dolibarr.org/supplier_proposal/card.php?action=create&leftmenu=supplier_proposals";
+         	   Assert.assertEquals(actualURL, expectedURL);
+  
+            	
+            }
+           
+            @When("click the vendor dropdown in vendor proposals {string}")
+            public void click_the_vendor_dropdown_in_vendor_proposals(String string)throws Exception {
+            	click(d1.vendorthirdparty);
+                sendkeys(d1.searchpurchase, string);
+                pressEnter(d1.searchpurchase);
+            	
+            }
+            
+            @When("user click the payment terms in vendor proposal {string}")
+            public void user_click_the_payment_terms_in_vendor_proposal(String string)throws Exception {
+            	 click(d1.paymenttermsdrop);
+                 sendkeys(d1.searchpurchase, string);
+                 pressEnter(d1.searchpurchase);
+            
+            }
+            
+            @When("user enter the payment method in vendor proposal {string}")
+            public void user_enter_the_payment_method_in_vendor_proposal(String string)throws Exception {
+            	click(d1.paymentmethoddrop);
+                sendkeys(d1.searchpurchase, string);
+                pressEnter(d1.searchpurchase);
+    
+            
+            }
+            
+            @When("user enter the delivery date in vendor proposal {string}")
+            public void user_enter_the_delivery_date_in_vendor_proposal(String string)throws Exception {
+               sendkeys(d1.planneddeliveryvendor, string);
+               String actaulDate = d1.planneddeliveryvendor.getAttribute("value");
+               Assert.assertEquals(string, actaulDate);
+
+            }
+            
+            @When("user enter the project in vendor proposal {string}")
+            public void user_enter_the_project_in_vendor_proposal(String string) throws Exception{
+                click(d1.currencydropdwon);
+                sendkeys(d1.searchpurchase, string);
+                pressEnter(d1.searchpurchase);
+            }
+            
+            @When("user enter the currency in vendor proposal {string}")
+            public void user_enter_the_currency_in_vendor_proposal(String string) throws Exception{
+                click(d1.salesstatusdrop);
+                sendkeys(d1.searchpurchase, string);
+                pressEnter(d1.searchpurchase);
+            }
+            
+            
+            @Then("user click the created draft in vendor proposal if entered credentials are valid {string}")
+            public void user_click_the_created_draft_in_vendor_proposal_if_entered_credentials_are_valid(String status) throws Exception{
+                click(d1.savecommercial);
+                if (status.equalsIgnoreCase("valid")) 
+                    Assert.assertTrue("user created the vendor proposal successfully", isdisplayed(d1.newproposal));
+                 else {
+              		System.out.println(gettext(d1.creationvalidation));
+                     }
+
+            }
+
+            @Given("user click the statistics in the vendor proposal")
+            public void user_click_the_statistics_in_the_vendor_proposal()throws Exception {
+               click(d1.statisticsvendor);
+               String actualURL = driver.getCurrentUrl();
+                String expectedURL = "https://demo.dolibarr.org/comm/propal/stats/index.php?leftmenu=supplier_proposals&mode=supplier";
+            	 Assert.assertEquals(actualURL, expectedURL);
+
+            }
+
+            @When("user enter the thirdparty dropdown in vendor proposal {string}")
+            public void user_enter_the_thirdparty_dropdown_in_vendor_proposal(String string) throws Exception {
+            	click(d1.vendorthirddrop);
+                sendkeys(d1.vendorsthirdpartysearch, string);
+                pressEnter(d1.vendorsthirdpartysearch);
+              Assert.assertTrue("user click the third party dropdown successfully", isdisplayed(d1.statisticsvendor));
+            
+            }
+            
+            @When("user click the thirdparty type dropdwon in vendor proposal {string}")
+            public void user_click_the_thirdparty_type_dropdwon_in_vendor_proposal(String string)throws Exception {
+            	click(d1.salesorderthirdtype);
+                sendkeys(d1.vendorsthirdpartysearch, string);
+                pressEnter(d1.vendorsthirdpartysearch);
+              Assert.assertTrue("user click the third party type dropdown successfully", isdisplayed(d1.vendorthirddrop)); 
+            	
+            }
+            
+            @When("user click the category customer dropdown in vendor proposal {string}")
+            public void user_click_the_category_customer_dropdown_in_vendor_proposal(String string) throws Exception {
+            	click(d1.salescustomerdrop);
+                sendkeys(d1.thirdpartysearchsales, string);
+                pressEnter(d1.thirdpartysearchsales);
+               Assert.assertTrue("user click the category dropdown successfully", isdisplayed(d1.salesorderthirdtype));   
+            	
+            }
+            
+            @When("user enter the created by dropdown in vendor {string}")
+            public void user_enter_the_created_by_dropdown_in_vendor(String string)throws Exception {
+            	click(d1.salescreatedby);
+                sendkeys(d1.thirdpartysearchsales, string);
+                pressEnter(d1.thirdpartysearchsales);
+            Assert.assertTrue("user click the createdby dropdown successfully", isdisplayed(d1.salescustomerdrop));
+            
+            }
+            
+            @When("user enter the status in vendorstatus {string}")
+            public void user_enter_the_status_in_vendorstatus(String string) throws Exception {
+            	click(d1.salesstatusdrop);
+                sendkeys(d1.thirdpartysearchsales, string);
+                pressEnter(d1.thirdpartysearchsales);
+             Assert.assertTrue("user click the status dropdown successfully", isdisplayed(d1.salescreatedby)); 
+            	
+            }
+            
+            @Then("user enter the year in vendor proposal {string}")
+            public void user_enter_the_year_in_vendor_proposal(String string) throws Exception {
+            	click(d1.salesyeardrop);   
+                sendkeys(d1.thirdpartysearchsales, string);
+                pressEnter(d1.thirdpartysearchsales);
+              Assert.assertTrue("user click the year dropdown successfully", isdisplayed(d1.salesstatusdrop));
+            
+            }
+
+            @Then("user click the refresh button in vendor proposal")
+            public void user_click_the_refresh_button_in_vendor_proposal() throws Exception {
+                click(d1.refreshstatistics);
+            }
+
+            @Given("user click the new contract in Contracts")
+            public void user_click_the_new_contract_in_contracts()throws Exception {
+               click(d1.Newcontract);
+               String actualURL = driver.getCurrentUrl();
+               String expectedURL = "https://demo.dolibarr.org/contrat/card.php?action=create&leftmenu=contracts";
+           	 Assert.assertEquals(actualURL, expectedURL);
+ 
+            }
+
+            @Given("user enter the refernce customer in new contract {string}")
+            public void user_enter_the_refernce_customer_in_new_contract(String string)throws Exception {
+                sendkeys(d1.customercontract, string);
+                String actaulText = d1.customercontract.getAttribute("value");
+                Assert.assertEquals(string, actaulText);
+
+            }
+            
+            @When("user enter the refernce vendor in new contract {string}")
+            public void user_enter_the_refernce_vendor_in_new_contract(String string) throws Exception{
+                sendkeys(d1.vendorcontract, string);
+                String actaulText = d1.vendorcontract.getAttribute("value");
+                Assert.assertEquals(string, actaulText);
+
+            }
+            
+            @When("user enter the thirdparty in the new contract {string}")
+            public void user_enter_the_thirdparty_in_the_new_contract(String string)throws Exception {
+                click(d1.thirdpartydrop);
+                sendkeys(d1.searchstatistics, string);
+                pressEnter(d1.searchstatistics);
+            
+            }
+            
+            @When("user enter the following up in the new contract {string}")
+            public void user_enter_the_following_up_in_the_new_contract(String string) throws Exception{
+                click(d1.paymentmethoddrop);
+                sendkeys(d1.searchstatistics, string);
+                pressEnter(d1.searchstatistics);
+            }
+            
+            @When("user enter the signing in the new contract {string}")
+            public void user_enter_the_signing_in_the_new_contract(String string)throws Exception {
+                click(d1.year);
+                sendkeys(d1.searchstatistics, string);
+                pressEnter(d1.searchstatistics);
+ 
+            }
+            
+            @When("user enter the date in new contract {string}")
+            public void user_enter_the_date_in_new_contract(String string)throws Exception {
+                sendkeys(d1.datecontract, string);
+                String actaulDate = d1.datecontract.getAttribute("value");
+                Assert.assertEquals(string, actaulDate);
+
+            }
+            
+            @When("user enter project in new contract {string}")
+            public void user_enter_project_in_new_contract(String string)throws Exception {
+            	click(d1.sourcecommercial);
+                sendkeys(d1.searchstatistics, string);
+                pressEnter(d1.searchstatistics);
+ 
+            }
+            
+            @When("user enter the note in new contract {string}")
+            public void user_enter_the_note_in_new_contract(String string)throws Exception {
+                sendkeys(d1.notepublic, string);
+                String actaulText = d1.notepublic.getAttribute("value");
+                Assert.assertEquals(string, actaulText);
+
+            }
+            
+            @When("user enter the note public in new contract {string}")
+            public void user_enter_the_note_public_in_new_contract(String string)throws Exception {
+                sendkeys(d1.noteprivate, string);
+                String actaulText = d1.noteprivate.getAttribute("value");
+                Assert.assertEquals(string, actaulText);
+            	
+            }
+            
+            @Then("user click the create new contract if entered credentials are valid {string}")
+            public void user_click_the_create_new_contract_if_entered_credentials_are_valid(String status)throws Exception {
+               click(d1.addcontactdraft);
+               if (status.equalsIgnoreCase("valid")) 
+                   Assert.assertTrue("user created the new contract successfully", isdisplayed(d1.newproposal));
+                else {
+             		System.out.println(gettext(d1.creationvalidation));
+                    }
+                 
+            }
+            
+            @Given("user click the vendor proposals list")
+            public void user_click_the_vendor_proposals_list()throws Exception {
+                click(d1.listvendor);
+                String actualURL = driver.getCurrentUrl();
+                String expectedURL = "https://demo.dolibarr.org/supplier_proposal/list.php?leftmenu=supplier_proposals";
+            	 Assert.assertEquals(actualURL, expectedURL);
+  
+            }
+
+            @When("user search the name in refrence vendor {string}")
+            public void user_search_the_name_in_refrence_vendor(String string) throws Exception{
+               sendkeys(d1.searchvendor, string);
+               String actaulText = d1.searchvendor.getAttribute("value");
+               Assert.assertEquals(string, actaulText);
+            }
+
+            @When("user click the search in vendor list")
+            public void user_click_the_search_in_vendor_list()throws Exception {
+                click(d1.clicksearch);
+              Assert.assertTrue("user click the search successfully", isdisplayed(d1.listvendor));   
+            }
+
+            @When("user click the name in the list displayed in vendor list")
+            public void user_click_the_name_in_the_list_displayed_in_vendor_list()throws Exception {
+                click(d1.relevantsalesnameclick);
+                Assert.assertTrue("User is not click the name list button",CurrentURL().contains("supplier_proposal/card.php?id"));
+            	
+            }
+
+            @When("user verifies all the headers are displayed in vendor list")
+            public void user_verifies_all_the_headers_are_displayed_in_vendor_list()throws Exception {
+            	Assert.assertTrue(verifyElement (d1.Commercialproposal));
+            	Assert.assertTrue(verifyElement (d1.Contactaddress));
+            	Assert.assertTrue(verifyElement (d1.Notesdraft));
+            	Assert.assertTrue(verifyElement (d1.LinkedFiles));
+            	Assert.assertTrue(verifyElement (d1.Eventsagenta));
+            }
+
+            @When("user click the contact address in vendor list")
+            public void user_click_the_contact_address_in_vendor_list()throws Exception {
+            	 click(d1.Contactaddress);
+                 Assert.assertTrue("contact address is not displayed",isdisplayed(d1.listsales));
+        		 Assert.assertTrue("Online button  is not enabled",isEnabled(d1.newproposal));
+        		 System.out.println("Contact address is displayed successfully");
+             }
+
+            @When("user click the Add button in vendor list")
+            public void user_click_the_add_button_in_vendor_list() throws Exception {
+            	 click(d1.addcontactdraft);
+                 Assert.assertTrue("contact address is not displayed",isdisplayed(d1.Commercialproposal));  
+            }
+
+            @When("user click the notes in vendor list")
+            public void user_click_the_notes_in_vendor_list()throws Exception {
+            	click(d1.Notesdraft);
+                Assert.assertTrue("User is not click the Notes button",CurrentURL().contains("supplier_proposal/note.php?id"));
+
+            }
+
+            @When("user click the linked Files in the vendor list")
+            public void user_click_the_linked_files_in_the_vendor_list()throws Exception {
+            	 click(d1.LinkedFiles);
+                 Assert.assertTrue("User is not click the linked files button",CurrentURL().contains("supplier_proposal/document.php?id")); 
+            }
+
+            @When("user select the file in the folder in vendor list {string}")
+            public void user_select_the_file_in_the_folder_in_vendor_list(String string)throws Exception {
+            	click(d1.plusbutton);
+        		uploadFile(d1.choosefile,string);
+        		closedialog();
+        		click(d1.upload);
+        		Assert.assertTrue("document is not selected",isdisplayed(d1.Notesdraft));
+            }
+
+            @Then("user click the delete button in vendor list")
+            public void user_click_the_delete_button_in_vendor_list() throws Exception{
+            	 click(d1.delete1);
+                 Assert.assertTrue("user is not click the delete button",isdisplayed(d1.listvendor));
+            }
+
+            @Then("user click the yes buuton in vendor list")
+            public void user_click_the_yes_buuton_in_vendor_list() throws Exception {
+            	 click(d1.yes);
+    
+            }
+
+            @Then("user click Events Agenta in vendorlist")
+            public void user_click_events_agenta_in_vendorlist()throws Exception {
+            	click(d1.Eventsagenta);  
+                Assert.assertTrue("user is not click events agenta",isdisplayed(d1.Contactaddress));
+            }
+
+            @Given("user click the new intervention in commerce")
+            public void user_click_the_new_intervention_in_commerce()throws Exception {
+                click(d1.newintervention);
+                String actualURL = driver.getCurrentUrl();
+                String expectedURL = "https://demo.dolibarr.org/fichinter/card.php?action=create&leftmenu=ficheinter";
+            	 Assert.assertEquals(actualURL, expectedURL);
+   
+            }
+            
+            @When("user enter the third party invention dropdwon {string}")
+            public void user_enter_the_third_party_invention_dropdwon(String string) throws Exception {
+               click(d1.thirdintervention);
+               sendkeys(d1.searchlistofservice, string);
+               pressEnter(d1.searchlistofservice);
+            	
+            }
+            
+            @Then("user click the create draft in new inervention")
+            public void user_click_the_create_draft_in_new_inervention() throws Exception {
+                click(d1.savetimetacking);
+                String actualURL = driver.getCurrentUrl();
+                String expectedURL = "https://demo.dolibarr.org/fichinter/card.php";
+            	 Assert.assertEquals(actualURL, expectedURL);
+
+            }
+
+            @Given("user enter reference customer in new intervention {string}")
+            public void user_enter_reference_customer_in_new_intervention(String string)throws Exception {
+                sendkeys(d1.refcustomerproposal, string);
+                String actaulText = d1.refcustomerproposal.getAttribute("value");
+                Assert.assertEquals(string, actaulText);
+            
+            }
+            
+            @When("user enter the description in new intervention {string}")
+            public void user_enter_the_description_in_new_intervention(String string)throws Exception {
+               sendkeys(d1.description, string);
+               String actaulText = d1.description.getAttribute("value");
+               Assert.assertEquals(string, actaulText);
+           
+            }
+            
+            @When("user click project in create intervention {string}")
+            public void user_click_project_in_create_intervention(String string)throws Exception {
+                click(d1.thirdintervention);
+                sendkeys(d1.thrdsearch, string);
+                pressEnter(d1.thrdsearch);               
+            	
+            }
+            
+            @When("user enter note public in intervention {string}")
+            public void user_enter_note_public_in_intervention(String string)throws Exception {
+               sendkeys(d1.notepublic, string);
+               String actaulText = d1.notepublic.getAttribute("value");
+               Assert.assertEquals(string, actaulText);
+            }
+            
+            @When("user enter note private in intervention {string}")
+            public void user_enter_note_private_in_intervention(String string) throws Exception{
+                sendkeys(d1.noteprivate, string);
+                String actaulText = d1.noteprivate.getAttribute("value");
+                Assert.assertEquals(string, actaulText);
+            }
+            
+            @Then("user click create draft if entered credentials are valid {string}")
+            public void user_click_create_draft_if_entered_credentials_are_valid(String status) throws Exception{
+                    click(d1.savecommercial); 
+                    if (status.equalsIgnoreCase("valid")) 
+                        Assert.assertTrue("user created the new intervention successfully", isdisplayed(d1.newproposal));
+                     else {
+                  		System.out.println(gettext(d1.creationvalidation));
+                         }
+                      
+                 }
+           
+            @Given("user click the billing in the headers")
+            public void user_click_the_billing_in_the_headers()throws Exception {
+                click(d1.billing);
+                String actualURL = driver.getCurrentUrl();
+                String expectedURL = "https://demo.dolibarr.org/compta/index.php?mainmenu=billing&leftmenu=";
+            	 Assert.assertEquals(actualURL, expectedURL);  
+            	
+            }
+            
+            @When("user click the new invoice in the customer invoice")
+            public void user_click_the_new_invoice_in_the_customer_invoice() throws Exception{
+                click(d1.newinvoics);
+             Assert.assertTrue("New invoice is not displayed",isdisplayed(d1.billing));
+       		 Assert.assertTrue("new invoice button  is not enabled",isEnabled(d1.commerce));
+
+            }
+            
+            @When("user enter customer dropdown in new invoice {string}")
+            public void user_enter_customer_dropdown_in_new_invoice(String string)throws Exception {
+                click(d1.partydropdwon);
+                sendkeys(d1.prioritysearch, string);
+                pressEnter(d1.prioritysearch);
+            
+            }
+            
+            @When("user enter payment terms dropdown in new invoice {string}")
+            public void user_enter_payment_terms_dropdown_in_new_invoice(String string) throws Exception{
+                click(d1.partydropdwon);
+                sendkeys(d1.prioritysearch, string);
+                pressEnter(d1.prioritysearch);      
+                
+            }
+            
+            @When("user enter payment method dropdown in new invoice {string}")
+            public void user_enter_payment_method_dropdown_in_new_invoice(String string) throws Exception {
+                click(d1.leadstatus);
+            	sendkeys(d1.prioritysearch, string);
+            	pressEnter(d1.prioritysearch);
+            }
+            
+            
+
+
+
+
+}
+
+
+
+
+            
+            
+           
+
+
+
+            
+
+ 
+
+
+
+
+
+
+            
+            
+            
+            
+           
+             
+            
+
+
+
+
+            
+
+           
+            
+
+
 
 
 
 
 
            
-       }
+       
 
 
 
