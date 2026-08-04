@@ -36,10 +36,5 @@
     <version>7.33.0</version>
     <scope>test</scope>
 </dependency>
-  	<dependency>
-  		<groupId>Projectautomation</groupId>
-  		<artifactId>Projectautomation</artifactId>
-  		<version>0.0.1-SNAPSHOT</version>
-  	</dependency>
-  </dependencies> 
+ </dependencies> 
 </project>
