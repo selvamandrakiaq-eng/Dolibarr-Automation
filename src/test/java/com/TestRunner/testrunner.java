@@ -14,15 +14,15 @@ import io.cucumber.junit.CucumberOptions.SnippetType;
 		features = "src/test/java/com.Featurefile/file.feature",
 		dryRun=false,
 		glue = "com.StepDefinition",
-		plugin = {"pretty","summary","html:target/cucumber-reports/reports.html"},
-        tags="@Selva"
+		plugin = {"pretty","summary","html:target/cucumber-reports/reports.html"}
+      
         		
  
 		)    
 
 
 
-
+ 
 public class testrunner extends baseclass {
 
 

@@ -61,14 +61,14 @@ When user click the connectivity with external tools in feature
 When user click the export import in feature
 Then user click the Module Builder for developers
 
-@Selva
+
 Scenario:Validate Login
 
 Given user click the Home icon
 When user click the Test online in dashboard page
 When user click the solution2 option
 When user click the Freelance selling service only
-@Selva
+
 Scenario Outline:Login validation using valid and invalid
 
 When user enter the username "<username>"
@@ -80,7 +80,7 @@ Examples:
 |demo     |DEMODEMO   |Invalid|
 |dem      |demooooo   |Invalid|
 |demo     |demo       |valid  |
-@Selva
+
 Scenario:Third party creation
 
 Given user click the third party in the Header
@@ -256,7 +256,7 @@ Given user click the disable icon in the Modified contact
 When user click the Reactivate icon in the contact
 When user click the delete icon in the input field
 Then user click No in the confirmation message 
-@Selva
+
 Scenario:Service creation 
 
 Given user click the service creation in the Headers
@@ -861,13 +861,13 @@ Examples:
 #|                |                    |           |          |           |Invalid |
 |Selva           | create intervention| 11051991  | public   |private    |valid   |
 
-@Selva
+
 
 Scenario:Billing
 
 Given user click the billing in the headers
 When user click the new invoice in the customer invoice 
-@Selva
+
 Scenario Outline:New invoice
 
 When user enter customer dropdown in new invoice "<slectthirdparty>"
@@ -885,5 +885,669 @@ Then user click create draft in invoice if entered credentials are valid "<statu
 Examples:
 
 | slectthirdparty | termsinvoice | methodinvoice | bankaccount |sourcedropdown |projectdropdown | document  |currency  | public | private  | status |
-|                 |              |               |             |               |                |           |          |        |          |Invalid |
+#|                 |              |               |             |               |                |           |          |        |          |Invalid |
+| abc             | 30 days      | Cash          |Account      |Employee       |11051991        |crabe      |Euros     | public |private   |Valid   |
+
+
+Scenario Outline: List customer invoice
+
+Given user click the list in customer invoice
+When user search the project reference number "<projrefno>"
+And user click search in customer invoice 
+And user select the firstname in the search relevant 
+When user verifies the headers are displayed
+And user click the other invoices in list
+And user verfies the other invoices are displayed 
+And user click the contact address in the customer invoice list
+When user click the add button in list customer
+And user click the notes in customer invoice list
+When user click the linked files in customer invoice
+When user selct the files in the folder customer "C:\selva mandra\(PROV8705).pdf"
+Then user click the delete button in customer linkedfiles
+Then user click the yes button in list customer
+Then user click the events agenta in customer invoice
+
+Examples:
+| projrefno |
+|11051991|
+
+Scenario Outline:payments customer invoice
+
+Given user click the payments in customer invoice
+When user select the bank in customer "<bank>"
+And user click the search in payments
+When user click the first name in customer invoice
+When verify the headers are dispalyed in payments
+When user click the log in customer invoice
+When user click the linked files in payments 
+When user select the file in the folder in payments "C:\selva mandra\(PROV8705).pdf"
+Then user click the delete button in payments
+Then click the yes button in payments
+
+Examples:
+|bank |
+|Account|
+
+
+Scenario:Statistics in customer invoice
+
+Given user click the statistics in customer invoice
+
+Scenario Outline:statistics by month /year
+
+When user click the thirdpartyname in customer invoice "<thirdnameinvoice>"
+When user click the thirdpartytype in customer invoice "<thirdtypeinvoice>"
+When user click the craetedby in customer invoice "<createdbyinvoice>"
+When user click the status in customer invoice "<statusinv>"
+Then user click the year in customer invoice "<yearin>"
+Then user click the refresh button in customer invoice "<status>"
+
+Examples:
+
+| thirdnameinvoice | thirdtypeinvoice | createdbyinvoice  | statusinv  | yearin  |status |
+|                  |                  |                   |            |         |Invalid|
+|abc               |Governmental      | apiuser           | Paid       | 2026    |Valid  |
+
+Scenario:Vendor invoice 
+
+Given user click the new invoice in the vendor invoice 
+
+Scenario Outline:New invoice
+
+When user enter vendor dropdown in new vendor invoice "<slectthirdpartyn>"
+When user enter the supplier invoice ref in new vendor invoice "<supplierrefn>"
+When user enter the label in new vendor invoice "<labelinv>"
+When user enter the invoice date in new vendor invoice "<invoicedaten>"
+When user enter payment terms dropdown in new vendor invoice "<termsinvoicen>"
+When user enter the payment due on date in new vendor invoice "<paymentdueon>"
+When user enter payment method dropdown in new vendor invoice "<methodinvoice>"
+When user click the bank account in new vendor invoice "<bankaccount>"
+When user click the project dropdown in vendor invoice "<projectdropdown>"
+When user enter the currency in vendor invoice "<currencyin>"
+Then user enter the notes public in vendor invoice "<public>"
+Then user enter the notes private in vendor invoice "<private>"
+Then user click create draft in vendor invoice if entered credentials are valid "<status>"
+
+Examples:
+
+| slectthirdpartyn | supplierrefn | labelinv | invoicedaten |termsinvoicen |paymentdueon | methodinvoice  |bankaccount  | projectdropdown | currencyin  | public  | private |status |
+#|                 |              |          |              |               |            |                |             |                 |             |         |         |Invalid |
+| abc              | standardinvoice|discount | 04/24/2026   |30 days       |04/24/2026    |Check            |Account      |11051991         | Euros       |public   |private  |valid  |
+
+ 
+Scenario Outline: List vendor invoice
+
+Given user click the list in vendor invoice
+When user search the label name in list "<labelname>"
+And user click search in vendor invoice 
+And user select the firstname in the search relevant vendor 
+When user verifies the headers are displayed in vendor invoice
+And user click the other invoices in  vendor list
+And user verfies the other invoices are displayed in vendor list
+And user click the contact address in the vendor invoice list
+When user click the add button in list vendor
+When user click the credit transfer in vendor invoice
+And user click the notes in vendor invoice list
+When user click the linked files in vendor invoice
+When user selct the files in the folder vendor "C:\selva mandra\(PROV8705).pdf"
+Then user click the delete button in vendor linkedfiles
+Then user click the yes button in list vendor
+Then user click the log in vendor list 
+Then user click the events agenta in vendor invoice
+Then user click the back to list in vendor invoice
+
+Examples:
+| labelname |
+|discount  |
+
+Scenario Outline:payments vendor invoice
+
+Given user click the payments in vendor invoice
+When user select the thirdparty in payment vendor "<thirdparty>"
+And user click the search in payments in vendor
+When user click the first name in vendor invoice
+When verify the headers are dispalyed in payments vendor
+When user click the log in vendor invoice
+When user click the linked files in payments vendor
+When user select the file in the folder in payments vendor "C:\selva mandra\(PROV8705).pdf"
+Then user click the delete button in payments vendor
+Then click the yes button in payments vendor
+Then user click back to list in payment vendor
+
+Examples:
+|thirdparty |
+|abc       |
+
+
+Scenario:Statistics in vendor invoice
+
+Given user click the statistics in vendor invoice
+
+Scenario Outline:statistics by month /yearin vendor
+
+When user click the thirdpartyname in vendor invoice "<thirdnameinvoice>"
+When user click the thirdpartytype in vendor invoice "<thirdtypeinvoice>"
+When user click the craetedby in vendor invoice "<createdbyinvoice>"
+When user click the status in vendor invoice "<statusinv>"
+Then user click the year in vendor invoice "<yearin>"
+Then user click the refresh button in vendor invoice "<status>"
+
+Examples:
+
+| thirdnameinvoice | thirdtypeinvoice | createdbyinvoice  | statusinv  | yearin  |status |
+|                  |                  |                   |            |  2026   |Invalid|
+|ABC Corp.         |Governmental      | apiuser           | Not paid   | 2026    |Valid  |
+
+Scenario:Taxes and special expenses
+
+Given user click the social fiscal taxes
+When  user click the new social fiscal tax
+
+Scenario Outline:New social taxes
+
+When user enter the label in sovial fiscal "<lable>"
+When user enter the date in sicial fiscal "<date>"
+When user enter the end for period date in social fiscal "<endfor>"
+When user enter the amount in social fiscal "<amount>"
+When user click the employee dropdown in social fiscal "<employee>"
+When user enter the project dropdwon in social fiscal "<project>"
+When user enter the default payment method in fiscal "<payment>"
+When user enter the bank account in fiscal "<bankaccount>"
+Then user click add button in fiscal if entered crdentails are valid "<status>"
+
+Examples:
+
+|lable  | date   | endfor     | amount  | employee  | project                   |payment  | bankaccount | status |
+|       |        |            |         |           |                           |         |             |Invalid  |
+|selva  |20/04/2026|20/08/2026|2500     | apiuser   |11051991, Automation Project|Cash     |Account      |Valid    |
+
+
+Scenario:IGSTTax
+
+Given user click the IGST in special expensees
+When user click new igst in special expenses
+
+Scenario Outline:New IGST Tax
+
+When user enter the label in IGST "<Labeligst>"
+When user enter the end date in igst "<endigst>"
+When user enter the amount in igst "<amountigst>"
+When user enter the date of amount in igst "<dateigst>"
+And user enter the payment method in igst "<paymentmethodigst>"
+And user enter the bank account in igst "<bankaccount>"
+When user enter the check num in igst "<check>"
+Then user enter the comments in igst "<comments>"
+Then user click the save button if enetered crdentails are valid "<status>"
+
+Examples:
+
+| Labeligst    | endigst  | amountigst  | dateigst | paymentmethodigst | bankaccount | check  | comments  |  status |
+|              |          |             |          |                   |             |         |          |Invalid  |
+|payment method|08/24/2026|25000        |08/03/2026|Cash               |Account      |7418529630|private  |valid   |
+
+Scenario:CGST Tax/special expenses
+
+Given user click the CGST in taxes and special expenses
+When user click the new CGST in taxes and special expenses
+
+Scenario Outline:New tax 2 payment
+
+When user enter the date of payment in CGST "<datecgst>"
+When user enter the end date of period in CGST "<enddatecgst>"
+When user enter the label in tax 2 payment "<labelcgst>"
+When user enter the amount in new tax "<amountcgst>"
+When user enter the payment terms in cgst "<paymentterms>"
+When user enter the bank account in cgst "<bankaccount>"
+Then user enter the Check number in cgst "<checknumber>"
+Then user click the save button in cgst if entered credentials are valid "<status>"
+
+Examples:
+
+| datecgst   |enddatecgst  | labelcgst | amountcgst | paymentterms  | bankaccount  | checknumber | status |
+|            |             |           |            |               |              |             |Invalid |
+|08/03/2026  |0803/2026    |Tax 2 payment|25000     |Credit card    |Account       |741085209630 |valid    |
+
+
+Scenario:SGST TAX Special expenses
+
+Given user click the SGST in tax expenses 
+When user click the new SGST in tax expenses
+
+Scenario Outline:New tax 3 payment
+
+When user enter the date of payment in SGST "<dateSGST>"
+When user enter the end date of period in SGST "<enddateSGST>"
+When user enter the label in tax 3 SGST payment "<labelSGST>"
+When user enter the amount in new tax in sgst "<amountSgst>"
+When user enter the payment terms in sgst "<paymenttermssgst>"
+When user enter the bank account in sgst "<bankaccountsgst>"
+Then user enter the Check number in sgst "<checknumbersgst>"
+Then user click the save button in sgst if entered credentials are valid "<status>"
+
+Examples:
+
+| dateSGST   |enddateSGST  | labelSGST | amountSgst | paymenttermssgst  | bankaccountsgst  | checknumbersgst | status |
+|            |             |           |            |                   |                  |                 |Invalid |
+|08/03/2026  |0803/2026    |Tax 2 payment|25000     |Credit card        |Account           |741085209630 |valid    |
+
+Scenario:Loans in billable orders
+
+Given user click the loans in billable order
+When user click the new loan in billable order
+
+Scenario Outline:New loans 
+
+When user enter the label in new loan "<label>"
+When user clik the dropdown in loans bank account "<account>"
+When user enter the capital in new loan "<capital>"
+When user enter the start date in new loan "<startdate>"
+When user enter the end date in new loan "<enddate>"
+And user enter the number of terms in new loan "<numberofterm>"
+And user enter the rate in new loan "<rate>"
+And user enter the Insurance amount in new loan "<insurance>"
+And user enter the project in new loan "<project>"
+When user enter the note private in newloan "<noteprivate>"
+When user enter the note public in newloan "<newloan>"
+When user enter the Accounting account capital in new loan "<accountingcapital>"
+When user enter the Accounting account insurance in new loan "<accountinginsurance>"
+Then user enter the Accounting account interest in new loan "<accountinginterest>"
+Then user click the add button if entered credentails are valid "<status>"
+
+Examples:
+
+| label  | account | capital | startdate  | enddate  | numberofterm  | rate  | insurance  | project         | noteprivate | newloan | accountingcapital                      |accountinginsurance | accountinginterest |status|
+|        |         |         |            |           |              |       |            |                  |            |         |161 - Emprunts obligataires convertibles|                    |                    |Invalid |
+|selva   |Account  |TNAX     |08/03/2026  |08/06/2026 |  36          |74      |250000     |9566871563, PAINT |private     |public   |101 - Capital                           |101 - Capital       | 101 - Capital      |valid  |
+
+Scenario:Miscellaneous payment
+
+Given user click the miscellaneous payments
+When user click the new miscellaneous payments
+
+Scenario Outline:New miscellaneous 
+
+When user enter the dateof payment in mis payment "<dateofpayment>"
+When user enter the value date in mis payment "<valuedate>"
+When user enter the label in mis paymnet "<labelmis>"
+When user enter the amount in mis paymnet "<amountmis>"
+When user enter the bank account in mis payment "<bankmis>"
+When user enter the payment method in mis payment "<paymentmis>"
+And user enter the check num in mis paymnet "<checknummis>"
+And user enter the sender num in mis payment "<sendernum>"
+And user enter the bank in mis payment "<bankmis>"
+When user enter the project in mis payment "<projectmis>"
+When user enter the tags in mis payment "<tagsmis>"
+When user enter the Accounting account in mis payment "<accountmis>"
+Then user enter the Subledger account in mis payment "<subledger>"
+Then user enter the direction in the mis payment "<directionmis>"
+Then user click the save in mis payment if entered credentials are valid "<status>"
+
+Examples:
+
+| dateofpayment  |valuedate  |labelmis  | amountmis  | bankmis     | paymentmis  | checknummis  | sendernum  | bankmis  |projectmis                  | tagsmis  | accountmis  | subledger | directionmis | status |
+|                |           |          |            |             |             |              |            |          |                            |          |             |           |Debit         |Invalid |
+|08/03/2026      |08/03/2026 |selva     |250000      |Account (EUR)|Cash         |4152789630    |7894561020  |7410255555|11051991, Automation Project|FirstTag  |101 - Capital|account    |Debit         |Valid   |
+
+Scenario:Banks 
+
+Given user click the banks in headers
+When user click the new financial account in bank cash
+
+Scenario Outline:New Financial creation
+
+When user enter the ref number in new financial account "<refnum>"
+When user enter the Bank label "<banklabel>"
+When user enter the Account type dropdown "<accounttype>"
+When user enter the currency dropdwon in bank "<currency>"
+When user enter the status dropdwon in bank "<bankdrop>"
+And user selct the country in the dropdwon "<country>"
+And user selct the state province in bank "<state>"
+And user selct the bank adddress in bank "<bankaddress>"
+When user enter the web url in bank "<weburl>"
+When user enter the comment in bank "<comments>"
+When user enter the initial balance in bank "<initialbalance>"
+When user entered the minimum allowed balance in bank "<minabaalance>"
+When user enter the minimum desired balance in bank "<mindbalance>"
+When user enter the bank name in dropdwon "<bankname>"
+And user enter the IFSC code in dropdwon "<ifsccode>"
+And user enter the Swift code in dropdwon "<swiftdrop>"
+And user enter the account number in dropdwon "<accountdrop>"
+When user enter the account owner name in bank "<accountownerdrop>"
+When user enter the account owner address in bank "<accountaddress>"
+When user enter the owner zip in bank "<zip>"
+When user enter the town in baank "<banktown>"
+And user enter the country in bank "<country>"
+And user enter the code in bank "<code>"
+Then user enter the code journal in bank "<journal>"
+Then user click the create account in bank if entered credentials are valid "<status>"
+
+Examples:
+
+|refnum | banklabel | accounttype                          | currency | bankdrop|country   | state         |bankaddress | weburl          |comments | initialbalance | minabaalance | mindbalance | bankname | ifsccode | swiftdrop |accountdrop  |accountownerdrop|accountaddress|zip |banktown  |country   |   code      |journal          |status |
+|       |           |Current, cheque or credit card account|Indian rupees (INR) |Open     |India (IN)|               |chennai   |                   |         |                 |             |             |          |          |           |             |                |             |     |          |          |             |                  |Invalid |
+|41230  |selva      |Current, cheque or credit card account|Indian rupees (INR) |Open     |India (IN)|TN - Tamil Nadu|chennai   |https:dollibar.org |Savings  |500              | 100         |200          |Axis      |0004566 |swift      |415263       |selva           |chennai      |60001|Chennai   |India (IN)|101 - Capital|BQ - Bank journal |valid |
+
+Scenario Outline: List in bank cash
+
+Given user click the list in bank cash
+When user search the label name in bank list "<labelname>"
+And user click search in bank account
+And user select the firstname in the search relevant bank account
+When user verifies the headers are displayed in bank account
+And user click the bank entries in bank account
+And user click the Reconcile in bank account
+And user click the reconcile button in bank
+And user click the save statement only
+And user click the account statements in bank
+When user click the linked files in bank account
+When user selct the files in the folder bank account "C:\selva mandra\(PROV8705).pdf"
+Then user click the delete button in bank 
+Then user click the yes button in list bank
+Then user click the reports in bank account
+Then user click the graphs in bank account
+Then user click the upcoming entries in bank account
+Then user click the back to list in bank account
+
+Examples:
+|labelname |
+|Account  |
+
+Scenario:HRM
+
+Given user click the HRM in the headers
+When user click the new in leave 
+
+Scenario Outline:HRM Leave
+
+When user select the dropdwon user in leave "<user>"
+When user select the dropdwon type in leave "<type>"
+When user enter the date in leave "<startdaate>"
+When user enter the end date in leave "<enddate>"
+And user click the dropdown approved by "<approved>"
+Then user enter the description in leave request "<description>"
+Then user enter the create leave request if entered credentials are valid "<status>"
+
+Examples:
+
+|  user  | type       | startdaate | enddate | approved | description | status |
+|apiuser |            |08/05/2026  | 08/05/2026|apiuser |             |Invalid |
+|apiuser |Sick leave  |08/05/2026  |08/06/2026|apiuser  |mandra       |valid   |
+
+Scenario:New collective leave
+
+When user click the new collection leave 
+
+Scenario Outline:New collective leave
+
+When user enter the group in new collective leave 
+When user enter the users in new collective 
+When user enters the type in new collective "<type>"
+And user enters the start date in new collective "<startdate>"
+And user enters the end date in new collective "<enddate>"
+When user click the dropdown approved by collective "<approved>"
+And user click the check box in automatic validation
+Then user enter the description "<description>"
+Then user click the collective leave request if entered credentials are valid "<status>"
+
+Examples:
+
+| type     | startdate  | enddate  |  approved  | description | status |
+|          |08/03/2026  |08/26/2026 |            |             |Invalid |
+|Sick leave|08/03/2026  |08/06/2026|apiuser     |Leave request|valid   |
+
+Scenario:Expense report
+
+When user click the new expense reports
+
+Scenario Outline:expense report
+
+When user enter the users in new expense reports "<users>"
+And user enters the start date in new expense reports "<startdate>"
+And user enters the end date in new expense reports "<enddate>"
+When user click the dropdown approved by expense "<approved>"
+Then user enter the note public in expense report "<notepublic>"
+Then user enter the note private in expense report "<noteprivate>"
+Then user click the expense report create if entered credentials are valid "<status>"
+
+Examples:
+
+| users    | startdate   | enddate  | approved  | notepublic  | noteprivate | status |
+|David Doe |             |          |           |             |             | Invalid |
+|David Doe | 08/03/2026  |08/06/2026|apiuser    |public       |private      |Valid   |
+
+Scenario: Recritment
+
+Given user click the newjob position 
+
+Scenario Outline:New job position
+
+When user enter the label of job position "<labeljob>"
+When user enter the expected number of employees in job position "<expected>"
+When user enter the responsible recruitment in job position "<responsible>"
+When user enter the email recruiter in jobposition "<email>"
+When user enter the manager in job position "<manager>"
+When user enter the workplace in job position "<workplace>"
+And user enter the expected date in job position "<expected>"
+Then user enter the salary in job position "<salary>"
+Then user enter the description in job position "<description>"
+Then user click create if entered credentails are valid "<status>"
+
+Examples:
+
+|labeljob  | expected  |  responsible  | email | manager | workplace  | expected | salary | description | status |
+|          |           | Doe David     |       |         |            |          |        |             |Invalid |
+|Testing   | 5         |apiuser        |email  |apiuser  |ABC         |08/05/2026|250000  |description  |Valid  |
+
+Scenario:Accounts Transfer in account
+
+Given user click the Accounts in headers
+When user click the customer invoice buiding
+Then user verify naviagated to customer invoice buiding
+When user click bind automaticalliy invoice buiding
+When user click the lines to blind
+Then verify the headers are displayed in account
+When user click the contact address in accounts
+Then user click the add button in accounts
+And user click the notes in accounts
+And user click the linked files in accounts
+When user selcted the file folder in accounts "C:\selva mandra\(PROV8705).pdf"
+Then user click the delete button in accounts
+Then user click the yes button in accounts
+Then user click the events/agenta in accounts
+Then user click the backtolist in accounts
+When user click the vendor invoice buiding 
+Then user click bind automatically invoice vendor
+When user click the expense report binding account
+Then user click the binding automatically in expense report
+When user click the miscellaneous operations 
+Then user click the refresh button in transfer
+When user click the sales operations
+Then user click the refresh button in sales journalization
+When user click the purchases in account
+When user click the bank in transfer accounting
+Then user click the refresh in bank journal
+When user click the expense reports in transfer in accounting
+Then user click refresh in accounting entries
+When user click export source documents 
+Then user verifies the headers in export souce documents
+
+Scenario:Accounting
+
+When user click the ledger in accounting
+When user click the journals in Accounting
+When user click the Account balance in accounting
+Then user click the export accountancy in accounting
+
+
+Scenario:Documents
+
+Given user click the documents in headers
+When user click the manual directories 
+When user click the plus button in manual directories
+
+Scenario Outline:New directory
+
+When user enter the label in new directory "<label>"
+When user enter Add in new directory "<addin>"
+Then user create the create in new dirctory if entered credentails are valid "<status>"
+
+Examples:
+|label  |addin   |status |
+|       |        |Invalid |
+|selva  |00      |valid    |
+
+Scenario:Object directory
+
+Given user click the object directories 
+When user click the public medias directories
+Then user click the plus button in public medias directory
+
+Scenario Outline:New directory
+
+When user enter the label in document "<label>"
+When user enter the Addin dropdown in document "<addin>"
+Then user click the create button Document if entered credentials are valid "<status>"
+
+Examples:
+
+|label  |addin  |status |
+|       |       |Invalid |
+|selva   |file  |Valid   |
+
+
+
+Scenario:Agenda
+
+Given user click the agenda in headerss
+When user click the new event in Agenta
+
+Scenario Outline:Create Aa new event
+
+When user enter the title in agenda "<titleagenda>"
+When user enter the startdate in agenda "<startdate>"
+When user enter the end date in agenda "<enddate>"
+When user enter the loaction in agenda "<location>"
+When user enter the assigned to in create an event "<assignedto>"
+When user enter the resource  "<resource>"
+When user enter the thirdparty related company in agenda "<relatedcompany>"
+When user enter the project in agenda "<project>"
+Then user enter the description in agenda "<description>"
+Then user click the create in new event if entered credentails are valid "<status>"
+
+Examples:
+
+|titleagenda|startdate  | enddate |location |assignedto | resource|relatedcompany      |project                       |description |status |
+|           |           |         |         |           |          |Select a third party|                             |            |Invalid |
+|Event      |08/04/2026|08/06/2026|chennai  |apiuser    |Laptop    |000 (000) (Customer)|11051991, Automation Project |Event       |valid   |
+
+Scenario:Resource
+
+Given user click the new resouce in agenda 
+
+Scenario Outline:New resource
+
+When user enter the resouce name "<resource>"
+When user enter the description in create resouce "<descrip>"
+And user enter the addrss in create resource "<address>"
+And user enter the zipcode in create resource "<zipcode>"
+When user enter the city in create resource "<city>"
+When user enter the country in create resource "<country>"
+And user enter the phone in create resouce "<phone>"
+And user enter the email in create resource "<Email>"
+Then user enter the max noof users in create "<users>"
+Then user enter the url in craete resource "<url>"
+Then user click the create resource if enetered credentials are valid "<status>"
+
+Examples:
+
+| resource |  descrip  |  address  | zipcode  | city | country  |  phone | Email          | users |  url            |status  |
+|          |           |           |          |      |          |        |                |       |                 |Invalid  |
+|Selva     |new resouce|chennai    |600001    |chennai|India (IN)|74185212|selva@gmail.com|10     |https:dolibar.org|Valid    |
+
+Scenario:Tickets
+Given user click the tickets in headers
+Given user click the new article in tickets
+
+Scenario Outline:New article
+
+When user enter thequestion in tickets "<question>"
+When user enter the language dropdown in new article "<language>"
+When user enter the suggestion in article "<suggestion>"
+Then user enter the solution in new article ticket "<solution>"
+Then user click the create new article if entered credentials are valid "<status>"
+
+Examples:
+
+| question | language | suggestion | solution |status |
+|          |          |            |          |Invalid |
+|Article   |Tamil (ta_IN)|Other    |New article|valid   |
+	
+Scenario:New ticket
+
+When user click the new ticket in ticket
+	
+Scenario Outline:New ticket creation
+
+When user enter the refno number in ticket "<refno>"
+When user enter the request type in ticket "<requesttype>"
+When user enter the ticket group in ticket "<ticketgroup>"
+And user enter the severity in new ticket "<severity>"
+And user enter the new subject in new ticket "<subject>"
+And user enter the message in new ticket "<message>"
+When user enter the third party in new ticket "<thirdparty>"
+And user enter the project in new ticket "<project>"
+Then user click create ticket if entered crdentials are valid "<status>"
+
+Examples:
+
+|refno      | requesttype       | ticketgroup | severity | subject | message   | thirdparty          |  project  | status |
+|TS2608-0019|Commercial question|Other        |Normal    |         |           |                     |           |Invalid  |
+|TS2608-0019|Commercial question|Other        |Normal    |Newticket| Hai       |abc (aabc) (Customer)|11051991, Automation Project|Valid|
+
+
+Scenario:Tools
+
+Given user click the tools in headers
+When user click the tags and categories in tools
+When user click the email template in tools
+And user click the Mass email in tools
+Then user click the new mass email in tools
+
+Scenario Outline:New mass email
+
+When user enter the label in mass email "<label>"
+When user enter the from in mass email "<from>"
+And user enter the errors to in mass email "<errorsto>"
+And user enter the reply to in mass email "<replyto>"
+Then user enter the email subject in email "<subject>"
+Then user enter the description in mass email "<descrip>"
+Then user click the craete mass mail if enetered credentails are valid "<status>"
+
+Examples:
+
+| label                  | from               | errorsto          | replyto       |subject                   | descrip  |status  |
+|EMailing of 2026-08-04  |dolibarr@domain.com |                   |                |MyBigCompany] Information|	        |Invalid   |
+|EMailing of 2026-08-04  |dolibarr@domain.com |  selva1@gmail.com |selva@gmail.com|[MyBigCompany] Information|Email     |valid   |
+
+Scenario:Website
+
+Given user click the Website in headers
+When user click the dropdown in website "<website>"
+When user click the page dropdown in website "<pagedropdown>"
+Then user verify the error message displayed in website
+When user click the edit website properties 
+Then user click the edit page properties 
+Then user click the cancel button in website
+When user click the regenerate button in webiste
+Then user click the cancel in website
+When user click the sitemap generation
+Then user click the no buuton in website
+
+Examples:
+| website                 |  pagedropdown |
+|template-stellar         |[page 023] home - My personal blog |
+
+
+
+
 

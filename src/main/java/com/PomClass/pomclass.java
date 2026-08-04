@@ -1,5 +1,7 @@
 package com.PomClass;
 
+import java.security.PublicKey;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -539,6 +541,9 @@ public WebElement statisticsReception;
 @FindBy(xpath ="(//*[@class='select2-selection__arrow'])[2]")
 public WebElement partydropdwon;
 
+@FindBy(xpath ="(//*[@class='select2-selection__arrow'])[1]")
+public WebElement partydropdwon1;
+
 @FindBy(xpath ="(//*[@class='select2-selection__arrow'])[3]")
 public WebElement createdby;
 
@@ -631,6 +636,9 @@ public WebElement addnewtask;
 
 @FindBy(xpath = "//*[@class='select2-search__field']")
 public WebElement Searchemail;
+
+@FindBy(xpath = "(//*[@type='search'])[2]")
+public WebElement Searchemail2;
 
 @FindBy(xpath = "(//*[@type='submit'])[2]")
 public WebElement Applybutton;
@@ -830,6 +838,8 @@ public WebElement customercategorydrop;
 @FindBy(xpath = "(//*[@class='select2-selection__rendered'])[4]")
 public WebElement customercategorydropbox;
 
+@FindBy(xpath = "(//*[@class='select2-selection__rendered'])[5]")
+public WebElement createddropbox;
 
 
 @FindBy(xpath = "(//*[@class='select2-selection__arrow'])[5]")
@@ -838,6 +848,11 @@ public WebElement createdbydrop;
 @FindBy(xpath = "(//*[@class='select2-selection__rendered'])[6]")
 public WebElement createdbydropbox;
 
+@FindBy(xpath = "//*[text()='Edit website properties']")
+public WebElement editwebsite;
+
+@FindBy(xpath = "//*[text()='Edit page/container properties']")
+public WebElement editpagecontainer;
 
 
 @FindBy(xpath = "(//*[@class='select2-selection__arrow'])[6]")
@@ -851,6 +866,12 @@ public WebElement yeardrop;
 
 @FindBy(xpath = "(//*[@class='select2-selection__rendered'])[8]")
 public WebElement yeardropbox;
+
+@FindBy(xpath = "(//*[@class='select2-selection__rendered'])[9]")
+public WebElement bankcode;
+
+@FindBy(xpath = "(//*[@class='select2-selection__rendered'])[10]")
+public WebElement journal;;
 
 @FindBy(xpath = "//*[@name='submit']")
 public WebElement refreshstatistics;
@@ -878,6 +899,9 @@ public WebElement planneddate;
 
 @FindBy(xpath = "(//*[@class='select2-selection__arrow'])[4]")
 public WebElement projectdropdwon;
+
+@FindBy(xpath = "//*[@name='account_address']")
+public WebElement bankaddress;
 
 @FindBy(xpath = "(//*[@class='select2-selection__arrow'])[5]")
 public WebElement currencydropdwon;
@@ -1030,7 +1054,505 @@ public WebElement description;
 @FindBy(xpath = "//*[@id='mainmenua_billing']")
 public WebElement billing;
 
-@FindBy(xpath = "(//*[text()='New invoice'])[2]")
+@FindBy(xpath = "(//*[text()='New invoice'])[1]")
 public WebElement newinvoics;
 
+@FindBy(xpath = "(//*[@class='select2-selection__arrow'])[8]")
+public WebElement currencyinvoice;
+
+@FindBy(xpath = "(//*[@class='select2-selection__arrow'])[9]")
+public WebElement doctemplate;
+
+@FindBy(xpath = "(//*[@class='select2-selection__arrow'])[10]")
+public WebElement currencytemplate;
+
+@FindBy(xpath = "(//*[text()='List'])[1]")
+public WebElement listinvoice;
+
+@FindBy(xpath = "//*[@name='search_project_ref']")
+public WebElement searchprjectref;
+
+@FindBy(xpath = "(//*[@class='nobordernopadding nowraponall'])[1]")
+public WebElement namesearchlist;
+
+@FindBy(xpath = "//*[text()='Other invoices']")
+public WebElement otherinvoice;
+
+@FindBy(xpath = "(//*[text()='Payments'])[1]")
+public WebElement payments;
+
+@FindBy(xpath = "(//*[@class= 'classfortooltip'])[4]")
+public WebElement nameclickpayment;
+
+@FindBy(xpath = "(//*[@class='select2-search__field'])[3]")
+public WebElement searchinvoics;
+
+@FindBy(xpath = "(//*[text()='New invoice'])[2]")
+public WebElement newvendorinvoice;
+
+@FindBy(xpath = "//*[@name='ref_supplier']")
+public WebElement refsupplier;
+
+@FindBy(xpath = "//*[@name='re']")
+public WebElement invoicedate;
+
+@FindBy(xpath = "//*[@id='ech']")
+public WebElement dueon;
+
+@FindBy(xpath = "(//*[text()='List'])[2]")
+public WebElement listvendorcreation;
+
+@FindBy(xpath = "(//*[@class='classforajaxtooltip'])[1]")
+public WebElement nameclickk;
+
+@FindBy(xpath = "(//*[@class='tab inline-block valignmiddle'])[1]")
+public WebElement vendorinvoicee;
+
+@FindBy(xpath = "(//*[@class='tab inline-block valignmiddle'])[2]")
+public WebElement contactaddrss;
+
+@FindBy(xpath = "(//*[@class='tab inline-block valignmiddle'])[3]")
+public WebElement credittransfer;
+
+@FindBy(xpath = "(//*[@class='tab inline-block valignmiddle'])[4]")
+public WebElement notesvendor;
+
+@FindBy(xpath = "(//*[@class='tab inline-block valignmiddle'])[5]")
+public WebElement Linkedfilesvendor;
+
+@FindBy(xpath = "(//*[@class='tab inline-block valignmiddle'])[6]")
+public WebElement Log;
+
+@FindBy(xpath = "(//*[@class='tab inline-block valignmiddle'])[7]")
+public WebElement eventaagenta;
+
+@FindBy(xpath = "(//*[text()='Payments'])[2]")
+public WebElement paymentvendor;
+
+@FindBy(xpath = "(//*[@class='classfortooltip'])[4]")
+public WebElement clickvendorpayment;
+
+@FindBy(xpath = "(//*[text()='Statistics'])[2]")
+public WebElement statistics2;
+
+@FindBy(xpath = "(//span[contains(@class,'select2-selection--single')])[2]")
+public WebElement selectedspan1;
+
+@FindBy(xpath = "(//span[contains(@class,'select2-selection--single')])[3]")
+public WebElement selectedspan2;
+
+@FindBy(xpath = "(//span[contains(@class,'select2-selection--single')])[4]")
+public WebElement selectedspan3;
+
+
+@FindBy(xpath = "(//span[contains(@class,'select2-selection--single')])[5]")
+public WebElement selectedspan4;
+
+@FindBy(xpath = "(//span[contains(@class,'select2-selection--single')])[6]")
+public WebElement selectedspan5;
+
+@FindBy(xpath = "//*[text()='Social/fiscal taxes']")
+public WebElement sociatax;
+
+@FindBy(xpath = "(//*[text()='New social/fiscal tax'])[1]")
+public WebElement newsocial;
+
+@FindBy(xpath = "//*[@class='flat minwidth300']")
+public WebElement label;
+
+@FindBy(xpath = "//*[@id='ech']")
+public WebElement date;
+
+@FindBy(xpath = "//*[@id='period']")
+public WebElement endofdate;
+
+@FindBy(xpath = "//*[@name='amount']")
+public WebElement amount;
+
+@FindBy(xpath = "//*[@id='select2-userid-container']")
+public WebElement employeebox;
+
+@FindBy(xpath = "//*[text()='IGST']")
+public WebElement igst;
+
+@FindBy(xpath = "//*[text()='New']")
+public WebElement newigst;
+
+@FindBy(xpath = "//*[@id='label']")
+public WebElement labeligst;
+
+@FindBy(xpath = "//*[@id='datev']")
+public WebElement enddateperiod;
+
+@FindBy(xpath = "//*[@name='amount']")
+public WebElement amountigst;
+
+@FindBy(xpath = "//*[@id='datep']")
+public WebElement datesalestax;
+
+@FindBy(xpath = "//*[@name='num_payment']")
+public WebElement numberpayment;
+
+@FindBy(xpath = "//*[@name='note']")
+public WebElement comments;
+
+@FindBy(xpath = "//*[text()='CGST']")
+public WebElement CGST;
+
+@FindBy(xpath = "//*[text()='New']")
+public WebElement newcgst;
+
+@FindBy(xpath = "//*[@id='datep']")
+public WebElement dateof;
+
+@FindBy(xpath = "//*[text()='SGST']")
+public WebElement SGST;
+
+@FindBy(xpath = "//*[text()='New']")
+public WebElement newsgst;
+
+@FindBy(xpath = "//*[@title='Loans']")
+public WebElement loans;
+
+@FindBy(xpath = "//*[text()='New Loan']")
+public WebElement newloan;
+
+
+@FindBy(xpath = "//*[@id='start']")
+public WebElement startdate;
+
+@FindBy(xpath = "//*[@id='end']")
+public WebElement Enddate;
+
+@FindBy(xpath = "//*[@name='nbterm']")
+public WebElement noofterms;
+
+@FindBy(xpath = "//*[@name='rate']")
+public WebElement rate;
+
+@FindBy(xpath = "//*[@name='insurance_amount']")
+public WebElement insurance;
+
+
+@FindBy(xpath = "//*[@name='capital']")
+public WebElement capital;
+
+@FindBy(xpath = "//*[@title='Miscellaneous payments']")
+public WebElement mispaymnet;
+
+@FindBy(xpath = "//*[@id='fieldchqemetteur']")
+public WebElement senderpayment;
+
+@FindBy(xpath = "//*[@id='chqbank']")
+public WebElement bank;
+
+@FindBy(xpath = "//*[@name='subledger_account']")
+public WebElement subledger;
+
+@FindBy(xpath = "(//*[text()='Banks | Cash'])[1]")
+public WebElement Banks;
+
+@FindBy(xpath = "//*[text()='New financial account']")
+public WebElement newfinancial;
+
+@FindBy(xpath = "//*[@name='ref']")
+public WebElement refno;
+
+@FindBy(xpath = "(//*[@class='select2-selection__arrow'])[8]")
+public WebElement code;
+
+@FindBy(xpath = "(//*[@class='select2-selection__arrow'])[9]")
+public WebElement codejournal;
+
+@FindBy(xpath = "//*[@name='url']")
+public WebElement weburl;
+
+@FindBy(xpath = "//*[@name='solde']")
+public WebElement initialbalance;
+
+@FindBy(xpath = "//*[@name='account_min_allowed']")
+public WebElement minbalance;
+
+@FindBy(xpath = "//*[@name='account_min_desired']")
+public WebElement mindesired;
+
+@FindBy(xpath = "//*[@name='bank']")
+public WebElement bankname;
+
+@FindBy(xpath = "//*[@name='iban']")
+public WebElement IFSC;
+
+@FindBy(xpath = "//*[@name='bic']")
+public WebElement swift;
+
+@FindBy(xpath = "//*[@name='number']")
+public WebElement accnum;
+
+@FindBy(xpath = "//*[@name='proprio']")
+public WebElement ownername;
+
+@FindBy(xpath = "//*[@name='owner_address']")
+public WebElement owneraddress;
+
+@FindBy(xpath = "//*[@name='owner_zip']")
+public WebElement ownerzip;
+
+@FindBy(xpath = "//*[@name='owner_town']")
+public WebElement ownertown;
+
+@FindBy(xpath = "//*[text()='List']")
+public WebElement listbank;
+
+@FindBy(xpath = "//*[@name='search_label']")
+public WebElement searchlabel;
+
+@FindBy(xpath = "(//*[@class='classforajaxtooltip'])[1]")
+public WebElement relevantaccount;
+
+@FindBy(xpath = "(//*[@class='tab inline-block valignmiddle'])[1]")
+public WebElement bankaccount;
+
+@FindBy(xpath = "(//*[@class='tab inline-block valignmiddle'])[2]")
+public WebElement bankentries;
+
+@FindBy(xpath = "(//*[@class='tab inline-block valignmiddle'])[3]")
+public WebElement reconcile;
+
+@FindBy(xpath = "(//*[@class='tab inline-block valignmiddle'])[4]")
+public WebElement accountstatement;
+
+@FindBy(xpath = "(//*[@class='tab inline-block valignmiddle'])[5]")
+public WebElement Linkedfiles;
+
+@FindBy(xpath = "(//*[@class='tab inline-block valignmiddle'])[6]")
+public WebElement reports;
+
+@FindBy(xpath = "(//*[@class='tab inline-block valignmiddle'])[7]")
+public WebElement upcomingentries;
+
+@FindBy(xpath = "//*[@name='confirm_reconcile']")
+public WebElement confirmrecomcile;
+
+@FindBy(xpath = "//*[@name='confirm_savestatement']")
+public WebElement confirmsavesatement;
+
+@FindBy(xpath = "//*[@title='Graphs']")
+public WebElement graphs;
+
+@FindBy(xpath = "//*[text()='HRM']")
+public WebElement HRM;
+
+@FindBy(xpath = "(//*[text()='New'])[1]")
+public WebElement newleave;
+
+@FindBy(xpath = "//*[@id='date_debut']")
+public WebElement debutdate;
+
+@FindBy(xpath = "//*[@id='date_fin']")
+public WebElement datebin;
+
+@FindBy(xpath = "(//*[text()='New collective leave'])[1]")
+public WebElement newcollective;
+
+@FindBy(xpath = "(//*[@class='select2-selection__rendered'])[2]")
+public WebElement groups;
+
+@FindBy(xpath = "(//*[@class='select2-search__field'])[1]")
+public WebElement searchgroup;
+
+@FindBy(xpath = "//*[@id='autoValidation']")
+public WebElement validation;
+
+@FindBy(xpath = "(//*[@type='search'])[3]")
+public WebElement searchcollective;
+
+@FindBy(xpath = "(//*[text()='New'])[2]")
+public WebElement newexpense;
+
+@FindBy(xpath = "//*[@type='search']")
+public WebElement searchexpense;
+
+@FindBy(xpath = "//*[text()='New job positions']")
+public WebElement newjob;
+
+@FindBy(xpath = "//*[@id='qty']")
+public WebElement noofempl;
+
+@FindBy(xpath = "//*[@id='email_recruiter']")
+public WebElement emailr;
+
+@FindBy(xpath = "//*[@id='date_planned']")
+public WebElement expecteddate;
+
+@FindBy(xpath = "//*[@id='remuneration_suggested']")
+public WebElement salary;
+
+@FindBy(xpath = "//*[text()='Accounting']")
+public WebElement Accounting;
+
+@FindBy(xpath = "//*[text()='Customer invoice binding']")
+public WebElement customerinvoice;
+
+@FindBy(xpath = "//*[@class='inline-block valignmiddle']")
+public WebElement customerbinding;
+
+@FindBy(xpath = "//*[@title='Bind Automatically']")
+public WebElement blind;
+
+@FindBy(xpath = "//*[text()='Lines to bind']")
+public WebElement linestobind;
+
+@FindBy(xpath = "//*[text()='Vendor invoice binding']")
+public WebElement vendorinvoice;
+
+@FindBy(xpath = "//*[text()='Expense report binding']")
+public WebElement expensereport;
+
+@FindBy(xpath = "(//*[@class='vsmenu'])[5]")
+public WebElement miscellaneous;
+
+@FindBy(xpath = "(//*[@class='vsmenu'])[6]")
+public WebElement salesjournal;
+
+@FindBy(xpath = "(//*[@class='vsmenu'])[7]")
+public WebElement purcaahsejournal;
+
+@FindBy(xpath = "(//*[@class='vsmenu'])[8]")
+public WebElement Bankjournal;
+
+@FindBy(xpath = "(//*[@class='vsmenu'])[9]")
+public WebElement expensereports;
+
+@FindBy(xpath = "(//*[@class='vsmenu'])[10]")
+public WebElement exportsouce;
+
+@FindBy(xpath = "//*[@name='writebookkeeping']")
+public WebElement recordtransaction;
+
+@FindBy(xpath = "//*[text()='Ledger']")
+public WebElement ledger;
+
+@FindBy(xpath = "(//*[@class='vsmenu'])[12]")
+public WebElement journalsaccounting;
+
+@FindBy(xpath = "(//*[@class='vsmenu'])[13]")
+public WebElement Accountbalance;
+
+
+@FindBy(xpath = "(//*[@class='vsmenu'])[14]")
+public WebElement exportaccountancy;
+
+@FindBy(xpath = "//*[@id='mainmenua_ecm']")
+public WebElement Documents;
+
+@FindBy(xpath = "(//*[@class='tab inline-block valignmiddle'])[1]")
+public WebElement manualdirectories;
+
+@FindBy(xpath = "(//*[@class='tab inline-block valignmiddle'])[2]")
+public WebElement objectdirectories;
+
+@FindBy(xpath = "(//*[@class='tab inline-block valignmiddle'])[3]")
+public WebElement publicdirectories;
+
+@FindBy(xpath = "//*[@class='fas fa-folder-plus size15x marginrightonly']")
+public WebElement plusmanual;
+
+@FindBy(xpath = "//*[@name='create']")
+public WebElement createdocument;
+
+@FindBy(xpath = "//*[@id='mainmenua_agenda']")
+public WebElement agendaheader;
+
+@FindBy(xpath = "//*[text()='New event']")
+public WebElement newevent;
+
+@FindBy(xpath = "//*[@id='ap']")
+public WebElement startdateagenda;
+
+@FindBy(xpath = "//*[@id='p2']")
+public WebElement end;
+
+@FindBy(xpath = "//*[@name='location']")
+public WebElement Location;
+
+@FindBy(xpath = "//*[text()='New resource']")
+public WebElement newresource;
+
+
+@FindBy(xpath = "//*[@name='address']")
+public WebElement Addressagenda;
+
+@FindBy(xpath = "//*[@id='max_users']")
+public WebElement minusers;
+
+@FindBy(xpath = "//*[@id='url']")
+public WebElement urlres;
+
+@FindBy(xpath = "//*[@id='mainmenua_ticket']")
+public WebElement tickets;
+
+@FindBy(xpath = "//*[text()='New article']")
+public WebElement newarticle;
+
+@FindBy(xpath = "//*[@id='question']")
+public WebElement question;
+
+@FindBy(xpath = "//*[text()='New Ticket']")
+public WebElement newticket;
+
+@FindBy(xpath = "//*[@name='subject']")
+public WebElement subject;
+
+@FindBy(xpath = "//*[@id='mainmenua_tools']")
+public WebElement Tools;
+
+@FindBy(xpath = "//*[@title='Tags/categories']")
+public WebElement tagscaregories;
+
+@FindBy(xpath = "//*[@title='Email templates']")
+public WebElement emailtemplate;
+
+@FindBy(xpath = "//*[@title='Mass EMails']")
+public WebElement massemail;
+
+@FindBy(xpath = "//*[@title='New mass Email']")
+public WebElement newmass;
+
+@FindBy(xpath = "//*[@id='title']")
+public WebElement title;
+
+@FindBy(xpath = "//*[@name='from']")
+public WebElement from;
+
+@FindBy(xpath = "//*[@name='errorsto']")
+public WebElement errorsto;
+
+@FindBy(xpath = "//*[@name='replyto']")
+public WebElement replyto;
+
+@FindBy(xpath = "//*[text()='Websites']")
+public WebElement websites;
+
+@FindBy(xpath = "//*[@name='cancel']")
+public WebElement cancel;
+
+@FindBy(xpath = "//*[@title='Regenerate web site cache files']")
+public WebElement regenerate;
+
+@FindBy(xpath = "//*[@title='Generate website sitemap.xml file']")
+public WebElement generate;
+
+@FindBy(xpath = "//*[text()='No']")
+public WebElement nobutton;
+
+
+
+@FindBy(xpath="//span[@id=\"select2-website-container\"]")
+public WebElement mywebsitedrop;
+
+@FindBy(xpath="//ul[@id=\"select2-website-results\"]//li[text()=\"template-stellar\"]")
+public WebElement mywebsitedropdown;
+
+@FindBy(xpath = "(//*[@class='select2-selection__rendered'])[1]")
+public WebElement websiteweb;
 }
