@@ -1,4 +1,4 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <groupId>DolibarAutomation</groupId>
   <artifactId>DolibarAutomation</artifactId>
@@ -36,5 +36,46 @@
     <version>7.33.0</version>
     <scope>test</scope>
 </dependency>
- </dependencies> 
+
+<dependency>
+<groupId>commons-io</groupId>
+<artifactId>commons-io</artifactId>
+<version>2.16.1</version>
+</dependency>
+
+<!--  For the rich Masterthought HTML report (ReportGenerator.java)  -->
+
+<dependency>
+<groupId>com.aventstack</groupId>
+<artifactId>extentreports</artifactId>
+<version>5.1.1</version>
+</dependency>
+
+<dependency>
+<groupId>tech.grasshopper</groupId>
+<artifactId>extentreports-cucumber7-adapter</artifactId>
+<version>1.14.0</version>
+</dependency>
+
+<!--  For the Allure report (Cucumber 7 + JUnit 4)  -->
+<dependency>
+<groupId>io.qameta.allure</groupId>
+<artifactId>allure-cucumber7-jvm</artifactId>
+<version>2.29.1</version>
+</dependency>
+</dependencies>
+  
+  <build>
+  <plugins>
+  <plugin>
+  <groupId>io.qameta.allure</groupId>
+    <artifactId>allure-maven</artifactId>
+    <version>2.12.0</version>
+    <configuration>
+    <reportVersion>2.29.0</reportVersion>
+    <resultsDirectory>${project.basedir}/target/allure-results</resultsDirectory>
+    </configuration>
+  </plugin>
+  </plugins>
+  </build>
 </project>

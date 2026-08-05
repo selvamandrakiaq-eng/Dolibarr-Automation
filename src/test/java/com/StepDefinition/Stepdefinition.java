@@ -12,7 +12,6 @@ import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
 import com.BaseClass.baseclass;
 import com.PomClass.pomclass;
 
@@ -2449,9 +2448,8 @@ public class Stepdefinition extends baseclass{
             @When("user select the file in the folder {string}")
             public void user_select_the_file_in_the_folder(String string) throws Exception {
             	click(d1.plusbutton);
-        		uploadFile(d1.choosefile,string);
-        		closedialog();
-        		click(d1.upload);
+        		uploadFile(d1.uploadfile,string);
+            	click(d1.upload);
         		Assert.assertTrue("document is not selected",isdisplayed(d1.Notesdraft));
             }
             
@@ -2770,7 +2768,7 @@ public class Stepdefinition extends baseclass{
             @When("user select the file in the folder in sales order {string}")
             public void user_select_the_file_in_the_folder_in_sales_order(String string)throws Exception {
             	click(d1.plusbuttonsales);
-        		uploadFile(d1.choosefilesales,string);
+        		uploadFile(d1.uploadfile,string);
         		closedialog();
         		click(d1.uploadsales);
         		Assert.assertTrue("document is not selected",isdisplayed(d1.Notessales));
@@ -3170,7 +3168,7 @@ public class Stepdefinition extends baseclass{
             @When("user select the file in the folder in vendor list {string}")
             public void user_select_the_file_in_the_folder_in_vendor_list(String string)throws Exception {
             	click(d1.plusbutton);
-        		uploadFile(d1.choosefile,string);
+        		uploadFile(d1.uploadfile,string);
         		closedialog();
         		click(d1.upload);
         		Assert.assertTrue("document is not selected",isdisplayed(d1.Notesdraft));
@@ -3448,7 +3446,8 @@ public class Stepdefinition extends baseclass{
             @When("user click the add button in list customer")
             public void user_click_the_add_button_in_list_customer()throws Exception {
                 click(d1.addcontactdraft);
-               Assert.assertTrue("contact address is not displayed",isdisplayed(d1.Commercialproposal));
+                waitForElementToBeClickable(d1.addcontactdraft);
+               Assert.assertTrue("contact address is not displayed",isdisplayed(d1.listinvoice));
             	
             }
             
@@ -3466,9 +3465,9 @@ public class Stepdefinition extends baseclass{
             }
             
             @When("user selct the files in the folder customer {string}")
-            public void user_selct_the_files_in_the_folder_customer(String string) throws Exception {
+            public void user_selct_the_files_in_the_folder_customer(String filename) throws Exception {
             	click(d1.plusbutton);
-        		uploadFile(d1.choosefile,string);
+        		uploadFile(d1.uploadfile,filename);
         		closedialog();
         		click(d1.upload);
         		Assert.assertTrue("document is not selected",isdisplayed(d1.listinvoice));
@@ -3551,7 +3550,7 @@ public class Stepdefinition extends baseclass{
             @When("user select the file in the folder in payments {string}")
             public void user_select_the_file_in_the_folder_in_payments(String string)throws Exception {
             	click(d1.plusbutton);
-        		uploadFile(d1.choosefile,string);
+        		uploadFile(d1.uploadfile,string);
         		closedialog();
         		click(d1.upload);
         		Assert.assertTrue("document is not selected",isdisplayed(d1.listinvoice));
@@ -3848,7 +3847,7 @@ public class Stepdefinition extends baseclass{
             @When("user selct the files in the folder vendor {string}")
             public void user_selct_the_files_in_the_folder_vendor(String string) throws Exception {
             	click(d1.plusbutton);
-        		uploadFile(d1.choosefile,string);
+        		uploadFile(d1.uploadfile,string);
         		closedialog();
         		click(d1.upload);
         		Assert.assertTrue("document is not selected",isdisplayed(d1.listinvoice));
@@ -3958,7 +3957,7 @@ public class Stepdefinition extends baseclass{
             @When("user select the file in the folder in payments vendor {string}")
             public void user_select_the_file_in_the_folder_in_payments_vendor(String string)throws Exception {
             	click(d1.plusbutton);
-        		uploadFile(d1.choosefile,string);
+        		uploadFile(d1.uploadfile,string);
         		closedialog();
         		click(d1.upload);
         		Assert.assertTrue("document is not selected",isdisplayed(d1.listinvoice));
@@ -5134,7 +5133,7 @@ public class Stepdefinition extends baseclass{
             @When("user selct the files in the folder bank account {string}")
             public void user_selct_the_files_in_the_folder_bank_account(String string) throws Exception{
             	click(d1.plusbutton);
-        		uploadFile(d1.choosefile,string);
+        		uploadFile(d1.uploadfile,string);
         		closedialog();
         		click(d1.upload);
         		Assert.assertTrue("document is not selected",isdisplayed(d1.listbank));
@@ -5630,7 +5629,7 @@ public class Stepdefinition extends baseclass{
             public void user_selcted_the_file_folder_in_accounts(String string) throws Exception {
             	click(d1.plusbutton);
             	waitForElementToBeClickable(d1.plusbutton);
-        		uploadFile(d1.choosefile,string);
+        		uploadFile(d1.uploadfile,string);
         		closedialog();
         		click(d1.upload);
         		Assert.assertTrue("document is not selected",isdisplayed(d1.Notesdraft)); 

@@ -2,7 +2,7 @@ package com.TestRunner;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.runner.RunWith;
-
+                            
 import com.BaseClass.baseclass;
 
 import io.cucumber.junit.Cucumber;
@@ -14,8 +14,9 @@ import io.cucumber.junit.CucumberOptions.SnippetType;
 		features = "src/test/java/com.Featurefile/file.feature",
 		dryRun=false,
 		glue = "com.StepDefinition",
-		plugin = {"pretty","summary","html:target/cucumber-reports/reports.html"}
-      
+		plugin = {"pretty","summary","html:target/cucumber-reports/reports.html","io.qameta.allure.cucumber7jvm.AllureCucumber7Jvm",
+				"com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:"},
+        tags="@Selva"
         		
  
 		)    

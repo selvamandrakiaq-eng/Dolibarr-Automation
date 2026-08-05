@@ -3,16 +3,23 @@ package com.BaseClass;
 import java.awt.AWTException;
 import java.awt.Robot;
 import java.awt.event.KeyEvent;
+import java.io.File;
+import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.time.Duration;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
+import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -200,7 +207,8 @@ public class baseclass {
      
    //Uploadfile
 
- 	public void uploadFile(WebElement upload, String filepath) {
+ 	public void uploadFile(WebElement upload, String fileName) {
+ 		String filepath = System.getProperty("user.dir") + File.separator +"Testdata"+File.separator+fileName;
  		wait.until(ExpectedConditions.visibilityOf(upload));
  		upload.sendKeys(filepath);
  		
@@ -224,8 +232,36 @@ public class baseclass {
  	public boolean verifyElement(WebElement element) {
  		 return element.isDisplayed()&& element.isEnabled();
  	 }
- 	
+ 	//screenshot
+ 	public static String captureScreenshot(String scenarioName) {
+		try {
+			TakesScreenshot ts = (TakesScreenshot) driver;
+			File source = ts.getScreenshotAs(OutputType.FILE);
 
+			String safeName = scenarioName.replaceAll("[^a-zA-Z0-9]", "_");
+			String timestamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
+			String fileName = safeName + "_" + timestamp + ".png";
+
+			
+			String folderPath = System.getProperty("user.dir") + File.separator
+					+ "target" + File.separator + "screenshots" + File.separator + "failed" + File.separator;
+
+			File folder = new File(folderPath);
+			if (!folder.exists()) {
+				folder.mkdirs();
+			}
+
+			File destination = new File(folderPath + fileName);
+			FileUtils.copyFile(source, destination);
+
+			System.out.println("Screenshot saved: " + destination.getAbsolutePath());
+			return destination.getAbsolutePath();
+		} catch (IOException | ClassCastException e) {
+			System.out.println("Screenshot capture failed: " + e.getMessage());
+			return null;
+		}
+	}
+ 	
      }
 
 

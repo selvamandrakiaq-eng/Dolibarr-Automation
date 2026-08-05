@@ -61,14 +61,14 @@ When user click the connectivity with external tools in feature
 When user click the export import in feature
 Then user click the Module Builder for developers
 
-
+@Selva
 Scenario:Validate Login
 
 Given user click the Home icon
 When user click the Test online in dashboard page
 When user click the solution2 option
 When user click the Freelance selling service only
-
+@Selva
 Scenario Outline:Login validation using valid and invalid
 
 When user enter the username "<username>"
@@ -79,13 +79,13 @@ Examples:
 |username |password1  |status|
 |demo     |DEMODEMO   |Invalid|
 |dem      |demooooo   |Invalid|
-|demo     |demo       |valid  |
-
+|demo     |demo0       |valid  |
+@Selva
 Scenario:Third party creation
 
 Given user click the third party in the Header
-#When user click the new prospect creation
-
+When user click the new prospect creation
+@Selva
 Scenario Outline:New prospect creation 
 
 When user enter the Third party name in the input field "<NameThirdparty>"
@@ -560,7 +560,7 @@ When user click the Modify button in the time tracking
 When user click the save button in the list
 And user click the name displayed in the time tracking
 Then user click the back to list in the timetracking
-@Selva
+
 Scenario:Commerce in Headers
 
 Given user click the commerce in the headers
@@ -657,7 +657,7 @@ When user click the contact address in the draft
 And user click the add button in the contact draft
 And user click the notes in the draft
 And user click the linked Files in the draft file name 
-And user select the file in the folder "C:\\selva mandra\\postman_tutorial.pdf"
+And user select the file in the folder "(PROV8705).pdf"
 Then user click the delete button
 Then user click the yes buuton 
 Then user click Events Agenta in drafts
@@ -722,7 +722,7 @@ And user click the contact address in sales order
 And user click the Add button in sales order
 And user click the notes in sales order 
 And user click the linked Files in the sales order 
-When user select the file in the folder in sales order "C:\selva mandra\(PROV8705).pdf"
+When user select the file in the folder in sales order "(PROV8705).pdf"
 Then user click the delete button in sales order list
 Then user click the yes buuton in sales list
 Then user click Events Agenta in saleslist
@@ -828,7 +828,7 @@ And user click the contact address in vendor list
 And user click the Add button in vendor list
 And user click the notes in vendor list 
 And user click the linked Files in the vendor list 
-When user select the file in the folder in vendor list "C:\selva mandra\(PROV8705).pdf"
+When user select the file in the folder in vendor list "(PROV8705).pdf"
 Then user click the delete button in vendor list
 Then user click the yes buuton in vendor list
 Then user click Events Agenta in vendorlist
@@ -862,7 +862,7 @@ Examples:
 |Selva           | create intervention| 11051991  | public   |private    |valid   |
 
 
-
+@Selva
 Scenario:Billing
 
 Given user click the billing in the headers
@@ -888,7 +888,7 @@ Examples:
 #|                 |              |               |             |               |                |           |          |        |          |Invalid |
 | abc             | 30 days      | Cash          |Account      |Employee       |11051991        |crabe      |Euros     | public |private   |Valid   |
 
-
+@Selva
 Scenario Outline: List customer invoice
 
 Given user click the list in customer invoice
@@ -902,7 +902,7 @@ And user click the contact address in the customer invoice list
 When user click the add button in list customer
 And user click the notes in customer invoice list
 When user click the linked files in customer invoice
-When user selct the files in the folder customer "C:\selva mandra\(PROV8705).pdf"
+When user selct the files in the folder customer "(PROV8705).pdf"
 Then user click the delete button in customer linkedfiles
 Then user click the yes button in list customer
 Then user click the events agenta in customer invoice
@@ -920,7 +920,7 @@ When user click the first name in customer invoice
 When verify the headers are dispalyed in payments
 When user click the log in customer invoice
 When user click the linked files in payments 
-When user select the file in the folder in payments "C:\selva mandra\(PROV8705).pdf"
+When user select the file in the folder in payments "(PROV8705).pdf"
 Then user click the delete button in payments
 Then click the yes button in payments
 
@@ -989,7 +989,7 @@ When user click the add button in list vendor
 When user click the credit transfer in vendor invoice
 And user click the notes in vendor invoice list
 When user click the linked files in vendor invoice
-When user selct the files in the folder vendor "C:\selva mandra\(PROV8705).pdf"
+When user selct the files in the folder vendor "(PROV8705).pdf"
 Then user click the delete button in vendor linkedfiles
 Then user click the yes button in list vendor
 Then user click the log in vendor list 
@@ -1009,7 +1009,7 @@ When user click the first name in vendor invoice
 When verify the headers are dispalyed in payments vendor
 When user click the log in vendor invoice
 When user click the linked files in payments vendor
-When user select the file in the folder in payments vendor "C:\selva mandra\(PROV8705).pdf"
+When user select the file in the folder in payments vendor "(PROV8705).pdf"
 Then user click the delete button in payments vendor
 Then click the yes button in payments vendor
 Then user click back to list in payment vendor
@@ -1240,7 +1240,7 @@ And user click the reconcile button in bank
 And user click the save statement only
 And user click the account statements in bank
 When user click the linked files in bank account
-When user selct the files in the folder bank account "C:\selva mandra\(PROV8705).pdf"
+When user selct the files in the folder bank account "(PROV8705).pdf"
 Then user click the delete button in bank 
 Then user click the yes button in list bank
 Then user click the reports in bank account
@@ -1350,7 +1350,7 @@ When user click the contact address in accounts
 Then user click the add button in accounts
 And user click the notes in accounts
 And user click the linked files in accounts
-When user selcted the file folder in accounts "C:\selva mandra\(PROV8705).pdf"
+When user selcted the file folder in accounts "(PROV8705).pdf"
 Then user click the delete button in accounts
 Then user click the yes button in accounts
 Then user click the events/agenta in accounts

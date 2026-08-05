@@ -1545,7 +1545,8 @@ public WebElement generate;
 @FindBy(xpath = "//*[text()='No']")
 public WebElement nobutton;
 
-
+@FindBy(xpath = "//input[@type='file']")
+public WebElement uploadfile;
 
 @FindBy(xpath="//span[@id=\"select2-website-container\"]")
 public WebElement mywebsitedrop;
