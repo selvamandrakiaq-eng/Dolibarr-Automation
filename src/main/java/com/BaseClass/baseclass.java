@@ -243,8 +243,7 @@ public class baseclass {
 			String fileName = safeName + "_" + timestamp + ".png";
 
 			
-			String folderPath = System.getProperty("user.dir") + File.separator
-					+ "target" + File.separator + "screenshots" + File.separator + "failed" + File.separator;
+			String folderPath = System.getProperty("user.dir") + File.separator + "target" + File.separator + "screenshots" + File.separator + "failed" + File.separator;
 
 			File folder = new File(folderPath);
 			if (!folder.exists()) {

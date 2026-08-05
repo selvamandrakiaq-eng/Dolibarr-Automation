@@ -79,13 +79,12 @@ Examples:
 |username |password1  |status|
 |demo     |DEMODEMO   |Invalid|
 |dem      |demooooo   |Invalid|
-|demo     |demo0       |valid  |
-@Selva
+|demo     |demo       |valid  |
 Scenario:Third party creation
 
 Given user click the third party in the Header
 When user click the new prospect creation
-@Selva
+
 Scenario Outline:New prospect creation 
 
 When user enter the Third party name in the input field "<NameThirdparty>"

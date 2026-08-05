@@ -13,7 +13,7 @@ import io.cucumber.junit.CucumberOptions.SnippetType;
 @CucumberOptions(
 		features = "src/test/java/com.Featurefile/file.feature",
 		dryRun=false,
-		glue = "com.StepDefinition",
+		glue = {"com.StepDefinition","hooks"},
 		plugin = {"pretty","summary","html:target/cucumber-reports/reports.html","io.qameta.allure.cucumber7jvm.AllureCucumber7Jvm",
 				"com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:"},
         tags="@Selva"
